@@ -45,6 +45,7 @@ const Family = ({ setAvailabilities, setCurrentFamily }) => {
               onClick={() => {
                 setFamilies(null);
                 setNumberOfFamilies(null);
+                setAvailabilities([]);
               }}
             >{`<- BACK`}</div>
           )}

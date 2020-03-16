@@ -16,7 +16,7 @@
 }
 
 .title {
-  color: #4F3DFE;
+  color: #4f3dfe;
   font-style: italic;
 }
 
@@ -40,7 +40,7 @@ th {
   border: 1px solid white;
 }
 
-th:hover, td:hover {
+.cell:hover {
   border: 1px solid black;
 }
 
@@ -49,11 +49,7 @@ th:hover, td:hover {
   font-weight: 900;
   transform: rotate(-45deg) translate(-10px, -20px);
   position: absolute;
-  color: #4F3DFE;
-}
-
-.availContainer {
-  float: right;
+  color: #4f3dfe;
 }
 
 // Family styles
@@ -70,15 +66,15 @@ th:hover, td:hover {
 
 .circleBase {
   border-radius: 50%;
+  cursor: pointer;
   width: 25px;
   height: 25px;
   margin-left: 10px;
 }
 
-.tinyCircle {
-  border-radius: 50%;
-  width: 7px;
-  height: 7px;
+.unavailable {
+  height: 0.5vmin;
+  width: 100%;
 }
 
 .current {
@@ -86,29 +82,29 @@ th:hover, td:hover {
 }
 
 .color1 {
-  background: #e8d7ff;
+  background: pink;
 }
 
 .color2 {
-  background: #ffd3e8;
+  background: blue;
 }
 
 .color3 {
-  background: #78a1bb;
+  background: green;
 }
 
 .color4 {
-  background: #3b1c32;
+  background: yellow;
 }
 
 .color5 {
-  background: #dfffd6;
+  background: orange;
 }
 
 .color6 {
-  background: #b15e6c;
+  background: purple;
 }
 
 .color7 {
-  background: #bfa89e;
+  background: red;
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   addDays,
+  subDays,
   endOfMonth,
   format,
   startOfToday,
@@ -15,17 +16,23 @@ import {
   subMonths
 } from "date-fns";
 import alg from "../algorithm.js";
+import downloadCalendar from "../download.js";
 
 import Family from "./Family.js";
 
 const Calendar = () => {
   const today = startOfToday();
+  const monthStart = startOfMonth(today);
+  const monthEnd = endOfMonth(monthStart);
+  const endDate = endOfWeek(monthEnd);
   const [availabilities, setAvailabilities] = useState([]);
   const [assignments, setAssignments] = useState([]);
-  const [latestDate, setLatestDate] = useState(new Date());
+  const [latestDate, setLatestDate] = useState(endDate);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [currentFamily, setCurrentFamily] = useState(null);
+  const [familyNames, setFamilyNames] = useState(null);
   const [enableWeekends, setEnableWeekends] = useState(false);
+  const [showSchedule, setShowSchedule] = useState(false);
 
   const isAvailability = (famScheduled, index, day) => {
     const dayAfterToday = addDays(today, index);
@@ -100,7 +107,7 @@ const Calendar = () => {
               <div className="nextMonth">{format(cloneDay, "MMM")}</div>
             )}
             <div className="availContainer">
-              {!assignments.length &&
+              {!showSchedule &&
                 availabilities.map(
                   (fam, i) =>
                     isUnavailable(fam, cloneDay) && (
@@ -110,7 +117,7 @@ const Calendar = () => {
                       />
                     )
                 )}
-              {!!assignments.length &&
+              {showSchedule &&
                 assignments.map(
                   (famScheduled, i) =>
                     isAvailability(famScheduled, i, cloneDay) && (
@@ -185,8 +192,8 @@ const Calendar = () => {
         weekday = addDays(weekday, 7);
       }
       setAvailabilities([...availabilityUpdate]);
-      if (isAfter(weekday, latestDate)) {
-        setLatestDate(weekday);
+      if (isAfter(subDays(weekday, 7), latestDate)) {
+        setLatestDate(subDays(weekday, 7));
       }
     }
   };
@@ -204,19 +211,38 @@ const Calendar = () => {
       <Family
         setAvailabilities={avail => setAvailabilities(avail)}
         setCurrentFamily={fam => setCurrentFamily(fam)}
+        setFamilyNames={fams => setFamilyNames(fams)}
       />
       {!!availabilities.length && (
         <>
           <button
-            onClick={() =>
+            onClick={() => {
               setAssignments(
                 alg.generateSchedule(availabilities, latestDate)[0]
-              )
-            }
+              );
+              setShowSchedule(true);
+            }}
           >
             Create Schedule
           </button>
-          <button onClick={() => {}}>Download Schedule</button>
+          <button onClick={() => setShowSchedule(!showSchedule)}>
+            {showSchedule ? "Change Availabilities" : "Show Schedule"}
+          </button>
+          <a
+            id="download_link"
+            download="schedule.html"
+            href=""
+            onClick={() =>
+              downloadCalendar(
+                assignments,
+                familyNames,
+                currentFamily,
+                enableWeekends
+              )
+            }
+          >
+            Download Schedule
+          </a>
           <button onClick={() => {}}>Generate Link</button>
         </>
       )}

@@ -43,10 +43,12 @@ const alg = {
         let vw_min = "mintotalw" + availableWorker; // a  max constraint for the total work done by this worker
         let vw_max = "maxtotalw" + availableWorker; // a min constraint for the total work done by this worker
         let vd = "totald" + iday; // a constraint for the total number of workers that work this day
-        model.variables[vn] = {}; // add the variable to the model
+
+        // add variables to model
+        model.variables[vn] = {};
         model.variables[vn][vns] = 1;
-        model.variables[vn][vw_max] = 1;
-        model.variables[vn][vw_min] = 1;
+        model.variables[vn][vw_max] = 1; //will set relevant constraint later
+        model.variables[vn][vw_min] = 1; //will set relevant constraint later
         model.variables[vn][vd] = 1;
         model.constraints[vns] = { min: 0 }; // constrain that this work variable is non-negative
         model.ints[vn] = 1; // specify that this variable should be an integer
@@ -59,23 +61,8 @@ const alg = {
       }
     }
 
-    /* choose a fair allocation at random
-               a fair allocation has each worker working (ndays/nworkers) total days, rounded up or down
-               such that the total number of days worked in the allocation is equal to the total number of days
-               and which workers have their allocations rounded up is chosen uniformly at random */
-    var fairalloc = {};
-    var fairallocfloor = Math.floor(ndays / nworkers);
-    for (iworker = 0; iworker < nworkers; iworker += 1) {
-      fairalloc[iworker] = fairallocfloor;
-    }
-    var alloceddays = fairallocfloor * nworkers;
-    while (alloceddays < ndays) {
-      let iw = Math.ceil(Math.random() * nworkers);
-      if (fairalloc[iw] == fairallocfloor) {
-        fairalloc[iw] += 1;
-        alloceddays += 1;
-      }
-    }
+    let fairalloc = ndays / nworkers;
+    let fairallocround = Math.round(fairalloc);
 
     /* for each worker */
     let minmaxar = ["min", "max"];
@@ -84,9 +71,12 @@ const alg = {
         let vw = c + "totalw" + iworker;
         for (var jslack = 0; jslack < JSLACK_MAX; jslack += 1) {
           let sw = c + "slackw" + iworker + "index" + jslack; // a "slack" variable for the worker
-          let sw_max = c + "swmax" + iworker + "index" + jslack;
-          let sw_min = c + "swmin" + iworker + "index" + jslack;
+          let sw_max = c + "swmax" + iworker + "index" + jslack; //constraint variable for max on slack var
+          let sw_min = c + "swmin" + iworker + "index" + jslack; //min
+
           model.variables[sw] = {}; // add the slack variable
+          model.variables[sw][sw_max] = 1;
+          model.variables[sw][sw_min] = 1;
 
           if (c == "min") {
             model.variables[sw][vw] = 1; // constrain that the total days worked
@@ -94,21 +84,24 @@ const alg = {
             model.variables[sw][vw] = -1; // constrain that the total days worked
           }
 
-          model.variables[sw][sw_max] = 1;
-          model.variables[sw][sw_min] = 1;
-          model.variables[sw]["unfairness"] = jslack * 2 + 1; // the unfairness is the sum of slack variables
+          if (c == "max") {
+            model.variables[sw]["unfairness"] =
+              Math.pow(fairallocround + jslack + 1 - fairalloc, 2) -
+              Math.pow(fairallocround + jslack - fairalloc, 2);
+          } else {
+            model.variables[sw]["unfairness"] =
+              Math.pow(fairallocround - jslack - 1 - fairalloc, 2) -
+              Math.pow(fairallocround - jslack - fairalloc, 2);
+          }
           if (jslack != JSLACK_MAX - 1) {
             model.constraints[sw_max] = { max: 1 }; //constrain to less (or equal to) than 1
           }
           model.constraints[sw_min] = { min: 0 }; //constrain to more (or equal to) than 0
-          /* constrain that the number of days worked for each worker minus the slack variable for that worker is
-                           no greater than the fair allocation for that worker
-                           i.e. the slack variable encodes the number of "extra" days worked by that worked beyond their fair allocation */
         }
         if (c == "min") {
-          model.constraints[vw] = { min: fairalloc[iworker] };
+          model.constraints[vw] = { min: fairallocround };
         } else {
-          model.constraints[vw] = { max: fairalloc[iworker] };
+          model.constraints[vw] = { max: fairallocround };
         }
       }
     }
@@ -146,7 +139,7 @@ const alg = {
     const availabilities = [];
     const numberOfFamilies = unavailabilities.length;
     let day = startOfToday();
-    // const numOfDays = differenceInCalendarDays(latestDate, new Date()) + 1;
+    console.log(latestDate);
     while (!isAfter(day, latestDate)) {
       const cloneDay = day;
       const availabilityOnDay = unavailabilities.reduce((acc, curr, i) => {

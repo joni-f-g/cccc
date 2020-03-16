@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-const Family = ({ setAvailabilities, setCurrentFamily }) => {
+const Family = ({ setAvailabilities, setCurrentFamily, setFamilyNames }) => {
   const [families, setFamilies] = useState(null);
-  const [numberOfFamilies, setNumberOfFamilies] = useState(null);
+  const [numberOfFamilies, setNumberOfFamilies] = useState(4);
   const [selectedFamily, setSelectedFamily] = useState(
     families ? families[0] : null
   );
@@ -18,6 +18,7 @@ const Family = ({ setAvailabilities, setCurrentFamily }) => {
               min="1"
               max="7"
               name="numOfFamilies"
+              value={numberOfFamilies}
               onChange={e => setNumberOfFamilies(parseInt(e.target.value))}
             />
           </label>
@@ -34,7 +35,10 @@ const Family = ({ setAvailabilities, setCurrentFamily }) => {
                 availabilities.push([]);
               }
               setFamilies(fams);
+              setFamilyNames(fams);
               setAvailabilities(availabilities);
+              setSelectedFamily(fams[0]);
+              setCurrentFamily(fams[0]);
             }}
           >{`GO ->`}</div>
         )}
@@ -44,6 +48,7 @@ const Family = ({ setAvailabilities, setCurrentFamily }) => {
             <div
               onClick={() => {
                 setFamilies(null);
+                setFamilyNames(null);
                 setNumberOfFamilies(null);
                 setAvailabilities([]);
               }}
@@ -58,15 +63,15 @@ const Family = ({ setAvailabilities, setCurrentFamily }) => {
                   type="text"
                   value={fam.value}
                   onChange={e => {
-                    setFamilies(
-                      families.reduce((acc, curr) => {
-                        if (curr.id === i) {
-                          curr.value = e.target.value;
-                        }
-                        acc.push(curr);
-                        return acc;
-                      }, [])
-                    );
+                    const update = families.reduce((acc, curr) => {
+                      if (curr.id === i) {
+                        curr.value = e.target.value;
+                      }
+                      acc.push(curr);
+                      return acc;
+                    }, []);
+                    setFamilies(update);
+                    setFamilyNames(update);
                   }}
                 />
                 <div

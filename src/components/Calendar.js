@@ -34,7 +34,7 @@ const Calendar = () => {
   const [enableWeekends, setEnableWeekends] = useState(false);
   const [showSchedule, setShowSchedule] = useState(false);
 
-  const isAvailability = (famScheduled, index, day) => {
+  const isAvailability = (index, day) => {
     const dayAfterToday = addDays(today, index);
     if (isSameDay(day, dayAfterToday) && !(isWeekend(day) && !enableWeekends)) {
       return true;
@@ -120,7 +120,7 @@ const Calendar = () => {
               {showSchedule &&
                 assignments.map(
                   (famScheduled, i) =>
-                    isAvailability(famScheduled, i, cloneDay) && (
+                    isAvailability(i, cloneDay) && (
                       <div
                         key={`available${cloneDay}`}
                         className={`unavailable color${famScheduled + 1}`}
@@ -236,7 +236,7 @@ const Calendar = () => {
               downloadCalendar(
                 assignments,
                 familyNames,
-                currentFamily,
+                currentDate,
                 enableWeekends
               )
             }

@@ -1,56 +1,54 @@
 import {
   addDays,
-  subDays,
   endOfMonth,
   format,
   startOfToday,
   startOfWeek,
   startOfMonth,
   endOfWeek,
-  isAfter,
   isSameDay,
-  isSameMonth,
-  isWeekend,
-  addMonths,
-  subMonths
+  isWeekend
 } from "date-fns";
 
 const downloadCalendar = (schedule, families, currentDate, enableWeekends) => {
-  console.log(schedule, families);
+  const today = startOfToday();
   const monthStart = startOfMonth(currentDate);
   const monthEnd = endOfMonth(monthStart);
   const startDate = startOfWeek(monthStart);
   const endDate = endOfWeek(monthEnd);
+  const isAvailability = (index, day) => {
+    const dayAfterToday = addDays(today, index);
+    if (isSameDay(day, dayAfterToday) && !(isWeekend(day) && !enableWeekends)) {
+      return true;
+    }
+    return false;
+  };
   let day = startDate;
   let text = `<div class="calendar"><span class="day-name">Sun</span><span class="day-name">Mon</span><span class="day-name">Tue</span><span class="day-name">Wed</span><span class="day-name">Thu</span><span class="day-name">Fri</span><span class="day-name">Sat</span>`;
   let formattedDate = "";
   while (day <= endDate) {
-    let i = 0;
     formattedDate = `${format(day, "M")}/${format(day, "d")}`;
-    console.log(formattedDate);
     const cloneDay = day;
     const disabled = isWeekend(cloneDay) && !enableWeekends;
 
     text += `<div class="day`;
-    // assignments.forEach(
-    // (famScheduled, i) =>
-    // isAvailability(i, cloneDay) && (
-    let families = "";
-    if (schedule[i].length > 0) {
-      for (let a = 0; a < schedule[i].length; a++) {
-        if (!enableWeekends & (i % 7 !== 0 && i % 7 !== 6)) {
-          families += `
-              ${families[schedule[i]]}`;
-        } else {
-          families += `
-              ${families[schedule[i]]}`;
-        }
-      }
-      text += `">${formattedDate}${families}</div>`;
-    } else if (i % 7 !== 0 && i % 7 !== 6) {
-      text += ` crossed">${formattedDate}</div>`;
-    } else {
+    let familyText = "";
+    let isFamScheduled = false;
+    if (disabled) {
       text += ` greyed">${formattedDate}</div>`;
+    } else {
+      schedule.forEach((famScheduled, i) => {
+        if (isAvailability(i, cloneDay)) {
+          isFamScheduled = true;
+          familyText += `
+          ${families[famScheduled].value}`;
+        }
+      });
+      if (isFamScheduled) {
+        text += `">${formattedDate}${familyText}</div>`;
+      } else if (!isWeekend(cloneDay)) {
+        text += ` crossed">${formattedDate}</div>`;
+      }
     }
     day = addDays(day, 1);
   }

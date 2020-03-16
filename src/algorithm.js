@@ -1,5 +1,6 @@
-import solver from "javascript-lp-solver";
 import { addDays, isAfter, isSameDay, startOfToday } from "date-fns";
+
+const solver = window.solver;
 
 const alg = {
   shuffle: a => {

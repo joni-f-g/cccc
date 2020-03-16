@@ -139,7 +139,6 @@ const alg = {
     const availabilities = [];
     const numberOfFamilies = unavailabilities.length;
     let day = startOfToday();
-    console.log(latestDate);
     while (!isAfter(day, latestDate)) {
       const cloneDay = day;
       const availabilityOnDay = unavailabilities.reduce((acc, curr, i) => {

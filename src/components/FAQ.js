@@ -1,7 +1,7 @@
-import React from 'react';
-const FAQ = ({lang}) => (
+import React from "react";
+const FAQ = ({ lang }) => (
   <>
-    {lang.code === 'en-US' && (
+    {lang.code === "en-US" && (
       <>
         <h4>What is the Covid Childcare Co-op Creator?</h4>
 
@@ -33,11 +33,11 @@ const FAQ = ({lang}) => (
           <strong>First</strong>, find the other caregivers you're going to work
           with. This is not a social network. <strong>Second</strong>, fill out
           the calendar with the days when each provider is not available. (Share
-          a schedule in process with the "Shareable Link" button).{' '}
+          a schedule in process with the "Shareable Link" button).{" "}
           <strong>Third</strong>, once everyone's availability is entered,
-          create your schedule by pressing the "Create Schedule" button.{' '}
+          create your schedule by pressing the "Create Schedule" button.{" "}
           <strong>Fourth</strong>, modify your schedule however you see fit.
-          Look out for any gap days when no one has said they're available!{' '}
+          Look out for any gap days when no one has said they're available!{" "}
           <strong>Fifth</strong>, share your schedule with the rest of the
           co-op, using the shareable link or download a copy with the "Download
           Schedule" button.
@@ -124,10 +124,10 @@ const FAQ = ({lang}) => (
 
         <p>
           If you're concerned with state licensing requirements, we encourage
-          you to{' '}
+          you to{" "}
           <a href="https://www.co-oplaw.org/co-op-basics/types/childcare-cooperatives/">
             check out this page
-          </a>{' '}
+          </a>{" "}
           from the Sustainable Economies Law Center which lays out the situation
           and offers some guidance. Their short answer is not to worry about it
           too much if you're not planning something commercial.
@@ -155,7 +155,7 @@ const FAQ = ({lang}) => (
         </p>
 
         <p>
-          None of this is a substitute for the latest medical advice, and{' '}
+          None of this is a substitute for the latest medical advice, and{" "}
           <u>please don't care for other people's kids if you're sick!</u>
         </p>
 
@@ -165,23 +165,23 @@ const FAQ = ({lang}) => (
           The book Bringing Families Together: A Guide to Parent Cooperatives by
           E. Kim Coontz (prepared for the University of California Center for
           Cooperatives) is the most comprehensive resource, and it's available
-          as a free pdf in four parts:{' '}
+          as a free pdf in four parts:{" "}
           <a href="http://cccd.coop/bringing-families-together-part-i">
             Part 1
-          </a>;{' '}
+          </a>;{" "}
           <a href="http://cccd.coop/bringing-families-together-part-ii">
             Part 2
-          </a>;{' '}
+          </a>;{" "}
           <a href="http://cccd.coop/bringing-families-together-part-iii">
             Part 3
-          </a>;{' '}
+          </a>;{" "}
           <a href="http://cccd.coop/bringing-families-together-part-iv">
             Part 4
           </a>.
         </p>
       </>
     )}
-    {lang.code === 'es' && (
+    {lang.code === "es" && (
       <>
         <h4>Preguntas Frecuentes</h4>
 
@@ -334,23 +334,23 @@ const FAQ = ({lang}) => (
         <p>
           El libro en íngles Bringing Families Together: A Guide to Parent
           Cooperatives by E. Kim Coontz (prepared for the University of
-          California Center for Cooperatives) es lo más comprehensivo:{' '}
+          California Center for Cooperatives) es lo más comprehensivo:{" "}
           <a href="http://cccd.coop/bringing-families-together-part-i">
             Part 1
-          </a>;{' '}
+          </a>;{" "}
           <a href="http://cccd.coop/bringing-families-together-part-ii">
             Part 2
-          </a>;{' '}
+          </a>;{" "}
           <a href="http://cccd.coop/bringing-families-together-part-iii">
             Part 3
-          </a>;{' '}
+          </a>;{" "}
           <a href="http://cccd.coop/bringing-families-together-part-iv">
             Part 4
           </a>. Buscamos más recursos en español pronto!
         </p>
       </>
     )}
-    {lang.code === 'zh-CN' && (
+    {lang.code === "zh-CN" && (
       <>
         <h4>常见问题答疑</h4>
 
@@ -433,20 +433,20 @@ const FAQ = ({lang}) => (
           Coontz撰写的《将家庭聚在一起：父母协作社指南》提供了最全面的资源。此书分成四个部分，可点击以下链接分别下载pdf：
           <a href="http://cccd.coop/bringing-families-together-part-i">
             Part 1
-          </a>;{' '}
+          </a>;{" "}
           <a href="http://cccd.coop/bringing-families-together-part-ii">
             Part 2
-          </a>;{' '}
+          </a>;{" "}
           <a href="http://cccd.coop/bringing-families-together-part-iii">
             Part 3
-          </a>;{' '}
+          </a>;{" "}
           <a href="http://cccd.coop/bringing-families-together-part-iv">
             Part 4
           </a>. （仅有英语）。
         </p>
       </>
     )}
-    {lang.code === 'pt' && (
+    {lang.code === "pt" && (
       <>
         <h4>Perguntas frequentes</h4>
 
@@ -583,10 +583,10 @@ const FAQ = ({lang}) => (
 
         <p>
           Se estiver preocupado com as licenças ou requisitos do seu estado,
-          aconselhamos que dê uma olhada{' '}
+          aconselhamos que dê uma olhada{" "}
           <a href="https://www.co-oplaw.org/co-op-basics/types/childcare-cooperatives/">
             nesta página
-          </a>{' '}
+          </a>{" "}
           do Sustainable Economies Law Center, que explica toda a situação e
           oferece algumas orientações. A conclusão deles é que não temos que nos
           preocupar com este tipo de programa, tratando de algo não-comercial.
@@ -617,7 +617,7 @@ const FAQ = ({lang}) => (
         </p>
 
         <p>
-          Nada disto substitui os conselhos médicos mais recentes. Por favor,{' '}
+          Nada disto substitui os conselhos médicos mais recentes. Por favor,{" "}
           <u>não cuide dos filhos dos outros se estiver doente</u>!
         </p>
 
@@ -629,16 +629,16 @@ const FAQ = ({lang}) => (
           O livro Bringing Families Together: A Guide to Parent Cooperatives de
           E. Kim Coontz (preparado para a University of California Center for
           Cooperatives) é o recurso mais compreensivo, e está disponível como
-          pdf grátis (em inglês) em quatro partes:{' '}
+          pdf grátis (em inglês) em quatro partes:{" "}
           <a href="http://cccd.coop/bringing-families-together-part-i">
             Part 1
-          </a>;{' '}
+          </a>;{" "}
           <a href="http://cccd.coop/bringing-families-together-part-ii">
             Part 2
-          </a>;{' '}
+          </a>;{" "}
           <a href="http://cccd.coop/bringing-families-together-part-iii">
             Part 3
-          </a>;{' '}
+          </a>;{" "}
           <a href="http://cccd.coop/bringing-families-together-part-iv">
             Part 4
           </a>.

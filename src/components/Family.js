@@ -55,7 +55,7 @@ const Family = ({
       previous = "PREV";
       next = "GO";
       numberOfCaregivers = "Number of caregivers";
-      family = "Familia";
+      family = "Family";
   }
   const [families, setFamilies] = useState(familyNames || null);
   const [numberOfFamilies, setNumberOfFamilies] = useState(4);

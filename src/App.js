@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { enUS, zhCN, es, pt } from "date-fns/locale";
+import { de, enUS, zhCN, el, es, fr, pt } from "date-fns/locale";
 import Calendar from "./components/Calendar.js";
 
 import Instructions from "./components/Instructions.js";
@@ -107,12 +107,13 @@ const App = () => {
             </>
           )}
           {` | `}
-          <button onClick={() => setPage(currentPage, enUS)}>
-            english
-          </button> -{" "}
-          <button onClick={() => setPage(currentPage, es)}>español</button> -{" "}
+          <button onClick={() => setPage(currentPage, enUS)}>english</button>
+          <button onClick={() => setPage(currentPage, es)}>español</button>
           <button onClick={() => setPage(currentPage, zhCN)}>中文</button>
           <button onClick={() => setPage(currentPage, pt)}>português</button>
+          <button onClick={() => setPage(currentPage, fr)}>français</button>
+          <button onClick={() => setPage(currentPage, de)}>Deutsche</button>
+          <button onClick={() => setPage(currentPage, el)}>ελληνικά</button>
         </div>
         <div className="info">{infoComponent && infoComponent}</div>
         {!infoComponent && <Calendar locale={lang} />}

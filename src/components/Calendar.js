@@ -15,28 +15,48 @@ import {
   addMonths,
   subMonths
 } from "date-fns";
-import alg from "../algorithm.js";
-import downloadCalendar from "../download.js";
+import { alg, downloadCalendar } from "../helper.js";
+import QueryString from "query-string";
 
 import Family from "./Family.js";
+
+import "./Calendar.css";
 
 const Calendar = () => {
   const today = startOfToday();
   const monthStart = startOfMonth(today);
   const monthEnd = endOfMonth(monthStart);
   const endDate = endOfWeek(monthEnd);
-  const [availabilities, setAvailabilities] = useState([]);
-  const [assignments, setAssignments] = useState([]);
+  const search = QueryString.parse(window.location.search);
+  const [availabilities, setAvailabilities] = useState(
+    search.availabilities ? JSON.parse(search.availabilities) : []
+  );
+  const [assignments, setAssignments] = useState(search.assignments || []);
   const [latestDate, setLatestDate] = useState(endDate);
-  const [currentDate, setCurrentDate] = useState(new Date());
-  const [currentFamily, setCurrentFamily] = useState(null);
-  const [familyNames, setFamilyNames] = useState(null);
-  const [enableWeekends, setEnableWeekends] = useState(false);
-  const [showSchedule, setShowSchedule] = useState(false);
+  const [currentDate, setCurrentDate] = useState(
+    search.currentDate ? new Date(search.currentDate) : new Date()
+  );
+  const [familyNames, setFamilyNames] = useState(
+    search.familyNames ? JSON.parse(search.familyNames) : null
+  );
+  const [enableWeekends, setEnableWeekends] = useState(
+    search.enableWeekends ? search.enableWeekends === "true" : false
+  );
+  const [showSchedule, setShowSchedule] = useState(
+    search.showSchedule || false
+  );
+  const [currentFamily, setCurrentFamily] = useState(
+    familyNames ? familyNames[0] : null
+  );
+  const [shareLink, setShareLink] = useState(null);
 
-  const isAvailability = (index, day) => {
+  const isAvailability = (fam, index, day) => {
     const dayAfterToday = addDays(today, index);
-    if (isSameDay(day, dayAfterToday) && !(isWeekend(day) && !enableWeekends)) {
+    if (
+      isSameDay(day, dayAfterToday) &&
+      !(isWeekend(day) && !enableWeekends) &&
+      fam >= 0
+    ) {
       return true;
     }
     return false;
@@ -44,6 +64,23 @@ const Calendar = () => {
 
   const isUnavailable = (family, day) =>
     family.some(unavailableDay => isSameDay(unavailableDay, day));
+
+  const generateLink = () => {
+    const link = shareLink
+      ? null
+      : window.location.origin +
+        "/?" +
+        QueryString.stringify({
+          availabilities: JSON.stringify(availabilities),
+          assignments,
+          currentDate,
+          familyNames: JSON.stringify(familyNames),
+          enableWeekends,
+          showSchedule
+        });
+    setShareLink(link);
+    navigator.clipboard.writeText(link || "");
+  };
 
   const header = () => {
     const dateFormat = "MMM yyyy";
@@ -96,9 +133,19 @@ const Calendar = () => {
         formattedDate = format(day, dateFormat);
         const cloneDay = day;
         const disabled = isWeekend(cloneDay) && !enableWeekends;
+        const getCellStyle = () => {
+          if (disabled) {
+            return { background: "lightgrey" };
+          }
+          if (!isAfter(cloneDay, today) && !isSameDay(cloneDay, today)) {
+            return { background: "#d3d3d33b" };
+          } else {
+            return {};
+          }
+        };
         days.push(
           <td
-            style={disabled ? { background: "lightgrey" } : {}}
+            style={getCellStyle()}
             className={disabled ? "disabled" : "cell"}
             key={day}
             onClick={() => currentFamily && onDateClick(cloneDay)}
@@ -120,10 +167,11 @@ const Calendar = () => {
               {showSchedule &&
                 assignments.map(
                   (famScheduled, i) =>
-                    isAvailability(i, cloneDay) && (
+                    isAvailability(famScheduled, i, cloneDay) && (
                       <div
                         key={`available${cloneDay}`}
-                        className={`unavailable color${famScheduled + 1}`}
+                        className={`unavailable color${parseInt(famScheduled) +
+                          1}`}
                       />
                     )
                 )}
@@ -153,7 +201,11 @@ const Calendar = () => {
   };
 
   const onDateClick = day => {
-    if (currentFamily && !(isWeekend(day) && !enableWeekends)) {
+    if (
+      currentFamily &&
+      !(isWeekend(day) && !enableWeekends) &&
+      !showSchedule
+    ) {
       const availabilityUpdate = availabilities;
       if (availabilities[currentFamily.id].some(d => isSameDay(d, day))) {
         const indexToRemove = availabilityUpdate[currentFamily.id].findIndex(
@@ -171,7 +223,11 @@ const Calendar = () => {
   };
 
   const onHeaderClick = day => {
-    if (currentFamily && !(isWeekend(day) && !enableWeekends)) {
+    if (
+      currentFamily &&
+      !(isWeekend(day) && !enableWeekends) &&
+      !showSchedule
+    ) {
       let weekday = day;
       const availabilityUpdate = availabilities;
       if (!isAfter(weekday, today)) {
@@ -199,22 +255,26 @@ const Calendar = () => {
   };
 
   return (
-    <>
-      <h3>{header()}</h3>
-      <button onClick={() => setEnableWeekends(!enableWeekends)}>
-        {enableWeekends ? "Disable Weekends" : "Enable Weekends"}
-      </button>
-      <table>
-        <thead>{days()}</thead>
-        <tbody>{cells()}</tbody>
-      </table>
-      <Family
-        setAvailabilities={avail => setAvailabilities(avail)}
-        setCurrentFamily={fam => setCurrentFamily(fam)}
-        setFamilyNames={fams => setFamilyNames(fams)}
-      />
+    <div className="calendar">
+      <div className="calContainer">
+        <h3>{header()}</h3>
+        <button onClick={() => setEnableWeekends(!enableWeekends)}>
+          {enableWeekends ? "Disable Weekends" : "Enable Weekends"}
+        </button>
+        <table>
+          <thead>{days()}</thead>
+          <tbody>{cells()}</tbody>
+        </table>
+        <Family
+          familyNames={familyNames}
+          setAvailabilities={avail => setAvailabilities(avail)}
+          setCurrentFamily={fam => setCurrentFamily(fam)}
+          setFamilyNames={fams => setFamilyNames(fams)}
+          setShowSchedule={res => setShowSchedule(res)}
+        />
+      </div>
       {!!availabilities.length && (
-        <>
+        <div className="actions">
           <button
             onClick={() => {
               setAssignments(
@@ -228,25 +288,29 @@ const Calendar = () => {
           <button onClick={() => setShowSchedule(!showSchedule)}>
             {showSchedule ? "Change Availabilities" : "Show Schedule"}
           </button>
-          <a
-            id="download_link"
-            download="schedule.html"
-            href=""
-            onClick={() =>
-              downloadCalendar(
-                assignments,
-                familyNames,
-                currentDate,
-                enableWeekends
-              )
-            }
-          >
-            Download Schedule
-          </a>
-          <button onClick={() => {}}>Generate Link</button>
-        </>
+          <button>
+            <a
+              id="download_link"
+              download="schedule.html"
+              href=""
+              onClick={() =>
+                downloadCalendar(
+                  assignments,
+                  familyNames,
+                  currentDate,
+                  enableWeekends
+                )
+              }
+            >
+              Download Schedule
+            </a>
+          </button>
+          <button onClick={() => generateLink()}>
+            {shareLink ? "✔ Link Copied!" : "Generate Link"}
+          </button>
+        </div>
       )}
-    </>
+    </div>
   );
 };
 

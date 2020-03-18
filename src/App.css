@@ -15,70 +15,20 @@
   color: #61dafb;
 }
 
+.infoButtons {
+  display: flex;
+}
+
+button {
+  border: 2px solid #4f3dfe;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
 .title {
   color: #4f3dfe;
   font-style: italic;
-}
-
-// Calendar styles
-
-.icon {
-  cursor: pointer;
-}
-
-table {
-  border-spacing: 0;
-  margin-bottom: 20px;
-}
-
-table > tbody > tr > td {
-  padding: 10px;
-  border: 1px solid #dee2e6;
-}
-
-th {
-  border: 1px solid white;
-}
-
-.cell:hover {
-  border: 1px solid black;
-}
-
-.nextMonth {
-  font-size: calc(1px + 2vmin);
-  font-weight: 900;
-  transform: rotate(-45deg) translate(-10px, -20px);
-  position: absolute;
-  color: #4f3dfe;
-}
-
-// Family styles
-
-.container {
-  display: flex;
-  align-items: center;
-}
-
-.familyItem {
-  display: flex;
-  margin: 10px;
-}
-
-.circleBase {
-  border-radius: 50%;
-  cursor: pointer;
-  width: 25px;
-  height: 25px;
-  margin-left: 10px;
-}
-
-.unavailable {
-  height: 0.5vmin;
-  width: 100%;
-}
-
-.current {
-  border: 3px solid black;
 }
 
 .color1 {

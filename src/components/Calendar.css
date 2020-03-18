@@ -1,0 +1,52 @@
+.calendar {
+  /* display: flex; */
+  /* flex-direction: column; */
+  width: 80%;
+}
+
+.calContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+table {
+  border-spacing: 0;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+table > tbody > tr > td {
+  padding: 10px;
+  border: 1px solid #dee2e6;
+}
+
+th {
+  border: 1px solid white;
+}
+
+.cell:hover {
+  border: 1px solid black;
+}
+
+.nextMonth {
+  font-size: calc(1px + 2vmin);
+  font-weight: 900;
+  transform: rotate(-45deg) translate(-10px, -20px);
+  position: absolute;
+  color: #4f3dfe;
+}
+
+a {
+  color: buttontext;
+  text-decoration: none;
+}

@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.familyList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.familyItem {
+  display: flex;
+  margin: 10px;
+  border: 2px solid black;
+  padding: 3px;
+  height: 32px;
+}
+
+.circleBase {
+  border-radius: 50%;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  align-self: center;
+}
+
+.unavailable {
+  height: 0.5vmin;
+  margin: 0.25vmin;
+  width: 100%;
+  border: 0.5px solid black;
+}
+
+.current {
+  border: 3px solid black;
+}
+
+.textButton {
+  cursor: pointer;
+}

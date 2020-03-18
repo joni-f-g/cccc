@@ -46,7 +46,7 @@ th {
   color: #4f3dfe;
 }
 
-a {
+button > a {
   color: buttontext;
   text-decoration: none;
 }

@@ -10,7 +10,6 @@ import {
   endOfWeek,
   isAfter,
   isSameDay,
-  isSameMonth,
   isWeekend,
   addMonths,
   subMonths
@@ -22,7 +21,87 @@ import Family from "./Family.js";
 
 import "./Calendar.css";
 
-const Calendar = () => {
+const Calendar = ({ locale }) => {
+  let weekendsNo;
+  let weekendsYes;
+  let scheduleYes;
+  let scheduleNo;
+  let createSchedule;
+  let downloadSchedule;
+  let linkCalendar;
+  let linkCopied;
+
+  switch (locale ? locale.code : "en-US") {
+    case "es":
+      weekendsNo = "Fin de Semanas NO";
+      weekendsYes = "Fin de Semanas SI";
+      scheduleYes = "Cambiar Disponibilidad";
+      scheduleNo = "Muestra Horario";
+      createSchedule = "crear horario";
+      downloadSchedule = "descargar horario";
+      linkCalendar = "enlace a horario";
+      linkCopied = "enlace es copiado";
+      break;
+    case "zh-CN":
+      weekendsNo = "Fin de Semanas NO";
+      weekendsYes = "Fin de Semanas SI";
+      scheduleYes = "Cambiar Disponibilidad";
+      scheduleNo = "Muestra Horario";
+      createSchedule = "crear horario";
+      downloadSchedule = "descargar horario";
+      linkCalendar = "enlace a horario";
+      linkCopied = "enlace es copiado";
+      break;
+    case "pt":
+      weekendsNo = "Fin de Semanas NO";
+      weekendsYes = "Fin de Semanas SI";
+      scheduleYes = "Cambiar Disponibilidad";
+      scheduleNo = "Muestra Horario";
+      createSchedule = "crear horario";
+      downloadSchedule = "descargar horario";
+      linkCalendar = "enlace a horario";
+      linkCopied = "enlace es copiado";
+      break;
+    case "de":
+      weekendsNo = "Fin de Semanas NO";
+      weekendsYes = "Fin de Semanas SI";
+      scheduleYes = "Cambiar Disponibilidad";
+      scheduleNo = "Muestra Horario";
+      createSchedule = "crear horario";
+      downloadSchedule = "descargar horario";
+      linkCalendar = "enlace a horario";
+      linkCopied = "enlace es copiado";
+      break;
+    case "fr":
+      weekendsNo = "Fin de Semanas NO";
+      weekendsYes = "Fin de Semanas SI";
+      scheduleYes = "Cambiar Disponibilidad";
+      scheduleNo = "Muestra Horario";
+      createSchedule = "crear horario";
+      downloadSchedule = "descargar horario";
+      linkCalendar = "enlace a horario";
+      linkCopied = "enlace es copiado";
+      break;
+    case "el":
+      weekendsNo = "Fin de Semanas NO";
+      weekendsYes = "Fin de Semanas SI";
+      scheduleYes = "Cambiar Disponibilidad";
+      scheduleNo = "Muestra Horario";
+      createSchedule = "crear horario";
+      downloadSchedule = "descargar horario";
+      linkCalendar = "enlace a horario";
+      linkCopied = "enlace es copiado";
+      break;
+    default:
+      weekendsNo = "Disable Weekends";
+      weekendsYes = "Enable Weekends";
+      scheduleYes = "Change Availabilities";
+      scheduleNo = "Show Schedule";
+      createSchedule = "Create Schedule";
+      downloadSchedule = "Download Schedule";
+      linkCalendar = "Generate Link";
+      linkCopied = "✔ Link Copied!";
+  }
   const today = startOfToday();
   const monthStart = startOfMonth(today);
   const monthEnd = endOfMonth(monthStart);
@@ -90,7 +169,7 @@ const Calendar = () => {
           {`<-`}
         </div>
         <div>
-          <span>{format(currentDate, dateFormat)}</span>
+          <span>{format(currentDate, dateFormat, { locale })}</span>
         </div>
         <div className="icon" onClick={nextMonth}>
           {`->`}
@@ -112,7 +191,7 @@ const Calendar = () => {
           className={disabled ? "disabled" : "cell"}
           onClick={() => onHeaderClick(day)}
         >
-          {format(day, dateFormat)}
+          {format(day, dateFormat, { locale })}
         </th>
       );
     }
@@ -130,7 +209,7 @@ const Calendar = () => {
     let formattedDate = "";
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
-        formattedDate = format(day, dateFormat);
+        formattedDate = format(day, dateFormat, { locale });
         const cloneDay = day;
         const disabled = isWeekend(cloneDay) && !enableWeekends;
         const getCellStyle = () => {
@@ -151,7 +230,9 @@ const Calendar = () => {
             onClick={() => currentFamily && onDateClick(cloneDay)}
           >
             {isSameDay(cloneDay, startOfMonth(cloneDay)) && (
-              <div className="nextMonth">{format(cloneDay, "MMM")}</div>
+              <div className="nextMonth">
+                {format(cloneDay, "MMM", { locale })}
+              </div>
             )}
             <div className="availContainer">
               {!showSchedule &&
@@ -204,7 +285,8 @@ const Calendar = () => {
     if (
       currentFamily &&
       !(isWeekend(day) && !enableWeekends) &&
-      !showSchedule
+      !showSchedule &&
+      (isSameDay(day, today) || isAfter(day, today))
     ) {
       const availabilityUpdate = availabilities;
       if (availabilities[currentFamily.id].some(d => isSameDay(d, day))) {
@@ -230,10 +312,10 @@ const Calendar = () => {
     ) {
       let weekday = day;
       const availabilityUpdate = availabilities;
-      if (!isAfter(weekday, today)) {
+      if (!isAfter(weekday, today) && !isSameDay(weekday, today)) {
         weekday = addDays(weekday, 7);
       }
-      while (isSameMonth(weekday, currentDate)) {
+      while (weekday <= endDate) {
         const cloneDay = weekday;
         if (
           availabilities[currentFamily.id].some(d => isSameDay(d, cloneDay))
@@ -259,7 +341,7 @@ const Calendar = () => {
       <div className="calContainer">
         <h3>{header()}</h3>
         <button onClick={() => setEnableWeekends(!enableWeekends)}>
-          {enableWeekends ? "Disable Weekends" : "Enable Weekends"}
+          {enableWeekends ? weekendsNo : weekendsYes}
         </button>
         <table>
           <thead>{days()}</thead>
@@ -267,6 +349,7 @@ const Calendar = () => {
         </table>
         <Family
           familyNames={familyNames}
+          locale={locale}
           setAvailabilities={avail => setAvailabilities(avail)}
           setCurrentFamily={fam => setCurrentFamily(fam)}
           setFamilyNames={fams => setFamilyNames(fams)}
@@ -283,10 +366,10 @@ const Calendar = () => {
               setShowSchedule(true);
             }}
           >
-            Create Schedule
+            {createSchedule}
           </button>
           <button onClick={() => setShowSchedule(!showSchedule)}>
-            {showSchedule ? "Change Availabilities" : "Show Schedule"}
+            {showSchedule ? scheduleYes : scheduleNo}
           </button>
           <button>
             <a
@@ -302,11 +385,11 @@ const Calendar = () => {
                 )
               }
             >
-              Download Schedule
+              {downloadSchedule}
             </a>
           </button>
           <button onClick={() => generateLink()}>
-            {shareLink ? "✔ Link Copied!" : "Generate Link"}
+            {shareLink ? linkCopied : linkCalendar}
           </button>
         </div>
       )}

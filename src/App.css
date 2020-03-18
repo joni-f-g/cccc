@@ -15,6 +15,11 @@
   color: #61dafb;
 }
 
+.info {
+  text-align: left;
+  width: 80%;
+}
+
 .infoButtons {
   display: flex;
 }

@@ -4,11 +4,59 @@ import "./Family.css";
 
 const Family = ({
   familyNames,
+  locale,
   setAvailabilities,
   setCurrentFamily,
   setFamilyNames,
   setShowSchedule
 }) => {
+  let previous;
+  let next;
+  let numberOfCaregivers;
+  let family;
+  switch (locale ? locale.code : "en-US") {
+    case "es":
+      previous = "Previo";
+      next = "Siguiente";
+      numberOfCaregivers = "Número de cuidadores";
+      family = "Familia";
+      break;
+    case "zh-CN":
+      previous = "前";
+      next = "后";
+      numberOfCaregivers = "可承担托儿工作的人数";
+      family = "家庭";
+      break;
+    case "pt":
+      previous = "Anterior";
+      next = "Seguinte";
+      numberOfCaregivers = "Número de cuidadores/famílias";
+      family = "Família";
+      break;
+    case "de":
+      previous = "Vorheriger";
+      next = "Nächster";
+      numberOfCaregivers = "Anzahl der Betreuer";
+      family = "Familie";
+      break;
+    case "fr":
+      previous = "Précédente";
+      next = "Suivante";
+      numberOfCaregivers = "Nombre de Gardiens";
+      family = "Famille";
+      break;
+    case "el":
+      previous = "Προηγούμενο";
+      next = "Επόμενο";
+      numberOfCaregivers = "Αριθμός νταντάδων";
+      family = "Οικογένεια";
+      break;
+    default:
+      previous = "PREV";
+      next = "GO";
+      numberOfCaregivers = "Number of caregivers";
+      family = "Familia";
+  }
   const [families, setFamilies] = useState(familyNames || null);
   const [numberOfFamilies, setNumberOfFamilies] = useState(4);
   const [selectedFamily, setSelectedFamily] = useState(
@@ -19,7 +67,7 @@ const Family = ({
     const availabilities = [];
     const fams = [];
     for (let i = 0; i < numberOfFamilies; i++) {
-      fams.push({ id: i, value: `family #${i + 1}` });
+      fams.push({ id: i, value: `${family} #${i + 1}` });
       availabilities.push([]);
     }
     setFamilies(fams);
@@ -43,7 +91,7 @@ const Family = ({
       {!families && (
         <form>
           <label>
-            How many caregivers?
+            {numberOfCaregivers}
             <input
               type="number"
               min="1"
@@ -63,7 +111,7 @@ const Family = ({
             tabIndex="0"
             onClick={() => initializeFamilies()}
             onKeyDown={e => e.keyCode === 13 && initializeFamilies()}
-          >{`GO ->`}</div>
+          >{`${next} ->`}</div>
         )}
       <div className="container">
         {numberOfFamilies > 0 &&
@@ -74,7 +122,7 @@ const Family = ({
               tabIndex="0"
               onClick={() => clearFamilies()}
               onKeyDown={e => e.keyCode === 13 && clearFamilies()}
-            >{`<- BACK`}</div>
+            >{`<- ${previous}`}</div>
           )}
         <div className="familyList">
           {families &&

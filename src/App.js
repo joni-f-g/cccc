@@ -15,7 +15,14 @@ const App = () => {
   const [sampleForms, setSampleForms] = useState("Sample Forms");
   const [currentPage, setCurrentPage] = useState(null);
   const [infoComponent, setInfoComponent] = useState(null);
-  const [lang, setLang] = useState(enUS);
+
+  const userLang =
+    [de, enUS, zhCN, el, es, fr, pt].find(
+      lang =>
+        lang.code === window.navigator.userLanguage ||
+        lang.code === window.navigator.language
+    ) || enUS;
+  const [lang, setLang] = useState(userLang);
 
   const setPage = (p, language) => {
     if (language) {
@@ -106,18 +113,21 @@ const App = () => {
               </button>
             </>
           )}
-          {` | `}
-          <button onClick={() => setPage(currentPage, enUS)}>english</button>
-          <button onClick={() => setPage(currentPage, es)}>español</button>
-          <button onClick={() => setPage(currentPage, zhCN)}>中文</button>
-          <button onClick={() => setPage(currentPage, pt)}>português</button>
-          <button onClick={() => setPage(currentPage, fr)}>français</button>
-          <button onClick={() => setPage(currentPage, de)}>Deutsche</button>
-          <button onClick={() => setPage(currentPage, el)}>ελληνικά</button>
         </div>
         <div className="info">{infoComponent && infoComponent}</div>
-        {!infoComponent && <Calendar locale={lang} />}
+        <div className={infoComponent ? "hideCalendar" : "showCalendar"}>
+          <Calendar locale={lang} />
+        </div>
       </header>
+      <footer>
+        <button onClick={() => setPage(currentPage, enUS)}>english</button>
+        <button onClick={() => setPage(currentPage, es)}>español</button>
+        <button onClick={() => setPage(currentPage, zhCN)}>中文</button>
+        <button onClick={() => setPage(currentPage, pt)}>português</button>
+        <button onClick={() => setPage(currentPage, fr)}>français</button>
+        <button onClick={() => setPage(currentPage, de)}>Deutsche</button>
+        <button onClick={() => setPage(currentPage, el)}>ελληνικά</button>
+      </footer>
     </div>
   );
 };

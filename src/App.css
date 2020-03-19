@@ -15,6 +15,15 @@
   color: #61dafb;
 }
 
+.hideCalendar {
+  display: none;
+}
+
+.showCalendar {
+  display: block;
+  width: 80%;
+}
+
 .info {
   text-align: left;
   width: 80%;

@@ -1,9 +1,3 @@
-.calendar {
-  /* display: flex; */
-  /* flex-direction: column; */
-  width: 80%;
-}
-
 .calContainer {
   display: flex;
   flex-direction: column;

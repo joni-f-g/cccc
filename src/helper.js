@@ -206,7 +206,7 @@ export const downloadCalendar = (
       });
       if (isFamScheduled) {
         text += `">${formattedDate}${familyText}</div>`;
-      } else if (!isWeekend(cloneDay)) {
+      } else {
         text += ` crossed">${formattedDate}</div>`;
       }
     }

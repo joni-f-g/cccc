@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import {
   addDays,
+  addWeeks,
   subDays,
   endOfMonth,
   format,
   startOfToday,
   startOfWeek,
   startOfMonth,
+  startOfYear,
   endOfWeek,
   isAfter,
   isSameDay,
@@ -102,7 +104,9 @@ const Calendar = ({ locale }) => {
       linkCalendar = "Generate Link";
       linkCopied = "✔ Link Copied!";
   }
+
   const today = startOfToday();
+  console.log(startOfWeek(addWeeks(startOfYear(today), 12)));
   const monthStart = startOfMonth(today);
   const monthEnd = endOfMonth(monthStart);
   const endDate = endOfWeek(monthEnd);
@@ -113,7 +117,11 @@ const Calendar = ({ locale }) => {
   const [assignments, setAssignments] = useState(search.assignments || []);
   const [latestDate, setLatestDate] = useState(endDate);
   const [currentDate, setCurrentDate] = useState(
-    search.currentDate ? new Date(search.currentDate) : new Date()
+    search.currentDate
+      ? new Date(search.currentDate)
+      : search.week
+        ? startOfWeek(addWeeks(startOfYear(today), 12))
+        : new Date()
   );
   const [familyNames, setFamilyNames] = useState(
     search.familyNames ? JSON.parse(search.familyNames) : null
@@ -128,6 +136,8 @@ const Calendar = ({ locale }) => {
     familyNames ? familyNames[0] : null
   );
   const [shareLink, setShareLink] = useState(null);
+  if (search.week) {
+  }
 
   const isAvailability = (fam, index, day) => {
     const dayAfterToday = addDays(today, index);

@@ -20,10 +20,23 @@ import { alg, downloadCalendar } from "../helper.js";
 import QueryString from "query-string";
 
 import Family from "./Family.js";
+import Instructions from "./Instructions.js";
+import NewFamily from "./NewFamily.js";
 
 import "./Calendar.css";
 
+const colors = [
+  "#f37942",
+  "#a85ca0",
+  "#87c1f7",
+  "#10237e",
+  "#007c14",
+  "#eb4636",
+  "#eb12e2"
+];
+
 const Calendar = ({ locale }) => {
+  let instructions;
   let weekendsNo;
   let weekendsYes;
   let scheduleYes;
@@ -35,6 +48,7 @@ const Calendar = ({ locale }) => {
 
   switch (locale ? locale.code : "en-US") {
     case "es":
+      instructions = "Instrucciones";
       weekendsNo = "Fin de Semanas NO";
       weekendsYes = "Fin de Semanas SI";
       scheduleYes = "Cambiar Disponibilidad";
@@ -45,6 +59,7 @@ const Calendar = ({ locale }) => {
       linkCopied = "enlace es copiado";
       break;
     case "zh-CN":
+      instructions = "使用指南";
       weekendsNo = "不包括周末";
       weekendsYes = "包括周末";
       scheduleYes = "修改日程";
@@ -55,6 +70,7 @@ const Calendar = ({ locale }) => {
       linkCopied = "链接已复制";
       break;
     case "pt":
+      instructions = "Instruções";
       weekendsNo = "Fins-de-semana NÃO";
       weekendsYes = "Fins-de-semana SIM";
       scheduleYes = "Mudar disponibilidades";
@@ -65,6 +81,7 @@ const Calendar = ({ locale }) => {
       linkCopied = "Link copiado";
       break;
     case "de":
+      instructions = "Anleitung";
       weekendsNo = "Wochenenden NEIN";
       weekendsYes = "Wochenenden JA";
       scheduleYes = "Terminplaner Verügbarkeit";
@@ -75,6 +92,7 @@ const Calendar = ({ locale }) => {
       linkCopied = "Link kopiert";
       break;
     case "fr":
+      instructions = "Instructions";
       weekendsNo = "Weekends NON";
       weekendsYes = "Weekends OUI";
       scheduleYes = "Changer Mes Disponibilités";
@@ -85,6 +103,7 @@ const Calendar = ({ locale }) => {
       linkCopied = "Lien Copié";
       break;
     case "el":
+      instructions = "Οδηγίες";
       weekendsNo = "Σ/Κ Μη ενεργοποιημένα";
       weekendsYes = "Σ/Κ Ενεργοποιημένα";
       scheduleYes = "Άλλαξτε διαθεσιμότητα";
@@ -95,6 +114,7 @@ const Calendar = ({ locale }) => {
       linkCopied = "Αντιγραφή συνδέσμου";
       break;
     default:
+      instructions = "Instructions";
       weekendsNo = "Disable Weekends";
       weekendsYes = "Enable Weekends";
       scheduleYes = "Change Availabilities";
@@ -106,7 +126,6 @@ const Calendar = ({ locale }) => {
   }
 
   const today = startOfToday();
-  console.log(startOfWeek(addWeeks(startOfYear(today), 12)));
   const monthStart = startOfMonth(today);
   const monthEnd = endOfMonth(monthStart);
   const endDate = endOfWeek(monthEnd);
@@ -147,6 +166,46 @@ const Calendar = ({ locale }) => {
 
   const isUnavailable = (family, day) =>
     family.some(unavailableDay => isSameDay(unavailableDay, day));
+
+  const getCellStyle = (day, disabled) => {
+    let style = "";
+    if (disabled) {
+      style = "lightgrey";
+    } else if (!isAfter(day, today) && !isSameDay(day, today)) {
+      style = "#d3d3d33b";
+    } else if (!showSchedule) {
+      const dividend = 100 / availabilities.length;
+      style = "linear-gradient(to bottom,";
+      availabilities.forEach((fam, i) => {
+        if (isUnavailable(fam, day)) {
+          if (i === 0) {
+            style += ` ${colors[i]} ${dividend * 1}%`;
+          } else {
+            style += ` ${colors[i]} ${dividend * i}%, ${colors[i]} ${dividend *
+              (i + 1)}%`;
+          }
+        } else {
+          if (i === 0) {
+            style += ` white ${dividend * 1}%`;
+          } else {
+            style += ` white ${dividend * i}%, white ${dividend * (i + 1)}%`;
+          }
+        }
+        if (i + 1 === availabilities.length) {
+          style += ")";
+        } else {
+          style += ",";
+        }
+      });
+    } else {
+      assignments.forEach((famScheduled, i) => {
+        if (isAvailability(famScheduled, i, day)) {
+          style = colors[famScheduled];
+        }
+      });
+    }
+    return { background: style };
+  };
 
   const generateLink = () => {
     const link = shareLink
@@ -192,14 +251,14 @@ const Calendar = ({ locale }) => {
         <th
           key={i}
           style={disabled ? { background: "lightgrey" } : {}}
-          className={disabled ? "disabled" : "cell"}
+          className={disabled ? "disabled" : "weekday"}
           onClick={() => onHeaderClick(day)}
         >
           {format(day, dateFormat, { locale })}
         </th>
       );
     }
-    return <tr className="days row">{days}</tr>;
+    return <tr>{days}</tr>;
   };
   const cells = () => {
     const monthStart = startOfMonth(currentDate);
@@ -216,20 +275,10 @@ const Calendar = ({ locale }) => {
         formattedDate = format(day, dateFormat, { locale });
         const cloneDay = day;
         const disabled = isWeekend(cloneDay) && !enableWeekends;
-        const getCellStyle = () => {
-          if (disabled) {
-            return { background: "lightgrey" };
-          }
-          if (!isAfter(cloneDay, today) && !isSameDay(cloneDay, today)) {
-            return { background: "#d3d3d33b" };
-          } else {
-            return {};
-          }
-        };
         days.push(
           <td
-            style={getCellStyle()}
-            className={disabled ? "disabled" : "cell"}
+            style={getCellStyle(cloneDay, disabled)}
+            className={disabled ? "disabled" : "day"}
             key={day}
             onClick={() => currentFamily && onDateClick(cloneDay)}
           >
@@ -238,40 +287,12 @@ const Calendar = ({ locale }) => {
                 {format(cloneDay, "MMM", { locale })}
               </div>
             )}
-            <div className="availContainer">
-              {!showSchedule &&
-                availabilities.map(
-                  (fam, i) =>
-                    isUnavailable(fam, cloneDay) && (
-                      <div
-                        key={`unavailable${i}`}
-                        className={`unavailable color${i + 1}`}
-                      />
-                    )
-                )}
-              {showSchedule &&
-                assignments.map(
-                  (famScheduled, i) =>
-                    isAvailability(famScheduled, i, cloneDay) && (
-                      <div
-                        key={`available${cloneDay}`}
-                        className={`unavailable color${parseInt(famScheduled) +
-                          1}`}
-                      />
-                    )
-                )}
-            </div>
-
             <span>{formattedDate}</span>
           </td>
         );
         day = addDays(day, 1);
       }
-      rows.push(
-        <tr className="row" key={day}>
-          {days}
-        </tr>
-      );
+      rows.push(<tr key={day}>{days}</tr>);
       days = [];
     }
     return rows;
@@ -345,7 +366,7 @@ const Calendar = ({ locale }) => {
       <div className="row Instructions">
         <div className="w-100 col-xs-12">
           <div className="dropdown show">
-            <a
+            <div
               className="w-100 btn instructions"
               data-toggle="collapse"
               href="#instructions"
@@ -353,25 +374,124 @@ const Calendar = ({ locale }) => {
               aria-expanded="false"
               aria-controls="collapseExample"
             >
-              Instructions
-            </a>
+              {instructions}
+            </div>
             <div className="collapse" id="instructions">
-              <div className="card card-body">Instructions text</div>
+              <div className="card card-body">
+                <Instructions lang={locale} />
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="calendar">
-        <div className="calContainer">
-          <h3>{header()}</h3>
-          <button onClick={() => setEnableWeekends(!enableWeekends)}>
-            {enableWeekends ? weekendsNo : weekendsYes}
-          </button>
-          <table>
-            <thead>{days()}</thead>
-            <tbody>{cells()}</tbody>
-          </table>
-          <Family
+      <div className="Calendar">
+        <div className="row Calendar-Top">
+          <div className="col-xs-12 col-md-3 New-Sched">
+            <div id="reset" className="text-btn">
+              + Start New Schedule
+            </div>
+          </div>
+          <div className="col-md-9 Calendar-Nav">
+            <div className="row">
+              <div id="prev" className="text-btn" onClick={prevMonth}>
+                <i className="fas fa-chevron-left" />
+              </div>
+              <div id="next" className="text-btn" onClick={nextMonth}>
+                <i className="fas fa-chevron-right" />
+              </div>
+              <div id="week" className="dropdown">
+                <a
+                  className="dropdown-toggle date"
+                  href="#"
+                  role="button"
+                  id="dropdownMenuLink"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  {format(currentDate, "MMM yyyy", { locale })}
+                </a>
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="dropdownMenuLink"
+                >
+                  <a className="dropdown-item" href="#">
+                    March
+                  </a>
+                  <a className="dropdown-item" href="#">
+                    April
+                  </a>
+                  <a className="dropdown-item" href="#">
+                    May
+                  </a>
+                </div>
+              </div>
+              <div id="year" className="dropdown">
+                <a
+                  className="dropdown-toggle date"
+                  href="#"
+                  role="button"
+                  id="dropdownMenuLink"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  2020
+                </a>
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="dropdownMenuLink"
+                >
+                  <a className="dropdown-item" href="#">
+                    2020
+                  </a>
+                  <a className="dropdown-item" href="#">
+                    2021
+                  </a>
+                </div>
+              </div>
+              <div id="right-top-cal-options" className="ml-auto">
+                <input
+                  type="button"
+                  id="schedule"
+                  className="ml-auto btn btn-primary"
+                  value={createSchedule}
+                  onClick={() => {
+                    setAssignments(
+                      alg.generateSchedule(availabilities, latestDate)[0]
+                    );
+                    setShowSchedule(true);
+                  }}
+                />
+                <input
+                  type="button"
+                  id="schedule"
+                  className="btn btn-outline-primary showSchedule"
+                  value={showSchedule ? scheduleYes : scheduleNo}
+                  onClick={() => setShowSchedule(!showSchedule)}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row Current-Edit">
+          <div className="col-md-3" />
+          <div className="col-md-9">
+            <div className="form-inline">
+              <label for="current-family">Editing unavailability for:</label>
+              <div
+                className={`current-family ${
+                  currentFamily ? `currentFamily${currentFamily.id}` : ""
+                }`}
+                id="current-family"
+              >
+                {currentFamily && currentFamily.value}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row Calendar-Main">
+          <NewFamily
             familyNames={familyNames}
             locale={locale}
             setAvailabilities={avail => setAvailabilities(avail)}
@@ -379,27 +499,53 @@ const Calendar = ({ locale }) => {
             setFamilyNames={fams => setFamilyNames(fams)}
             setShowSchedule={res => setShowSchedule(res)}
           />
+          <div className="col-md-9">
+            <table id="av_cal" className="cal table table-bordered">
+              <colgroup>
+                <col className="weekend" />
+                <col className="weekday" span="5" />
+                <col className="weekend" />
+              </colgroup>
+              <thead>{days()}</thead>
+              <tbody>{cells()}</tbody>
+            </table>
+          </div>
         </div>
-        {!!availabilities.length && (
-          <div className="actions">
-            <button
-              onClick={() => {
-                setAssignments(
-                  alg.generateSchedule(availabilities, latestDate)[0]
-                );
-                setShowSchedule(true);
-              }}
-            >
-              {createSchedule}
-            </button>
-            <button onClick={() => setShowSchedule(!showSchedule)}>
-              {showSchedule ? scheduleYes : scheduleNo}
-            </button>
-            <button>
-              <a
-                id="download_link"
-                download="schedule.html"
+        <div className="row">
+          <div className="col-md-3" />
+          <div className="col-xs-12 col-md-9">
+            <div className="row">
+              <div
+                id="reset"
+                role="button"
+                tabIndex="0"
+                className="text-btn"
+                onClick={() => setEnableWeekends(!enableWeekends)}
+              >
+                {enableWeekends ? weekendsNo : weekendsYes}
+              </div>
+              <input
+                type="button"
+                id="schedule"
+                className="ml-auto btn btn-primary"
+                value={createSchedule}
+                onClick={() => {
+                  setAssignments(
+                    alg.generateSchedule(availabilities, latestDate)[0]
+                  );
+                  setShowSchedule(true);
+                }}
+              />
+            </div>
+            <hr className="solid" />
+            <div id="links">
+              <button
+                type="button"
+                id="download-schedule"
+                className="w-100 btn btn-info link"
+                style={{ background: "#7C1AB9" }}
                 href=""
+                download="schedule.html"
                 onClick={() =>
                   downloadCalendar(
                     assignments,
@@ -410,13 +556,17 @@ const Calendar = ({ locale }) => {
                 }
               >
                 {downloadSchedule}
-              </a>
-            </button>
-            <button onClick={() => generateLink()}>
-              {shareLink ? linkCopied : linkCalendar}
-            </button>
+              </button>
+              <input
+                type="button"
+                id="copy-link"
+                className="w-100 btn btn-info link"
+                value={shareLink ? linkCopied : linkCalendar}
+                onClick={() => generateLink()}
+              />
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </>
   );

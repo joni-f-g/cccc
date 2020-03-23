@@ -1,42 +1,68 @@
-.container {
-  display: flex;
-  align-items: center;
+.Current-Edit {
+  margin-top: 30px;
 }
 
-.familyList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+.colorbox {
+  width: 15%;
+  padding-top: 15%;
 }
 
-.familyItem {
+.namebox {
+  width: 85%;
   display: flex;
-  margin: 10px;
-  border: 2px solid black;
-  padding: 3px;
-  height: 32px;
+  overflow: hidden;
 }
 
-.circleBase {
-  border-radius: 50%;
+.name {
+  position: relative;
+  top: 50%;
+  left: 8px;
+  font-size: 12px;
+  transform: translateY(-50%);
+  font-weight: bold;
+  border: 0px;
+}
+
+div.addfamily div.namebox div.name {
+  position: relative;
+  color: #b0bcc9;
+  top: 50%;
+  left: 8px;
+  font-size: 12px;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
+
+.family {
+  border: 1px solid #f1f5f9;
+  margin-bottom: 15px;
   cursor: pointer;
-  width: 25px;
-  height: 25px;
-  margin-left: 10px;
-  align-self: center;
 }
 
-.unavailable {
-  height: 0.5vmin;
-  margin: 0.25vmin;
-  width: 100%;
-  border: 0.5px solid black;
+.currentColor0 {
+  background: #f9bca0;
 }
 
-.current {
-  border: 3px solid black;
+.currentColor1 {
+  background: #dda7d7;
 }
 
-.textButton {
-  cursor: pointer;
+.currentColor2 {
+  background: #c5dbef;
+}
+
+.currentColor3 {
+  background: #c2ccff;
+}
+
+.currentColor4 {
+  background: #9fd1a7;
+}
+
+.currentColor5 {
+  background: #f4c2bd;
+}
+
+.currentColor6 {
+  background: #f4b0f2;
 }

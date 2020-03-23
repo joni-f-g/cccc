@@ -1,19 +1,19 @@
-.App {
-  text-align: center;
-}
+/* .App { */
+/* text-align: center; */
+/* } */
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-}
+/* .App-header { */
+/* min-height: 100vh; */
+/* display: flex; */
+/* flex-direction: column; */
+/* align-items: center; */
+/* justify-content: center; */
+/* font-size: calc(10px + 2vmin); */
+/* } */
 
-.App-link {
-  color: #61dafb;
-}
+/* .App-link { */
+/* color: #61dafb; */
+/* } */
 
 .hideCalendar {
   display: none;
@@ -21,55 +21,126 @@
 
 .showCalendar {
   display: block;
-  width: 80%;
 }
 
-.info {
-  text-align: left;
-  width: 80%;
-}
+/* .info { */
+/* text-align: left; */
+/* width: 80%; */
+/* } */
 
-.infoButtons {
-  display: flex;
-  flex-wrap: wrap;
-}
+/* .infoButtons { */
+/* display: flex; */
+/* flex-wrap: wrap; */
+/* } */
 
-button {
-  border: 2px solid #4f3dfe;
-  padding: 0.5rem;
-  margin: 0.5rem;
-  cursor: pointer;
-}
+/* button { */
+/* border: 2px solid #4f3dfe; */
+/* padding: 0.5rem; */
+/* margin: 0.5rem; */
+/* cursor: pointer; */
+/* } */
 
-.title {
-  color: #4f3dfe;
-  font-style: italic;
+/* .title { */
+/* color: #4f3dfe; */
+/* font-style: italic; */
+/* } */
+
+.color0 {
+  background: #f37942;
 }
 
 .color1 {
-  background: pink;
+  background: #a85ca0;
 }
 
 .color2 {
-  background: blue;
+  background: #87c1f7;
 }
 
 .color3 {
-  background: green;
+  background: #10237e;
 }
 
 .color4 {
-  background: yellow;
+  background: #007c14;
 }
 
 .color5 {
-  background: orange;
+  background: #eb4636;
 }
 
 .color6 {
-  background: purple;
+  background: #eb12e2;
 }
 
-.color7 {
-  background: red;
+.currentFamily0 {
+  color: #f37942;
+}
+
+.currentFamily1 {
+  color: #a85ca0;
+}
+
+.currentFamily2 {
+  color: #87c1f7;
+}
+
+.currentFamily3 {
+  color: #10237e;
+}
+
+.currentFamily4 {
+  color: #007c14;
+}
+
+.currentFamily5 {
+  color: #eb4636;
+}
+
+.currentFamily6 {
+  color: #eb12e2;
+}
+/* new css */
+
+.title {
+  margin-top: 2px;
+  color: #2f67e1;
+  line-height: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.headerLinks {
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.language {
+  border-bottom: solid 1px;
+  border-color: black;
+  display: flex;
+  align-items: center;
+  color: #000000 !important;
+}
+
+a.dropdown-toggle:hover {
+  text-decoration: none;
+}
+
+.Navigation {
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-top: 20px;
+  margin-bottom: 35px;
+}
+
+body {
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue',
+    Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.current-family {
+  margin-left: 10px;
 }

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { de, enUS, zhCN, el, es, fr, pt } from "date-fns/locale";
 import Calendar from "./components/Calendar.js";
-import NewCalendar from "./components/NewCalendar.js";
 
-import Instructions from "./components/Instructions.js";
 import FAQ from "./components/FAQ.js";
 import Explainer from "./components/Explainer.js";
 import SampleForms from "./components/SampleForms.js";
@@ -21,7 +19,6 @@ const languages = [
 
 const App = () => {
   const [previous, setPrevious] = useState("Back");
-  const [instructions, setInstructions] = useState("Instructions");
   const [faq, setFaq] = useState("FAQ");
   const [explainer, setExplainer] = useState("Explainer");
   const [sampleForms, setSampleForms] = useState("Sample Forms");
@@ -180,7 +177,7 @@ const App = () => {
           )}
         </div>
         <div className={infoComponent ? "hideCalendar" : "showCalendar"}>
-          <NewCalendar locale={lang} />
+          <Calendar locale={lang} />
         </div>
       </div>
     </>
@@ -188,37 +185,3 @@ const App = () => {
 };
 
 export default App;
-// <div className="App">
-// <header className="App-header">
-// <h2 className="title">Covid Childcare Co-op Creator</h2>
-// <div className="infoButtons">
-// {currentPage ? (
-// <button onClick={() => setPage(null)}>Home</button>
-// ) : (
-// <>
-// <button onClick={() => setPage("instructions")}>
-// {instructions}
-// </button>
-// <button onClick={() => setPage("faq")}>{faq}</button>
-// <button onClick={() => setPage("explainer")}>{explainer}</button>
-// <button onClick={() => setPage("sampleforms")}>
-// {sampleForms}
-// </button>
-// </>
-// )}
-// </div>
-// <div className="info">{infoComponent && infoComponent}</div>
-// <div className={infoComponent ? "hideCalendar" : "showCalendar"}>
-// <Calendar locale={lang} />
-// </div>
-// </header>
-// <footer>
-// <button onClick={() => setPage(currentPage, enUS)}>english</button>
-// <button onClick={() => setPage(currentPage, es)}>español</button>
-// <button onClick={() => setPage(currentPage, zhCN)}>中文</button>
-// <button onClick={() => setPage(currentPage, pt)}>português</button>
-// <button onClick={() => setPage(currentPage, fr)}>français</button>
-// <button onClick={() => setPage(currentPage, de)}>Deutsche</button>
-// <button onClick={() => setPage(currentPage, el)}>ελληνικά</button>
-// </footer>
-// </div>

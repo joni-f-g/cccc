@@ -43,7 +43,6 @@ const Family = ({
   }
   const [families, setFamilies] = useState(familyNames || null);
   const [numberOfFamilies, setNumberOfFamilies] = useState(4);
-  const [currentLang, setCurrentLang] = useState(null);
   const [selectedFamily, setSelectedFamily] = useState(
     families ? families[0] : null
   );
@@ -69,7 +68,10 @@ const Family = ({
     <>
       <div className="col-xs-12 col-md-3">
         <div className="form-group form-inline">
-          <label for="familyNumber" style={{ fontSize: "14px", width: "75%" }}>
+          <label
+            htmlFor="familyNumber"
+            style={{ fontSize: "14px", width: "75%" }}
+          >
             {numberOfCaregivers}
           </label>
           <input
@@ -77,6 +79,8 @@ const Family = ({
             style={{ textAlign: "right", width: "25%" }}
             className="form-control"
             type="number"
+            min="1"
+            max="7"
             value={numberOfFamilies}
             onChange={e => setFamilyConfig(parseInt(e.target.value))}
           />

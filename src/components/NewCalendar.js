@@ -224,22 +224,6 @@ const Calendar = ({ locale }) => {
     navigator.clipboard.writeText(link || "");
   };
 
-  const header = () => {
-    const dateFormat = "MMM yyyy";
-    return (
-      <div style={{ display: "flex" }}>
-        <div className="icon" onClick={prevMonth}>
-          {`<-`}
-        </div>
-        <div>
-          <span>{format(currentDate, dateFormat, { locale })}</span>
-        </div>
-        <div className="icon" onClick={nextMonth}>
-          {`->`}
-        </div>
-      </div>
-    );
-  };
   const days = () => {
     const dateFormat = "EEE";
     const days = [];
@@ -299,11 +283,13 @@ const Calendar = ({ locale }) => {
   };
 
   const nextMonth = () => {
-    setCurrentDate(addMonths(currentDate, 1));
+    setCurrentDate(startOfMonth(addMonths(currentDate, 1)));
+    setLatestDate(endOfWeek(endOfMonth(addMonths(currentDate, 1))));
   };
 
   const prevMonth = () => {
-    setCurrentDate(subMonths(currentDate, 1));
+    setCurrentDate(startOfMonth(subMonths(currentDate, 1)));
+    setLatestDate(endOfWeek(endOfMonth(subMonths(currentDate, 1))));
   };
 
   const onDateClick = day => {
@@ -311,7 +297,8 @@ const Calendar = ({ locale }) => {
       currentFamily &&
       !(isWeekend(day) && !enableWeekends) &&
       !showSchedule &&
-      (isSameDay(day, today) || isAfter(day, today))
+      (isSameDay(day, startOfWeek(currentDate)) ||
+        isAfter(day, startOfWeek(currentDate)))
     ) {
       const availabilityUpdate = availabilities;
       if (availabilities[currentFamily.id].some(d => isSameDay(d, day))) {
@@ -335,9 +322,15 @@ const Calendar = ({ locale }) => {
       !(isWeekend(day) && !enableWeekends) &&
       !showSchedule
     ) {
+      const monthStart = startOfMonth(currentDate);
+      const monthEnd = endOfMonth(monthStart);
+      const endDate = endOfWeek(monthEnd);
       let weekday = day;
       const availabilityUpdate = availabilities;
-      if (!isAfter(weekday, today) && !isSameDay(weekday, today)) {
+      if (
+        !isAfter(weekday, startOfWeek(currentDate)) &&
+        !isSameDay(weekday, startOfWeek(currentDate))
+      ) {
         weekday = addDays(weekday, 7);
       }
       while (weekday <= endDate) {
@@ -393,62 +386,14 @@ const Calendar = ({ locale }) => {
           </div>
           <div className="col-md-9 Calendar-Nav">
             <div className="row">
-              <div id="prev" className="text-btn" onClick={prevMonth}>
+              <div id="prev" className="text-btn chev" onClick={prevMonth}>
                 <i className="fas fa-chevron-left" />
               </div>
-              <div id="next" className="text-btn" onClick={nextMonth}>
+              <div id="next" className="text-btn chev" onClick={nextMonth}>
                 <i className="fas fa-chevron-right" />
               </div>
-              <div id="week" className="dropdown">
-                <a
-                  className="dropdown-toggle date"
-                  href="#"
-                  role="button"
-                  id="dropdownMenuLink"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  {format(currentDate, "MMM yyyy", { locale })}
-                </a>
-                <div
-                  className="dropdown-menu"
-                  aria-labelledby="dropdownMenuLink"
-                >
-                  <a className="dropdown-item" href="#">
-                    March
-                  </a>
-                  <a className="dropdown-item" href="#">
-                    April
-                  </a>
-                  <a className="dropdown-item" href="#">
-                    May
-                  </a>
-                </div>
-              </div>
-              <div id="year" className="dropdown">
-                <a
-                  className="dropdown-toggle date"
-                  href="#"
-                  role="button"
-                  id="dropdownMenuLink"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  2020
-                </a>
-                <div
-                  className="dropdown-menu"
-                  aria-labelledby="dropdownMenuLink"
-                >
-                  <a className="dropdown-item" href="#">
-                    2020
-                  </a>
-                  <a className="dropdown-item" href="#">
-                    2021
-                  </a>
-                </div>
+              <div id="week" className="dropdown date">
+                {format(currentDate, "MMM yyyy", { locale })}
               </div>
               <div id="right-top-cal-options" className="ml-auto">
                 <input
@@ -478,7 +423,9 @@ const Calendar = ({ locale }) => {
           <div className="col-md-3" />
           <div className="col-md-9">
             <div className="form-inline">
-              <label for="current-family">Editing unavailability for:</label>
+              <label htmlFor="current-family">
+                Editing unavailability for:
+              </label>
               <div
                 className={`current-family ${
                   currentFamily ? `currentFamily${currentFamily.id}` : ""
@@ -539,7 +486,7 @@ const Calendar = ({ locale }) => {
             </div>
             <hr className="solid" />
             <div id="links">
-              <button
+              <a
                 type="button"
                 id="download-schedule"
                 className="w-100 btn btn-info link"
@@ -556,7 +503,7 @@ const Calendar = ({ locale }) => {
                 }
               >
                 {downloadSchedule}
-              </button>
+              </a>
               <input
                 type="button"
                 id="copy-link"

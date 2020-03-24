@@ -91,3 +91,7 @@ table.cal tbody td.weekend {
   height: 0.5vmin;
   width: 100%;
 }
+
+.chev {
+  align-self: center;
+}

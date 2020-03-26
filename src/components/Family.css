@@ -5,12 +5,14 @@
 .colorbox {
   width: 15%;
   padding-top: 15%;
+  cursor: pointer;
 }
 
 .namebox {
   width: 85%;
   display: flex;
   overflow: hidden;
+  justify-content: space-between;
 }
 
 .name {
@@ -23,6 +25,11 @@
   border: 0px;
 }
 
+.edit {
+  align-self: center;
+  padding-right: 10px;
+}
+
 div.addfamily div.namebox div.name {
   position: relative;
   color: #b0bcc9;
@@ -31,12 +38,16 @@ div.addfamily div.namebox div.name {
   font-size: 12px;
   transform: translateY(-50%);
   font-weight: bold;
+  align-self: flex-start;
+}
+
+.addfamily {
+  cursor: pointer;
 }
 
 .family {
   border: 1px solid #f1f5f9;
   margin-bottom: 15px;
-  cursor: pointer;
 }
 
 .currentColor0 {

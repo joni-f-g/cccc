@@ -167,11 +167,15 @@ const App = () => {
         <div className="info">
           {infoComponent && (
             <>
-              <i
-                className="fas fa-long-arrow-alt-left"
+              <div
+                className="back text-btn"
+                role="button"
+                tabIndex="0"
                 onClick={() => setPage(null)}
-              />{" "}
-              {previous}
+              >
+                <i className="fas fa-long-arrow-alt-left" />
+                {" " + previous}
+              </div>
               <div>{infoComponent}</div>
             </>
           )}

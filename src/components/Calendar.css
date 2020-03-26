@@ -1,16 +1,15 @@
 .instructions {
   color: black;
   font-weight: bold;
+  text-align: left;
+  cursor: pointer;
   background: #f1f5f9;
   border: 2px;
 }
 
-.text-btn {
-  font-weight: bold;
-  font-size: 16px;
-  margin: 6px;
-  line-height: 20px;
-  color: #2d65f1 !important;
+.instructionChev {
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .date {
@@ -26,8 +25,32 @@
   color: #000000 !important;
 }
 
-.Calendar {
+.advancedOptions {
   margin-top: 20px;
+}
+
+.pickers {
+  display: flex;
+}
+
+.range {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.datesMenu {
+  overflow-y: scroll;
+  height: 400px;
+}
+
+.calendar {
+  margin-top: 20px;
+}
+
+.calendarMain {
+  margin-top: 15px;
 }
 
 table.cal {
@@ -42,6 +65,7 @@ table.cal tbody td {
   width: 113px;
   padding: 3px;
   border-color: #f1f5f9;
+  text-align: right;
 }
 
 div.day {
@@ -67,6 +91,12 @@ table.cal thead th {
 
 table.cal tbody td.weekend {
   background: #f1f5f9;
+}
+
+.nextMonth {
+  text-align: left;
+  position: absolute;
+  font-weight: 600;
 }
 
 #links {

@@ -1,19 +1,7 @@
-/* .App { */
-/* text-align: center; */
-/* } */
-
-/* .App-header { */
-/* min-height: 100vh; */
-/* display: flex; */
-/* flex-direction: column; */
-/* align-items: center; */
-/* justify-content: center; */
-/* font-size: calc(10px + 2vmin); */
-/* } */
-
-/* .App-link { */
-/* color: #61dafb; */
-/* } */
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
 
 .hideCalendar {
   display: none;
@@ -22,28 +10,6 @@
 .showCalendar {
   display: block;
 }
-
-/* .info { */
-/* text-align: left; */
-/* width: 80%; */
-/* } */
-
-/* .infoButtons { */
-/* display: flex; */
-/* flex-wrap: wrap; */
-/* } */
-
-/* button { */
-/* border: 2px solid #4f3dfe; */
-/* padding: 0.5rem; */
-/* margin: 0.5rem; */
-/* cursor: pointer; */
-/* } */
-
-/* .title { */
-/* color: #4f3dfe; */
-/* font-style: italic; */
-/* } */
 
 .color0 {
   background: #f37942;
@@ -127,6 +93,15 @@ a.dropdown-toggle:hover {
   text-decoration: none;
 }
 
+.text-btn {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 6px;
+  line-height: 20px;
+  color: #2d65f1 !important;
+  cursor: pointer;
+}
+
 .Navigation {
   padding-left: 4%;
   padding-right: 4%;
@@ -143,4 +118,9 @@ body {
 
 .current-family {
   margin-left: 10px;
+}
+
+.back {
+  margin-bottom: 15px;
+  width: fit-content;
 }

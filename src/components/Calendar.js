@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import {
   addDays,
-  addWeeks,
   subDays,
   endOfMonth,
   format,
   startOfToday,
   startOfWeek,
   startOfMonth,
-  startOfYear,
   endOfWeek,
   isAfter,
   isSameDay,
@@ -35,6 +33,7 @@ const colors = [
 ];
 
 const Calendar = ({ locale }) => {
+  let advancedOptions;
   let instructions;
   let weekendsNo;
   let weekendsYes;
@@ -44,9 +43,15 @@ const Calendar = ({ locale }) => {
   let downloadSchedule;
   let linkCalendar;
   let linkCopied;
+  let family;
 
   switch (locale ? locale.code : "en-US") {
     case "es":
+      advancedOptions = {
+        toggle: "Advanced Options",
+        startDate: "Start Date",
+        endDate: "End Date"
+      };
       instructions = "Instrucciones";
       weekendsNo = "Fin de Semanas NO";
       weekendsYes = "Fin de Semanas SI";
@@ -56,8 +61,14 @@ const Calendar = ({ locale }) => {
       downloadSchedule = "descargar horario";
       linkCalendar = "enlace a horario";
       linkCopied = "enlace es copiado";
+      family = "Familia";
       break;
     case "zh-CN":
+      advancedOptions = {
+        toggle: "Advanced Options",
+        startDate: "Start Date",
+        endDate: "End Date"
+      };
       instructions = "使用指南";
       weekendsNo = "不包括周末";
       weekendsYes = "包括周末";
@@ -67,8 +78,14 @@ const Calendar = ({ locale }) => {
       downloadSchedule = "下载日程";
       linkCalendar = "链接日程";
       linkCopied = "链接已复制";
+      family = "家庭";
       break;
     case "pt":
+      advancedOptions = {
+        toggle: "Advanced Options",
+        startDate: "Start Date",
+        endDate: "End Date"
+      };
       instructions = "Instruções";
       weekendsNo = "Fins-de-semana NÃO";
       weekendsYes = "Fins-de-semana SIM";
@@ -78,8 +95,14 @@ const Calendar = ({ locale }) => {
       downloadSchedule = "Fazer download do horário";
       linkCalendar = "Fazer link do calendário";
       linkCopied = "Link copiado";
+      family = "Família";
       break;
     case "de":
+      advancedOptions = {
+        toggle: "Advanced Options",
+        startDate: "Start Date",
+        endDate: "End Date"
+      };
       instructions = "Anleitung";
       weekendsNo = "Wochenenden NEIN";
       weekendsYes = "Wochenenden JA";
@@ -89,8 +112,14 @@ const Calendar = ({ locale }) => {
       downloadSchedule = "Zeitplan herunterladen";
       linkCalendar = "Verknüpfe Kalendar";
       linkCopied = "Link kopiert";
+      family = "Familie";
       break;
     case "fr":
+      advancedOptions = {
+        toggle: "Advanced Options",
+        startDate: "Start Date",
+        endDate: "End Date"
+      };
       instructions = "Instructions";
       weekendsNo = "Weekends NON";
       weekendsYes = "Weekends OUI";
@@ -100,8 +129,14 @@ const Calendar = ({ locale }) => {
       downloadSchedule = "Télécharger l'Horaire";
       linkCalendar = "Lien à l'Emploi du Temps";
       linkCopied = "Lien Copié";
+      family = "Famille";
       break;
     case "el":
+      advancedOptions = {
+        toggle: "Advanced Options",
+        startDate: "Start Date",
+        endDate: "End Date"
+      };
       instructions = "Οδηγίες";
       weekendsNo = "Σ/Κ Μη ενεργοποιημένα";
       weekendsYes = "Σ/Κ Ενεργοποιημένα";
@@ -111,8 +146,14 @@ const Calendar = ({ locale }) => {
       downloadSchedule = "Κατέβαστε το πρόγραμμα";
       linkCalendar = "Σύνδεση ημερολογίου";
       linkCopied = "Αντιγραφή συνδέσμου";
+      family = "Οικογένεια";
       break;
     default:
+      advancedOptions = {
+        toggle: "Advanced Options",
+        startDate: "Start Date",
+        endDate: "End Date"
+      };
       instructions = "Instructions";
       weekendsNo = "Disable Weekends";
       weekendsYes = "Enable Weekends";
@@ -122,6 +163,7 @@ const Calendar = ({ locale }) => {
       downloadSchedule = "Download Schedule";
       linkCalendar = "Generate Link";
       linkCopied = "✔ Link Copied!";
+      family = "Family";
   }
 
   const today = startOfToday();
@@ -130,26 +172,56 @@ const Calendar = ({ locale }) => {
   const endDate = endOfWeek(monthEnd);
   const search = QueryString.parse(window.location.search);
   const [availabilities, setAvailabilities] = useState(
-    search.availabilities ? JSON.parse(search.availabilities) : []
+    search.availabilities ? JSON.parse(search.availabilities) : [[], [], [], []]
   );
   const [assignments, setAssignments] = useState(search.assignments || []);
   const [latestDate, setLatestDate] = useState(endDate);
   const [currentDate, setCurrentDate] = useState(
     search.currentDate ? new Date(search.currentDate) : new Date()
   );
-  const [familyNames, setFamilyNames] = useState(
-    search.familyNames ? JSON.parse(search.familyNames) : null
+  const [families, setFamilies] = useState(
+    search.families
+      ? JSON.parse(search.families)
+      : [
+          { id: 0, value: `${family} #1` },
+          { id: 1, value: `${family} #2` },
+          { id: 2, value: `${family} #3` },
+          { id: 3, value: `${family} #4` }
+        ]
   );
   const [enableWeekends, setEnableWeekends] = useState(
     search.enableWeekends ? search.enableWeekends === "true" : false
   );
   const [showSchedule, setShowSchedule] = useState(
-    search.showSchedule || false
+    search.showSchedule ? search.showSchedule === "true" : false
   );
+  const [showAdvancedOptions, setShowAdvancedOptions] = useState(false);
   const [currentFamily, setCurrentFamily] = useState(
-    familyNames ? familyNames[0] : null
+    families ? families[0] : null
   );
   const [shareLink, setShareLink] = useState(null);
+  const [showInstructions, setShowInstructions] = useState(false);
+
+  // Set dates for start/end date pickers
+  const startDates = [];
+  const endDates = [];
+  (() => {
+    let day = addDays(currentDate, 1);
+    while (day < latestDate) {
+      const cloneDay = day;
+      startDates.push(cloneDay);
+      day = addDays(day, 1);
+    }
+  })();
+
+  (() => {
+    let day = addDays(latestDate, 1);
+    while (day <= endOfMonth(addMonths(latestDate, 1))) {
+      const cloneDay = day;
+      endDates.push(cloneDay);
+      day = addDays(day, 1);
+    }
+  })();
 
   const isAvailability = (fam, index, day) => {
     const dayAfterToday = addDays(today, index);
@@ -164,7 +236,7 @@ const Calendar = ({ locale }) => {
   };
 
   const isUnavailable = (family, day) =>
-    family.some(unavailableDay => isSameDay(unavailableDay, day));
+    family.some(unavailableDay => isSameDay(new Date(unavailableDay), day));
 
   const getCellStyle = (day, disabled) => {
     let style = "";
@@ -198,7 +270,10 @@ const Calendar = ({ locale }) => {
       });
     } else {
       assignments.forEach((famScheduled, i) => {
-        if (isAvailability(famScheduled, i, day)) {
+        if (famScheduled === -1) {
+          style =
+            "linear-gradient(to bottom right,  transparent calc(50% - 1px), red, transparent calc(50% + 1px))";
+        } else if (isAvailability(famScheduled, i, day)) {
           style = colors[famScheduled];
         }
       });
@@ -215,7 +290,7 @@ const Calendar = ({ locale }) => {
           availabilities: JSON.stringify(availabilities),
           assignments,
           currentDate,
-          familyNames: JSON.stringify(familyNames),
+          families: JSON.stringify(families),
           enableWeekends,
           showSchedule
         });
@@ -300,13 +375,14 @@ const Calendar = ({ locale }) => {
         isAfter(day, startOfWeek(currentDate)))
     ) {
       const availabilityUpdate = availabilities;
-      if (availabilities[currentFamily.id].some(d => isSameDay(d, day))) {
-        const indexToRemove = availabilityUpdate[currentFamily.id].findIndex(
-          d => isSameDay(d, day)
+      const index = families.findIndex(fam => fam.id === currentFamily.id);
+      if (availabilities[index].some(d => isSameDay(d, day))) {
+        const indexToRemove = availabilityUpdate[index].findIndex(d =>
+          isSameDay(d, day)
         );
-        availabilityUpdate[currentFamily.id].splice(indexToRemove, 1);
+        availabilityUpdate[index].splice(indexToRemove, 1);
       } else {
-        availabilityUpdate[currentFamily.id].push(day);
+        availabilityUpdate[index].push(day);
       }
       setAvailabilities([...availabilityUpdate]);
       if (isAfter(day, latestDate)) {
@@ -326,6 +402,7 @@ const Calendar = ({ locale }) => {
       const endDate = endOfWeek(monthEnd);
       let weekday = day;
       const availabilityUpdate = availabilities;
+      const index = families.findIndex(fam => fam.id === currentFamily.id);
       if (
         !isAfter(weekday, startOfWeek(currentDate)) &&
         !isSameDay(weekday, startOfWeek(currentDate))
@@ -334,15 +411,13 @@ const Calendar = ({ locale }) => {
       }
       while (weekday <= endDate) {
         const cloneDay = weekday;
-        if (
-          availabilities[currentFamily.id].some(d => isSameDay(d, cloneDay))
-        ) {
-          const indexToRemove = availabilityUpdate[currentFamily.id].findIndex(
-            d => isSameDay(d, cloneDay)
+        if (availabilities[index].some(d => isSameDay(d, cloneDay))) {
+          const indexToRemove = availabilityUpdate[index].findIndex(d =>
+            isSameDay(d, cloneDay)
           );
-          availabilityUpdate[currentFamily.id].splice(indexToRemove, 1);
+          availabilityUpdate[index].splice(indexToRemove, 1);
         } else {
-          availabilityUpdate[currentFamily.id].push(cloneDay);
+          availabilityUpdate[index].push(cloneDay);
         }
         weekday = addDays(weekday, 7);
       }
@@ -360,12 +435,19 @@ const Calendar = ({ locale }) => {
           <div className="dropdown show">
             <div
               className="w-100 btn instructions"
+              onClick={() => setShowInstructions(!showInstructions)}
               data-toggle="collapse"
               href="#instructions"
               role="button"
+              tabIndex="0"
               aria-expanded="false"
               aria-controls="collapseExample"
             >
+              <i
+                className={`fas instructionChev fa-chevron-${
+                  showInstructions ? "up" : "down"
+                }`}
+              />
               {instructions}
             </div>
             <div className="collapse" id="instructions">
@@ -376,7 +458,7 @@ const Calendar = ({ locale }) => {
           </div>
         </div>
       </div>
-      <div className="Calendar">
+      <div className="calendar">
         <div className="row Calendar-Top">
           <div className="col-xs-12 col-md-3 New-Sched">
             <div id="reset" className="text-btn">
@@ -385,10 +467,22 @@ const Calendar = ({ locale }) => {
           </div>
           <div className="col-md-9 Calendar-Nav">
             <div className="row">
-              <div id="prev" className="text-btn chev" onClick={prevMonth}>
+              <div
+                id="prev"
+                className="text-btn chev"
+                role="button"
+                tabIndex="0"
+                onClick={prevMonth}
+              >
                 <i className="fas fa-chevron-left" />
               </div>
-              <div id="next" className="text-btn chev" onClick={nextMonth}>
+              <div
+                id="next"
+                className="text-btn chev"
+                role="button"
+                tabIndex="0"
+                onClick={nextMonth}
+              >
                 <i className="fas fa-chevron-right" />
               </div>
               <div id="week" className="dropdown date">
@@ -402,7 +496,11 @@ const Calendar = ({ locale }) => {
                   value={createSchedule}
                   onClick={() => {
                     setAssignments(
-                      alg.generateSchedule(availabilities, latestDate)[0]
+                      alg.generateSchedule(
+                        availabilities,
+                        currentDate,
+                        latestDate
+                      )[0]
                     );
                     setShowSchedule(true);
                   }}
@@ -418,33 +516,204 @@ const Calendar = ({ locale }) => {
             </div>
           </div>
         </div>
-        <div className="row Current-Edit">
+        <div className="row advancedOptions">
           <div className="col-md-3" />
           <div className="col-md-9">
-            <div className="form-inline">
-              <label htmlFor="current-family">
-                Editing unavailability for:
-              </label>
+            <div className="row">
               <div
-                className={`current-family ${
-                  currentFamily ? `currentFamily${currentFamily.id}` : ""
-                }`}
-                id="current-family"
+                role="button"
+                tabIndex="0"
+                className="text-btn ml-auto"
+                onClick={() => setShowAdvancedOptions(!showAdvancedOptions)}
               >
-                {currentFamily && currentFamily.value}
+                {advancedOptions.toggle}
+                <i
+                  className={`fas instructionChev fa-chevron-${
+                    showAdvancedOptions ? "up" : "down"
+                  }`}
+                />
               </div>
             </div>
           </div>
         </div>
-        <div className="row Calendar-Main">
-          <Family
-            familyNames={familyNames}
-            locale={locale}
-            setAvailabilities={avail => setAvailabilities(avail)}
-            setCurrentFamily={fam => setCurrentFamily(fam)}
-            setFamilyNames={fams => setFamilyNames(fams)}
-            setShowSchedule={res => setShowSchedule(res)}
-          />
+        <div className="row">
+          <div className="col-md-3" />
+          <div className="col-md-9">
+            <div className="row">
+              {showAdvancedOptions && (
+                <div className="ml-auto pickers">
+                  <div id="week" className="dropdown range">
+                    {advancedOptions.startDate + ":"}
+                    <a
+                      className="dropdown-toggle date"
+                      href="#"
+                      role="button"
+                      id="dropdownMenuLink"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      {format(currentDate, "MMM dd", { locale })}
+                    </a>
+                    <div
+                      className="dropdown-menu datesMenu"
+                      aria-labelledby="dropdownMenuLink"
+                    >
+                      {startDates.map(date => (
+                        <a
+                          key={`${date}_start`}
+                          className="dropdown-item"
+                          href="#"
+                          onClick={() => setCurrentDate(date)}
+                        >
+                          {format(date, "MMM dd", { locale })}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                  <div id="week" className="dropdown range">
+                    {advancedOptions.endDate + ":"}
+                    <a
+                      className="dropdown-toggle date"
+                      href="#"
+                      role="button"
+                      id="dropdownMenuLink"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      {format(latestDate, "MMM dd", { locale })}
+                    </a>
+                    <div
+                      className="dropdown-menu datesMenu"
+                      aria-labelledby="dropdownMenuLink"
+                    >
+                      {endDates.map(date => (
+                        <a
+                          key={`${date}_end`}
+                          className="dropdown-item"
+                          href="#"
+                          onClick={() => setLatestDate(date)}
+                        >
+                          {format(date, "MMM dd", { locale })}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="row Current-Edit">
+          <div className="col-md-3" />
+          <div className="col-md-9">
+            <div className="row">
+              <div className="form-inline">
+                <label htmlFor="current-family">
+                  Editing unavailability for:
+                </label>
+                <div
+                  className={`current-family ${
+                    currentFamily
+                      ? `currentFamily${families.findIndex(
+                          fam => fam.id === currentFamily.id
+                        )}`
+                      : ""
+                  }`}
+                  id="current-family"
+                >
+                  {currentFamily && currentFamily.value}
+                </div>
+              </div>
+              <div
+                role="button"
+                tabIndex="0"
+                className="text-btn ml-auto"
+                onClick={() => setEnableWeekends(!enableWeekends)}
+              >
+                {enableWeekends ? weekendsNo : weekendsYes}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row calendarMain">
+          <div className="col-xs-12 col-md-3">
+            {families &&
+              families.length &&
+              families.map((fam, i) => (
+                <div key={i} className="family row">
+                  <div
+                    className={`colorbox color${i}`}
+                    onClick={() => {
+                      setCurrentFamily(fam);
+                    }}
+                  />
+                  <div
+                    className={`namebox${
+                      currentFamily && currentFamily.id === fam.id
+                        ? ` currentColor${i}`
+                        : ""
+                    }`}
+                  >
+                    <input
+                      className={`name${
+                        currentFamily && currentFamily.id === fam.id
+                          ? ` currentColor${i}`
+                          : ""
+                      }`}
+                      type="text"
+                      value={fam.value}
+                      onChange={e => {
+                        const fams = [...families];
+                        const updatedFam = {
+                          id: fam.id,
+                          value: e.target.value
+                        };
+                        const update = fams.splice(i, 1, updatedFam);
+                        setFamilies(fams);
+                      }}
+                    />
+                    {currentFamily && currentFamily.id === fam.id ? (
+                      <i className="fas fa-pencil-alt edit" />
+                    ) : (
+                      <i
+                        className="far fa-trash-alt edit"
+                        onClick={() => {
+                          const famUpdate = [...families];
+                          famUpdate.splice(i, 1);
+                          setFamilies(famUpdate);
+                          const availabilitiesUpdate = [...availabilities];
+                          availabilitiesUpdate.splice(i, 1);
+                          setAvailabilities(availabilitiesUpdate);
+                        }}
+                      />
+                    )}
+                  </div>
+                </div>
+              ))}
+            {families.length < 7 && (
+              <div
+                className="addfamily row"
+                onClick={() => {
+                  setFamilies([
+                    ...families,
+                    {
+                      id: families[families.length - 1].id + 1,
+                      value: `${family} #${families.length + 1}`
+                    }
+                  ]);
+                  setAvailabilities([...availabilities, []]);
+                }}
+              >
+                <div className="colorbox" style={{ background: "#F1F5F9" }} />
+                <div className="namebox" style={{ background: "white" }}>
+                  <div className="name">+ Add Name</div>
+                </div>
+              </div>
+            )}
+          </div>
+
           <div className="col-md-9">
             <table id="av_cal" className="cal table table-bordered">
               <colgroup>
@@ -460,29 +729,6 @@ const Calendar = ({ locale }) => {
         <div className="row">
           <div className="col-md-3" />
           <div className="col-xs-12 col-md-9">
-            <div className="row">
-              <div
-                id="reset"
-                role="button"
-                tabIndex="0"
-                className="text-btn"
-                onClick={() => setEnableWeekends(!enableWeekends)}
-              >
-                {enableWeekends ? weekendsNo : weekendsYes}
-              </div>
-              <input
-                type="button"
-                id="schedule"
-                className="ml-auto btn btn-primary"
-                value={createSchedule}
-                onClick={() => {
-                  setAssignments(
-                    alg.generateSchedule(availabilities, latestDate)[0]
-                  );
-                  setShowSchedule(true);
-                }}
-              />
-            </div>
             <hr className="solid" />
             <div id="links">
               <a
@@ -495,7 +741,7 @@ const Calendar = ({ locale }) => {
                 onClick={() =>
                   downloadCalendar(
                     assignments,
-                    familyNames,
+                    families,
                     currentDate,
                     enableWeekends
                   )

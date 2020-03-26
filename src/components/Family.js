@@ -124,6 +124,10 @@ const Family = ({
                     setFamilyNames(update);
                   }}
                 />
+                {selectedFamily &&
+                  selectedFamily.id === i && (
+                    <i class="fas fa-pencil-alt edit" />
+                  )}
               </div>
             </div>
           ))}

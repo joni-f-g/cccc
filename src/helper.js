@@ -13,10 +13,10 @@ import {
 import { computeSchedule } from "ccc-solver";
 
 export const alg = {
-  generateSchedule: (unavailabilities, latestDate) => {
+  generateSchedule: (unavailabilities, currentDate, latestDate) => {
     const availabilities = [];
     const numberOfFamilies = unavailabilities.length;
-    let day = startOfToday();
+    let day = currentDate;
     while (!isAfter(day, latestDate)) {
       const cloneDay = day;
       const availabilityOnDay = unavailabilities.reduce((acc, curr, i) => {

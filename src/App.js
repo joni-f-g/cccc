@@ -184,6 +184,37 @@ const App = () => {
           <Calendar locale={lang} />
         </div>
       </div>
+      <footer>
+        <hr className="solid" />
+        <div className="footer-copyright text-center py-3">
+          <div className="text-btn">
+            <a href="mailto:covidchildcarecoop@gmail.com">Contact Us</a>
+          </div>
+          <div>© 2020 MIT License</div>
+          <div className="attributions">
+            <a href="https://www.twitter.com/bigmeaninternet">
+              @bigmeaninternet
+            </a>
+            <a href="https://github.com/arsenyosemin">arsenyosemin</a>
+            <a href="https://www.twitter.com/ithekai">@ithekai</a>
+            <a href="https://www.twitter.com/janedotx">@janedotx</a>
+            <a href="https://www.twitter.com/drldcsta">@drldcsta</a>
+            <a href="https://www.twitter.com/chrismdesa">@chrismdesa</a>
+            <a href="https://www.twitter.com/engelxiety">@engelxiety</a>
+            <a href="https://www.twitter.com/notsklawface">@notsklawface</a>
+            <a href="https://www.twitter.com/conniekang">@conniekang</a>
+            <a href="https://www.twitter.com/marinfanjoylabrenz">
+              @marinfanjoylabrenz
+            </a>
+            <a href="https://www.twitter.com/MiriamPensack">@MiriamPensack</a>
+            <a href="https://www.twitter.com/gabriela_maryse">
+              @gabriela_maryse
+            </a>
+            <a href="https://www.twitter.com/zamarinwahdat">@zamarinwahdat</a>
+            <a href="https://www.twitter.com/sophiawilhelm_">@sophiawilhelm_</a>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };

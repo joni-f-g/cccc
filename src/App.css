@@ -124,3 +124,13 @@ body {
   margin-bottom: 15px;
   width: fit-content;
 }
+
+.attributions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.attributions > a {
+  margin: 10px;
+}

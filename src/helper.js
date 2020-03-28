@@ -13,15 +13,24 @@ import {
 import { computeSchedule } from "ccc-solver";
 
 export const alg = {
-  generateSchedule: (unavailabilities, currentDate, latestDate) => {
+  generateSchedule: (
+    unavailabilities,
+    currentDate,
+    latestDate,
+    enableWeekends
+  ) => {
     const availabilities = [];
     const numberOfFamilies = unavailabilities.length;
     let day = currentDate;
-    while (!isAfter(day, latestDate)) {
+    while (!isAfter(day, latestDate) || isSameDay(day, latestDate)) {
       const cloneDay = day;
       const availabilityOnDay = unavailabilities.reduce((acc, curr, i) => {
-        if (!curr.some(unavailableDay => isSameDay(unavailableDay, cloneDay))) {
-          acc.push(i);
+        if (!(isWeekend(cloneDay) && !enableWeekends)) {
+          if (
+            !curr.some(unavailableDay => isSameDay(unavailableDay, cloneDay))
+          ) {
+            acc.push(i);
+          }
         }
         return acc;
       }, []);
@@ -35,14 +44,15 @@ export const alg = {
 export const downloadCalendar = (
   schedule,
   families,
-  currentDate,
+  startDate,
+  endDate,
   enableWeekends
 ) => {
   const today = startOfToday();
-  const monthStart = startOfMonth(currentDate);
-  const monthEnd = endOfMonth(monthStart);
-  const startDate = startOfWeek(monthStart);
-  const endDate = endOfWeek(monthEnd);
+  const monthStart = startOfMonth(startDate);
+  const monthEnd = endOfMonth(endDate);
+  const calStart = startOfWeek(monthStart);
+  const calEnd = endOfWeek(monthEnd);
   const isAvailability = (index, day) => {
     const dayAfterToday = addDays(today, index);
     if (isSameDay(day, dayAfterToday) && !(isWeekend(day) && !enableWeekends)) {
@@ -50,10 +60,10 @@ export const downloadCalendar = (
     }
     return false;
   };
-  let day = startDate;
+  let day = calStart;
   let text = `<div class="calendar"><span class="day-name">Sun</span><span class="day-name">Mon</span><span class="day-name">Tue</span><span class="day-name">Wed</span><span class="day-name">Thu</span><span class="day-name">Fri</span><span class="day-name">Sat</span>`;
   let formattedDate = "";
-  while (day <= endDate) {
+  while (day <= calEnd) {
     formattedDate = `${format(day, "M")}/${format(day, "d")}`;
     const cloneDay = day;
     const disabled = isWeekend(cloneDay) && !enableWeekends;

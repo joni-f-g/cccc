@@ -167,18 +167,20 @@ const Calendar = ({ locale }) => {
   }
 
   const today = startOfToday();
-  const monthStart = startOfMonth(today);
-  const monthEnd = endOfMonth(monthStart);
-  const endDate = endOfWeek(monthEnd);
   const search = QueryString.parse(window.location.search);
   const [availabilities, setAvailabilities] = useState(
     search.availabilities ? JSON.parse(search.availabilities) : [[], [], [], []]
   );
   const [assignments, setAssignments] = useState(search.assignments || []);
-  const [latestDate, setLatestDate] = useState(endDate);
-  const [currentDate, setCurrentDate] = useState(
-    search.currentDate ? new Date(search.currentDate) : new Date()
+
+  const [monthStart, setMonthStart] = useState(startOfMonth(today));
+  const [monthEnd, setMonthEnd] = useState(
+    endOfWeek(endOfMonth(startOfMonth(today)))
   );
+  const [startDate, setStartDate] = useState(
+    search.startDate ? new Date(search.startDate) : new Date()
+  );
+  const [endDate, setEndDate] = useState(monthEnd);
   const [families, setFamilies] = useState(
     search.families
       ? JSON.parse(search.families)
@@ -206,8 +208,8 @@ const Calendar = ({ locale }) => {
   const startDates = [];
   const endDates = [];
   (() => {
-    let day = addDays(currentDate, 1);
-    while (day < latestDate) {
+    let day = addDays(startDate, 1);
+    while (day < endDate) {
       const cloneDay = day;
       startDates.push(cloneDay);
       day = addDays(day, 1);
@@ -215,8 +217,8 @@ const Calendar = ({ locale }) => {
   })();
 
   (() => {
-    let day = addDays(latestDate, 1);
-    while (day <= endOfMonth(addMonths(latestDate, 1))) {
+    let day = addDays(endDate, 1);
+    while (day <= endOfMonth(addMonths(endDate, 1))) {
       const cloneDay = day;
       endDates.push(cloneDay);
       day = addDays(day, 1);
@@ -224,12 +226,8 @@ const Calendar = ({ locale }) => {
   })();
 
   const isAvailability = (fam, index, day) => {
-    const dayAfterToday = addDays(today, index);
-    if (
-      isSameDay(day, dayAfterToday) &&
-      !(isWeekend(day) && !enableWeekends) &&
-      fam >= 0
-    ) {
+    const dayAfterToday = addDays(startDate, index);
+    if (isSameDay(day, dayAfterToday) && !(isWeekend(day) && !enableWeekends)) {
       return true;
     }
     return false;
@@ -269,14 +267,13 @@ const Calendar = ({ locale }) => {
         }
       });
     } else {
-      assignments.forEach((famScheduled, i) => {
-        if (famScheduled === -1) {
-          style =
-            "linear-gradient(to bottom right,  transparent calc(50% - 1px), red, transparent calc(50% + 1px))";
-        } else if (isAvailability(famScheduled, i, day)) {
-          style = colors[famScheduled];
-        }
-      });
+      const indexOfAssignment = assignments.find((famScheduled, i) =>
+        isAvailability(famScheduled, i, day)
+      );
+      style =
+        indexOfAssignment >= 0
+          ? colors[indexOfAssignment]
+          : "linear-gradient(to bottom right,  transparent calc(50% - 1px), red, transparent calc(50% + 1px))";
     }
     return { background: style };
   };
@@ -289,7 +286,7 @@ const Calendar = ({ locale }) => {
         QueryString.stringify({
           availabilities: JSON.stringify(availabilities),
           assignments,
-          currentDate,
+          startDate,
           families: JSON.stringify(families),
           enableWeekends,
           showSchedule
@@ -301,9 +298,9 @@ const Calendar = ({ locale }) => {
   const days = () => {
     const dateFormat = "EEE";
     const days = [];
-    let startDate = startOfWeek(currentDate);
+    let startDay = startOfWeek(startDate);
     for (let i = 0; i < 7; i++) {
-      const day = addDays(startDate, i);
+      const day = addDays(startDay, i);
       const disabled = isWeekend(day) && !enableWeekends;
       days.push(
         <th
@@ -319,16 +316,13 @@ const Calendar = ({ locale }) => {
     return <tr>{days}</tr>;
   };
   const cells = () => {
-    const monthStart = startOfMonth(currentDate);
-    const monthEnd = endOfMonth(monthStart);
-    const startDate = startOfWeek(monthStart);
-    const endDate = endOfWeek(monthEnd);
+    const calStart = startOfWeek(monthStart);
     const dateFormat = "d";
     const rows = [];
     let days = [];
-    let day = startDate;
+    let day = calStart;
     let formattedDate = "";
-    while (day <= endDate) {
+    while (day <= monthEnd) {
       for (let i = 0; i < 7; i++) {
         formattedDate = format(day, dateFormat, { locale });
         const cloneDay = day;
@@ -357,13 +351,19 @@ const Calendar = ({ locale }) => {
   };
 
   const nextMonth = () => {
-    setCurrentDate(startOfMonth(addMonths(currentDate, 1)));
-    setLatestDate(endOfWeek(endOfMonth(addMonths(currentDate, 1))));
+    const start = startOfMonth(addMonths(monthStart, 1));
+    const end = endOfWeek(endOfMonth(addMonths(monthStart, 1)));
+    setMonthEnd(end);
+    setMonthStart(start);
+    setEndDate(end);
   };
 
   const prevMonth = () => {
-    setCurrentDate(startOfMonth(subMonths(currentDate, 1)));
-    setLatestDate(endOfWeek(endOfMonth(subMonths(currentDate, 1))));
+    const start = startOfMonth(subMonths(monthStart, 1));
+    const end = endOfWeek(endOfMonth(subMonths(monthStart, 1)));
+    setMonthEnd(end);
+    setMonthStart(start);
+    setEndDate(end);
   };
 
   const onDateClick = day => {
@@ -371,8 +371,8 @@ const Calendar = ({ locale }) => {
       currentFamily &&
       !(isWeekend(day) && !enableWeekends) &&
       !showSchedule &&
-      (isSameDay(day, startOfWeek(currentDate)) ||
-        isAfter(day, startOfWeek(currentDate)))
+      (isSameDay(day, startOfWeek(startDate)) ||
+        isAfter(day, startOfWeek(startDate)))
     ) {
       const availabilityUpdate = availabilities;
       const index = families.findIndex(fam => fam.id === currentFamily.id);
@@ -385,8 +385,8 @@ const Calendar = ({ locale }) => {
         availabilityUpdate[index].push(day);
       }
       setAvailabilities([...availabilityUpdate]);
-      if (isAfter(day, latestDate)) {
-        setLatestDate(day);
+      if (isAfter(day, endDate)) {
+        setEndDate(day);
       }
     }
   };
@@ -397,15 +397,15 @@ const Calendar = ({ locale }) => {
       !(isWeekend(day) && !enableWeekends) &&
       !showSchedule
     ) {
-      const monthStart = startOfMonth(currentDate);
+      const monthStart = startOfMonth(startDate);
       const monthEnd = endOfMonth(monthStart);
       const endDate = endOfWeek(monthEnd);
       let weekday = day;
       const availabilityUpdate = availabilities;
       const index = families.findIndex(fam => fam.id === currentFamily.id);
       if (
-        !isAfter(weekday, startOfWeek(currentDate)) &&
-        !isSameDay(weekday, startOfWeek(currentDate))
+        !isAfter(weekday, startOfWeek(startDate)) &&
+        !isSameDay(weekday, startOfWeek(startDate))
       ) {
         weekday = addDays(weekday, 7);
       }
@@ -422,8 +422,8 @@ const Calendar = ({ locale }) => {
         weekday = addDays(weekday, 7);
       }
       setAvailabilities([...availabilityUpdate]);
-      if (isAfter(subDays(weekday, 7), latestDate)) {
-        setLatestDate(subDays(weekday, 7));
+      if (isAfter(subDays(weekday, 7), endDate)) {
+        setEndDate(subDays(weekday, 7));
       }
     }
   };
@@ -461,7 +461,15 @@ const Calendar = ({ locale }) => {
       <div className="calendar">
         <div className="row Calendar-Top">
           <div className="col-xs-12 col-md-3 New-Sched">
-            <div id="reset" className="text-btn">
+            <div
+              id="reset"
+              className="text-btn"
+              onClick={() => {
+                setAvailabilities(families.map(f => []));
+                setAssignments([]);
+                setShowSchedule(false);
+              }}
+            >
               + Start New Schedule
             </div>
           </div>
@@ -486,7 +494,7 @@ const Calendar = ({ locale }) => {
                 <i className="fas fa-chevron-right" />
               </div>
               <div id="week" className="dropdown date">
-                {format(currentDate, "MMM yyyy", { locale })}
+                {format(monthStart, "MMM yyyy", { locale })}
               </div>
               <div id="right-top-cal-options" className="ml-auto">
                 <input
@@ -498,8 +506,9 @@ const Calendar = ({ locale }) => {
                     setAssignments(
                       alg.generateSchedule(
                         availabilities,
-                        currentDate,
-                        latestDate
+                        startDate,
+                        endDate,
+                        enableWeekends
                       )[0]
                     );
                     setShowSchedule(true);
@@ -553,7 +562,7 @@ const Calendar = ({ locale }) => {
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      {format(currentDate, "MMM dd", { locale })}
+                      {format(startDate, "MMM dd", { locale })}
                     </a>
                     <div
                       className="dropdown-menu datesMenu"
@@ -564,7 +573,7 @@ const Calendar = ({ locale }) => {
                           key={`${date}_start`}
                           className="dropdown-item"
                           href="#"
-                          onClick={() => setCurrentDate(date)}
+                          onClick={() => setStartDate(date)}
                         >
                           {format(date, "MMM dd", { locale })}
                         </a>
@@ -582,7 +591,7 @@ const Calendar = ({ locale }) => {
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      {format(latestDate, "MMM dd", { locale })}
+                      {format(endDate, "MMM dd", { locale })}
                     </a>
                     <div
                       className="dropdown-menu datesMenu"
@@ -593,7 +602,7 @@ const Calendar = ({ locale }) => {
                           key={`${date}_end`}
                           className="dropdown-item"
                           href="#"
-                          onClick={() => setLatestDate(date)}
+                          onClick={() => setEndDate(date)}
                         >
                           {format(date, "MMM dd", { locale })}
                         </a>
@@ -742,7 +751,8 @@ const Calendar = ({ locale }) => {
                   downloadCalendar(
                     assignments,
                     families,
-                    currentDate,
+                    monthStart,
+                    monthEnd,
                     enableWeekends
                   )
                 }

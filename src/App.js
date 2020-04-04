@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { de, enUS, zhCN, el, es, fr, pt } from "date-fns/locale";
+import { de, enUS, zhCN, el, es, fr, pt, hi } from "date-fns/locale";
 import Calendar from "./components/Calendar.js";
 
 import FAQ from "./components/FAQ.js";
@@ -14,7 +14,8 @@ const languages = [
   { locale: pt, text: "Português" },
   { locale: fr, text: "Français" },
   { locale: de, text: "Deutsche" },
-  { locale: el, text: "ελληνικά" }
+  { locale: el, text: "ελληνικά" },
+  { locale: hi, text: "हिन्दी भाषा" }
 ];
 
 const App = () => {
@@ -91,6 +92,12 @@ const App = () => {
         setExplainer("Τι είναι;");
         setSampleForms("Φόρμες - παραδείγματα");
         break;
+      case "hi":
+        setPrevious("पिछला ");
+        setFaq("पूछे जाने वाले प्रश्न ");
+        setExplainer("उद्देश्य ");
+        setSampleForms("नमूना फार्");
+        break;
       default:
         setPrevious("Back");
         setFaq("FAQ");
@@ -108,7 +115,7 @@ const App = () => {
               className="title"
               role="button"
               tabIndex="0"
-              onClick={() => setPage(null)}
+              onClick={() => setPage(null, lang)}
             >
               CC<br style={{ lineHeight: "0px" }} />CC
             </div>&nbsp;<div style={{ lineHeight: "18px" }}>
@@ -142,21 +149,21 @@ const App = () => {
               className="headerLinks"
               role="button"
               tabIndex="0"
-              onClick={() => setPage("explainer")}
+              onClick={() => setPage("explainer", lang)}
             >
               {explainer}
             </div>
             <div
               className="headerLinks"
               tabIndex="0"
-              onClick={() => setPage("sampleforms")}
+              onClick={() => setPage("sampleforms", lang)}
             >
               {sampleForms}
             </div>
             <div
               className="headerLinks"
               tabIndex="0"
-              onClick={() => setPage("faq")}
+              onClick={() => setPage("faq", lang)}
             >
               {faq}
             </div>
@@ -171,7 +178,7 @@ const App = () => {
                 className="back text-btn"
                 role="button"
                 tabIndex="0"
-                onClick={() => setPage(null)}
+                onClick={() => setPage(null, lang)}
               >
                 <i className="fas fa-long-arrow-alt-left" />
                 {" " + previous}

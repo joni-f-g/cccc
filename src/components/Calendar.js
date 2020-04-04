@@ -148,6 +148,23 @@ const Calendar = ({ locale }) => {
       linkCopied = "Αντιγραφή συνδέσμου";
       family = "Οικογένεια";
       break;
+    case "hi":
+      advancedOptions = {
+        toggle: "Advanced Options",
+        startDate: "Start Date",
+        endDate: "End Date"
+      };
+      instructions = "अनुदेश";
+      weekendsNo = "सप्ताहांत बंद ";
+      weekendsYes = "सप्ताहांत खुला ";
+      scheduleYes = "Change Availabilities";
+      scheduleNo = "कार्यक्रम दिखाएँ ";
+      createSchedule = "शेड्यूल बना";
+      downloadSchedule = "डाउनलोड शेड्यू ";
+      linkCalendar = "लिंक कैलेंडर";
+      linkCopied = "लिंक कॉपी किया गया!";
+      family = "परिवार";
+      break;
     default:
       advancedOptions = {
         toggle: "Advanced Options",
@@ -204,6 +221,15 @@ const Calendar = ({ locale }) => {
   const [shareLink, setShareLink] = useState(null);
   const [showInstructions, setShowInstructions] = useState(false);
 
+  const famText = RegExp(family);
+  if (!famText.test(families[0].value)) {
+    const update = families.map((fam, i) => ({
+      id: fam.id,
+      value: `${family} #${i + 1}`
+    }));
+    setFamilies(update);
+  }
+
   // Set dates for start/end date pickers
   const startDates = [];
   const endDates = [];
@@ -218,6 +244,7 @@ const Calendar = ({ locale }) => {
 
   (() => {
     let day = addDays(endDate, 1);
+    endDates.push(...startDates);
     while (day <= endOfMonth(addMonths(endDate, 1))) {
       const cloneDay = day;
       endDates.push(cloneDay);
@@ -397,8 +424,6 @@ const Calendar = ({ locale }) => {
       !(isWeekend(day) && !enableWeekends) &&
       !showSchedule
     ) {
-      const monthStart = startOfMonth(startDate);
-      const monthEnd = endOfMonth(monthStart);
       const endDate = endOfWeek(monthEnd);
       let weekday = day;
       const availabilityUpdate = availabilities;
@@ -419,7 +444,7 @@ const Calendar = ({ locale }) => {
         } else {
           availabilityUpdate[index].push(cloneDay);
         }
-        weekday = addDays(weekday, 7);
+        weekday = addDays(cloneDay, 7);
       }
       setAvailabilities([...availabilityUpdate]);
       if (isAfter(subDays(weekday, 7), endDate)) {

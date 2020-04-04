@@ -645,6 +645,549 @@ const FAQ = ({ lang }) => (
         </p>
       </>
     )}
+    {lang.code === "de" && (
+      <>
+        <h4>Was ist das Covid Kinder Co-op Kreativ?</h4>
+
+        <p>
+          Das CCCC ist ein Hilfsprogramm, dass Elterngruppen und Lehrkräften
+          ermöglicht gegenseitig auf ihre Kinder aufzupassen. Da die Schulen und
+          Kindertagesstätten auf eine unbegrenzte Zeit geschlossen und das
+          Hilfspersonal sowie Lehrkräfte ausgeschöpft sind, bieten das Kinder
+          Coops die Möglichkeit sich gegenseitig zu unterstützen und eine
+          kollektive Kinderfürsorge zu gründen.
+        </p>
+
+        <h4>Was ist Covid Kinder Co Op?</h4>
+
+        <p>
+          Das Kinderbetreuungs Co-op basiert darauf, dass freiwillige Helfer
+          sich die Aufgabe teilen auf ihre Kinder gegenseitig aufzupassen. Das
+          Prinzip ist einfach. Anstatt dass ein Erwachsener fünf Tage die Woche
+          auf ein Kind aufpasst, passt ein Erwachsener in derselben Zeitspanne
+          auf fünf Kinder auf. Zum Beispiel können sich drei Familien darauf
+          einigen, dass sie auf ein Kind aufpassen, dessen Eltern arbeiten
+          müssen. Co-ops können viel Komplexer werden (und die Anzahl einer
+          ganzen Schule erreichen), aber wir entscheiden uns für eine einfache
+          und kleine Version.
+        </p>
+
+        <h4>Wie benutze ich das CCCC?</h4>
+
+        <p>
+          <strong>Erstens</strong>, finden Sie die Betreuung mit der sie
+          arbeiten möchten. Dies ist kein Soziales Netzwerk.{" "}
+          <strong>Zweitens</strong>, tragen Sie bitte im Kalender ein an welchen
+          Tagen die sie nicht verfügbar sind. (Teilen sie den Kalender indem Sie
+          auf die Teilen Taste klicken). <strong>Drittens</strong>, nachdem
+          jeder die Verfügbarkeit eingetragen hat, klicken sie auf “ Kalender
+          erstellen”. <strong>Viertens</strong>, änderen sie den persönlichen
+          Kalender je nach Verfügbarkeit. Achten sie vor allem auf Tage indem
+          niemand Verfügbar ist. <strong>Fünftens</strong>, teilen Sie ihren
+          Kalender mit dem Rest des Coops, indem Sie auf die“Teilen” Taste
+          klicken oder laden sie eine Kopie des Kalenders herunter.
+        </p>
+
+        <h4>Also markiere ich wenn ich nicht verfügbar bin?</h4>
+
+        <p>Ja, markieren sie auch ihre nichtverfügbarkeit.</p>
+
+        <h4>
+          Einer der Coop Mitglieder ist Arzt oder Krankenschwester und müssen
+          von M-F arbeiten. Wie können wir sie in dem CCCC integrieren? ”
+        </h4>
+
+        <p>
+          Einer der größten Herausforderungen in einem epidemischen Notfall ist,
+          wenn Schulen schließen und das Gesundheitspersonal zu Hause bleiben
+          muss um ihre Kinder zu betreuen. Das CCCC ermöglicht es Haushalten
+          anhand ihrer Arbeitszeiten die Verantwortung der Kinderbetreuung zu
+          teilen ohne Sie dabei unter Druck zu setzen Teil der Coop zu werden.
+          Wenn eine Coop Mitglied keine Zeit hat, muss er/sie den Kalender nicht
+          ausfüllen. Dieser Kalender funktioniert wie ein Gast Kalender und
+          jeder sollte eine Kopie bekommen. Das Prinzip von der CCCC ist “ zu
+          geben wer geben kann, und zu nehmen wer braucht”.
+        </p>
+
+        <h4>Was passiert wenn keiner Verfügbar ist an einem Tag?</h4>
+
+        <p>
+          Wenn das der Fall ist, müssen sie dies untereinander klären. Der
+          Kalender wird ihnen rechtzeitig anzeigen welche Tage betroffen sind.
+        </p>
+
+        <h4>Warum können nur sieben Familien teilnehmen?</h4>
+
+        <p>
+          Diese Zahl basiert auf die sozialen Richtlinien die wir bekommen
+          haben. Die Gruppen sollten möglichst klein gehalten werden. Wenn man
+          zum Beispiel eine Familie von acht ist (und sie dies organisieren
+          können) empfehlen wir ihnen sich in zwei Gruppen zu teilen und jeweils
+          eine Familie von vier zu gründen.
+        </p>
+
+        <h4>Was machen Sie mit den Daten? Wie ist die Datenschutzerklärung?</h4>
+
+        <p>
+          Das CCCC sammelt keine Daten. Sie müssen sich keine Sorgen machen dass
+          wir ihre Daten weitergeben für kommerzielle Zwecke. Ihre Daten werden
+          nur auf der CCCC URL mit ihrer Coop geteilt. So können sie ihre
+          Informationen sicher teilen ohne das wir jeglichen Zugang auf ihre
+          Daten haben.
+        </p>
+
+        <h4>
+          Why can’t I link my Google calendar? Can’t I do this with Google?
+        </h4>
+
+        <p>
+          Ja! Und wenn sie möchten können sie das gerne mit ihrem Google
+          Kalender oder einer anderen Plattform machen. Das CCCC ist eine
+          vereinfachte Form, dessen Design es ermöglicht einen einfachen Start
+          in die Kollektive Kinderbetreuung zu bekommen. Es ist keine neue APP
+          oder eine digitale Kommunikations Platform. Wenn Sie lieber mit einem
+          anderen Programm arbeiten, befürworten wir das.
+        </p>
+
+        <h4>
+          Können wir unseren Plan ändern wenn wir möchten? Tage tauschen oder
+          ersetzen?
+        </h4>
+
+        <p>
+          Ja klar! Das CCCC ist kein festgelegter Kalender. Es ermöglicht einem
+          nur einen guten Plan zu erstellen für die kommenden vier Wochen. Sie
+          können ihre Verfügbarkeit so oft wie möglich ändern. Wenn ihr Kalender
+          einmal geplant ist, können sie zwischen Farben wählen, wie beim ersten
+          Schritt bevor sie es teilen. Danach können sie es herunterladen und
+          teilen.
+        </p>
+
+        <h4>Ist das alles Legal?</h4>
+
+        <p>
+          Wenn Sie besorgt sind mit den staatliche Lizenzanforderungen,{" "}
+          <a href="https://www.co-oplaw.org/co-op-basics/types/childcare-cooperatives/">
+            besuchen sie auf dieser Seite
+          </a>{" "}
+          von der nachhaltigen wirtschaftlichen Gesetz Centrum um mehr
+          Informationen über die Situation zu erfahren. Wenn sie es nicht zu
+          kommerziellen Zwecken verwenden, ist die Coop legal.
+        </p>
+
+        <h4>
+          Würde eine Coop nicht meine Chancen erhöhen mich anzustecken, anstatt
+          einfach zu Hause zu bleiben mit meinen Kindern?
+        </h4>
+
+        <p>
+          Diese Frage ist schwer zu beantworten. Natürlich ist die erste
+          Reaktion ja: Desto weniger Kontakt man mit seinen Mitmenschen hat,
+          desto geringer ist die Chance sich anzustecken. Aber wir wissen auch
+          dass nicht jeder zu Hause bleiben kann um auf die Kinder aufzupassen.
+          Mit der Schliessung der Schulen wird es schwieriger für Familien ihren
+          Alltag zu meistern. Kleine Kooperationen wie das Coop ermöglichen es
+          die Regeln einzuhalten und Grosse Gruppen Mengen zu vermeiden. Vor
+          Allem in diesen Zeiten sind wir auf gegenseitige Hilfe angewiesen.
+          Natürlich ist es mit einem kleinen Risiko verbunden, aber es
+          verhindert das manche Familien alleine darstehen. In dieser Zeit
+          müssen wir sicherstellen dass unser Gesundheitssystem (und andere
+          Systeme wie die Müllabfuhr und Feuerwehr) weiter effizient arbeiten
+          können um die Infektionsrate niedrig zu halten. Um dies zu ermögliche
+          brauchen wir eine Kollektive Kinderbetreuung.
+        </p>
+
+        <p>
+          Bitte halten sie sich an die aktuellsten Anweisungen des
+          Gesundheitssystems und passen Sie nicht auf andere Kinder auf wenn sie
+          selber krank sind.
+        </p>
+
+        <h4>Wo kann ich mehr über das Kinderbetreuungs Kollektiv lernen?</h4>
+
+        <p>
+          Das Buch Bringing Families Together: A Guide to Parent Cooperatives
+          von E.Kim Coontz (geschrieben für die Universität von Kalifornien für
+          Kooperative) ist eine informative Quelle um mehr zu erfahren. Sie
+          können es als PDF auf Englisch hier herunterladen:{" "}
+          <a href="http://cccd.coop/bringing-families-together-part-i">
+            Part 1
+          </a>;{" "}
+          <a href="http://cccd.coop/bringing-families-together-part-ii">
+            Part 2
+          </a>;{" "}
+          <a href="http://cccd.coop/bringing-families-together-part-iii">
+            Part 3
+          </a>;{" "}
+          <a href="http://cccd.coop/bringing-families-together-part-iv">
+            Part 4
+          </a>.
+        </p>
+      </>
+    )}
+    {lang.code === "el" && (
+      <>
+        <h4>
+          Τι είναι ο Συνεταιρισμός των Γονιών την Εποχή του Κοροναϊού
+          (CCCC/Covid Childcare Co-op Creator);
+        </h4>
+
+        <p>
+          Ο συνεταιρισμός αυτός είναι ένα από εργαλείο που βοηθάει ομάδες γονιών
+          και άλλων ανθρώπων που φροντίζουν παιδιά να δημιουργήσουν αυτόματα ένα
+          πρόγραμμα για τη κοινή φροντίδα των παιδιών τους που να βολεύει όλους
+          βασισμένο στη διαθεσιμότητα του καθενός. Καθώς κλείνουν τα σχολεία επ’
+          αόριστον και δεν προσφέρουν βοήθεια στους γονείς, οι συνεταιρισμοί
+          ισορροπούν το βάρος (λεφτά και χρόνο) με την ανάγκη να περιοριστεί η
+          επαφή με τους άλλους ανθρώπους.
+        </p>
+
+        <h4>Τι είναι ένας συνεταιρισμός για την κοινή φροντίδα των παιδιών;</h4>
+
+        <p>
+          Ένας τέτοιος συνεταιρισμός έχει ως βάση μία ομάδα γονέων μοιράζονται
+          μεταξύ τους την ευθύνη για την φροντίδα των παιδιών τους. Αντί για,
+          παραδείγματος χάριν, πέντε γονείς να φροντίζουν ένα παιδί ο καθένας
+          τους κάθε μέρα, ένας γονιός φροντίζει πέντε παιδιά μία μέρα την
+          εβδομάδα. Ή τρεις οικογένειες επιλέγουν να βοηθήσουν μία τέταρτη
+          οικογένεια επειδή και οι δύο γονείς της τέταρτης οικογένειας πρέπει να
+          δουλεύουν κάθε μέρα. Οι συνεταιρισμοί μπορούν να είναι πιο σύνθετοι
+          (για παράδειγμα υπάρχουν ολόκληρα σχολεία που είναι συνεταιρισμοί),
+          αλλά εδώ σχεδιάσαμε έναν απλό συνεταιρισμό (για προφανείς λόγους).
+        </p>
+
+        <h4>Πώς χρησιμοποιώ το εργαλείο αυτό;</h4>
+
+        <p>
+          Πρώτα, βρείτε τους άλλους ανθρώπους με τους οποίους θα συνεργαστείτε.
+          Δεν είναι ένα οποιοδήποτε κοινωνικό δίκτυο. Μετά, συμπληρώστε το
+          ημερολόγιο με τις ημέρες που δεν είστε διαθέσιμος. (Μοιραστείτε ένα
+          πρόγραμμα σε διαδικασία με το κουμπί “Σύνδεση ημερολογίου”.) Τρίτον,
+          όταν όλοι σας έχετε συμπληρώσει την διαθεσιμότητά σας, δημιουργήστε το
+          πρόγραμμά σας πατώντας το κουμπί “Δημιουργία προγράμματος”.) Τέταρτον,
+          αλλάξτε το πρόγραμμά σας όπως θέλετε. Φροντίστε να μην υπάρχει καμία
+          μέρα όταν δεν είναι διαθέσιμος κανείς! Πέμπτον, μοιραστείτε το
+          πρόγραμμα με τους υπόλοιπους στην ομάδα σας χρησιμοποιώντας το κουμπί
+          “Κατεβάστε το πρόγραμμα”.
+        </p>
+
+        <h4>Άρα, σημειώνω τις ημέρες όταν δεν είμαι διαθέσιμος/η;</h4>
+        <p>Ναι, σημειώνετε τις ημέρες όταν δεν είστε διαθέσιμος/η.</p>
+
+        <h4>
+          Ένα μέλος του συνεταιρισμού μου είναι νοσοκόμα και δουλεύει Δευτέρα με
+          Παρασκευή. Πώς μπορούμε να την περιλάβουμε στο πρόγραμμα;
+        </h4>
+
+        <p>
+          Το μεγαλύτερο, ίσως, πρόβλημα με το κλείσιμο σχολείων σαν αντίδραση
+          μίας επιδημίας είναι ότι αναγκάζουν κάποιους ανθρώπους που δουλεύουν
+          στον ιατρικό τομέα να μένουν στο σπίτι με τα παιδιά τους όταν υπάρχει
+          μεγάλη ανάγκη να πηγαίνουν στις δουλειές τους. Ο σκοπός του εργαλείου
+          αυτού είναι να μοιράζεται η ευθύνη της φροντίδας των παιδιών με έναν
+          δίκαιο τρόπο βασισμένα στη διαθεσιμότητα του καθενός, αλλά δεν είναι
+          απαραίτητο να συμμετάσχετε στο πρόγραμμα για να είστε μέλος μίας
+          ομάδας. Εάν κάποιος δεν έχει καθόλου διαθεσιμότητα, απλά δεν σημειώνει
+          τίποτα στο ημερολόγιο. Σε μία τέτοια περίπτωση, είναι απλά ένα
+          πρόγραμμα που δείχνει ποιος θα φιλοξενήσει τα παιδιά κάθε μέρα, αλλά
+          να φροντίσετε να ενημερώνονται για το πρόγραμμα. Η πρώτη αρχή του
+          εργαλείου αυτού είναι “από τον καθένα ανάλογα με τις δυνατότητές του,
+          και για τον καθένα ανάλογα με τις ανάγκες του.”
+        </p>
+
+        <h4>Τι γίνεται εάν κάποια μέρα δεν είναι διαθέσιμος κανείς;</h4>
+
+        <p>
+          Αυτό το πρόβλημα θα πρέπει να το λύσετε μεταξύ σας, αλλά το εργαλείο
+          θα σας ενημερώσει εάν γίνεται αυτό.
+        </p>
+
+        <h4>Γιατί υπάρχει ανώτερο όριο των εφτά οικογενειών;</h4>
+
+        <p>
+          Με βάση τις οδηγίες που λαμβάνουμε σχετικά με την συγκέντρωση
+          ανθρώπων, εάν έχετε οχτώ οικογένειες, είναι καλύτερα να σπάσετε σε δύο
+          ομάδες των τεσσάρων. Η αλήθεια είναι ότι είναι καλύτερα να είναι όσο
+          πιο μικρές γίνεται οι ομάδες.
+        </p>
+
+        <h4>Τι κάνετε με τα δεδομένα μας; Τι όρους ιδιωτικότητας έχετε;</h4>
+        <p>
+          Δεν κρατάμε καθόλου τα δεδομένα σας, οπότε μην ανησυχείτε ότι αυτό
+          είναι κάποιου είδους πείραμα ή ότι τα πουλάμε τα δεδομένα σας. Το μόνο
+          μέρος όπου μένουν τα δεδομένα σας είναι στην ιστοσελίδα μας και στην
+          σελίδα που μοιράζεστε μεταξύ σας. Έτσι μπορείτε εύκολα να μοιράζεστε
+          τα δεδομένα σας, αλλά δεν τα έχει κανένας άλλος, ούτε ακόμα εμείς.
+        </p>
+
+        <h4>
+          Γιατί δεν μπορώ να συνδέσω το ημερολόγιο Google; Δεν μπορώ να κάνω το
+          ίδιο με την Google;
+        </h4>
+        <p>
+          Μπορείτε! Και εάν θέλετε, να το κάνετε με την Google ή με οποιαδήποτε
+          άλλη υπηρεσία θέλετε. Η ιστοσελίδα αυτή είναι ένα απλό εργαλείο ειδικά
+          σχεδιασμένο να κάνει τους γονείς να σκέφτονται την κοινή φροντίδα των
+          παιδιών χωρίς άλλα εμπόδια. Δεν είναι καμιά φοβερή εφαρμογή ούτε
+          εταιρία ψηφιακής επικοινωνίας. Εάν θέλετε ένα πιο σύνθετο εργαλείο με
+          άλλες δυνατότητες για να μοιράζεστε την φροντίδα των παιδιών σας με
+          άλλους, δεν μας πειράζει, πάλι κερδισμένοι βγαίνουμε.
+        </p>
+
+        <h4>
+          Μπορούμε να αλλάξουμε το πρόγραμμά μας εάν θέλουμε; Να
+          αντικαταστήσουμε μια μέρα για μίαν άλλη;
+        </h4>
+        <p>
+          Οπωσδήποτε! Το εργαλείο μας δεν είναι μαντείον, απλά επιχειρεί να
+          δημιουργεί ένα δίκαια μοιρασμένο πρόγραμμα. Βεβαίως να αλλάξετε το
+          αποτέλεσμα που σας βγάζει όπως θέλετε. Όταν βγει το πρόγραμμα,
+          μπορείτε να αλλάξετε τα χρώματα όταν το κάνατε στο πρώτο βήμα πριν το
+          μοιραστείτε. Μετά το κατεβάζετε και μοιράζεστε κανονικά.
+        </p>
+
+        <h4>Είναι νόμιμο;</h4>
+        <p>
+          Εάν σας απασχολούν οι άδειες που χρειάζονται, σας συμβουλεύουμε να
+          ψάξετε αυτή τη σελίδα από το Sustainable Economies Law Center που
+          περιγράφει την κατάσταση και προσφέρει οδηγίες. Με λίγα λόγια, λένε να
+          μην ανησυχείτε εάν δεν σκοπεύετε να το κάνετε επιχείρηση.
+        </p>
+
+        <h4>
+          Ένας τέτοιου είδους συνεταιρισμός δεν με κάνει πιο τρωτό στον ιό μίας
+          και θα έχω επαφή με πιο πολλούς ανθρώπους σε σύγκριση με το να μείνω
+          στο σπίτι με τα δικά μου παιδιά και μόνο;
+        </h4>
+        <p>
+          Είναι δύσκολη ερώτηση αυτή, γιατί σε ένα βαθμό, η απάντηση είναι σαφώς
+          “ναι”. Όσο λιγότερες είναι οι συναντήσεις σας με άλλους ανθρώπους,
+          τόσο πιο πιθανό είναι να αποφύγετε τον ιό. Αλλά αυτό που ξέρουμε εμείς
+          είναι ότι καμιά φορά απλά δεν υπάρχει κανείς να φροντίσει τα παιδιά,
+          και το κλείσιμο σχολείων παρουσιάζει ένα σοβαρό πρόβλημα για τις
+          οικογένειες. Μικροί συνεταιρισμοί ακολουθούν τις διαταγές από την
+          κυβέρνηση να μην γίνουν μεγάλες συγκεντρώσεις ανθρώπων ενώ ταυτόχρονα
+          βλέπουν ότι η φροντίδα των παιδιών είναι μία κοινή ευθύνη μίας
+          κοινωνίας και δεν μπορούμε να την ξεφορτωθούμε τον καιρό που
+          δυσκολεύονται τα πράγματα. Το να δεχτεί κανείς λίγο παραπάνω ρίσκο για
+          να φροντίσει να μην πέφτει όλο το βάρος σε μερικές μόνο οικογένειες
+          είναι η σημασία του να είστε καλός γείτονας.
+        </p>
+
+        <p>
+          Αυτό δεν αντικαθιστά τις συμβουλές από τις ιατρικές αρχές και
+          παρακαλείστε να μην φροντίσει τα παιδιά άλλων εάν είστε άρρωστος.
+        </p>
+
+        <h4>
+          Πού μπορώ να βρω περισσότερες πληροφορίες για συνεταιρισμούς για την
+          κοινή φροντίδα των παιδιών;
+        </h4>
+
+        <p>
+          Το βιβλίο Bringing Families Together: A Guide to Parent Cooperatives
+          by E. Kim Coontz (prepared for the University of California Center for
+          Cooperatives) είναι η πιο εκτενής πηγή πληροφοριών, και διατίθεται ως
+          δωρεάν pdf σε τέσσερα μέρη:{" "}
+          <a href="http://cccd.coop/bringing-families-together-part-i">
+            Part 1
+          </a>;{" "}
+          <a href="http://cccd.coop/bringing-families-together-part-ii">
+            Part 2
+          </a>;{" "}
+          <a href="http://cccd.coop/bringing-families-together-part-iii">
+            Part 3
+          </a>;{" "}
+          <a href="http://cccd.coop/bringing-families-together-part-iv">
+            Part 4
+          </a>{" "}
+          (στα αγγλικά).
+        </p>
+      </>
+    )}
+    {lang.code === "hi" && (
+      <>
+        <h4>कोविद चाइल्डकैअर सहकार निर्माता क्या</h4>
+
+        <p>
+          CCCC एक सरल उपकरण है जो माता-पिता और अन्य देखभाल करने वालों के समूहों
+          को प्रत्येक वयस्क की उपलब्धता को देखते हुए स्वचालित रूप से वितरित
+          सहकारी चाइल्डकैअर अनुसूची उत्पन्न करने की अनुमति देता है। स्कूलों को
+          अनिश्चित काल के लिए बंद करने और देखभाल करने वालों के लिए कुछ या कोई
+          संसाधनों का विस्तार करने के साथ, चाइल्डकैअर सह-ऑप्स संतुलन संसाधनों की
+          कमी (धन और समय) को हमारे समारोहों को सीमित करने की आवश्यकता के साथ।
+        </p>
+
+        <h4>चाइल्डकैअर सहकारिता क्या है?</h4>
+
+        <p>
+          जब देखभाल करने वाले बच्चे या बच्चों को देखने का बोझ साझा करने के लिए
+          सहमत होते हैं। सप्ताह के प्रत्येक दिन एक बच्चे को देखने वाले पांच
+          माता-पिता के बजाय, उनमें से प्रत्येक सप्ताह के एक दिन में पांच बच्चों
+          को देखता है। या तीन परिवार महीने के लिए एक बच्चे को देखने के लिए
+          व्यापार करने के लिए सहमत होते हैं क्योंकि बच्चे की प्राथमिक देखभाल
+          करने वाले को समय नहीं मिलेगा। सह-ऑप्स उस से अधिक जटिल तरीके से प्राप्त
+          कर सकते हैं (पूर्ण विद्यालयों सहित), लेकिन हम सरल, सबसे छोटे संस्करणों
+          (स्पष्ट कारणों के लिए) के लिए डिजाइन कर रहे हैं।
+        </p>
+
+        <h4>मैं CCCC का उपयोग कैसे करूँ?</h4>
+
+        <p>
+          पहले, उन अन्य देखभालकर्ताओं को खोजें जिनके साथ आप काम करने जा रहे हैं।
+          यह सोशल नेटवर्क नहीं है। दूसरा, उन दिनों के साथ कैलेंडर भरें जब
+          प्रत्येक प्रदाता उपलब्ध न हो। ("साझा लिंक" बटन के साथ प्रक्रिया में एक
+          अनुसूची साझा करें)। तीसरा, सभी की उपलब्धता दर्ज करने के बाद, "शेड्यूल
+          बनाएं" बटन दबाकर अपना शेड्यूल बनाएं। चौथा, अपने कार्यक्रम को संशोधित
+          करें हालांकि आप फिट दिखते हैं। किसी भी अंतराल के दिनों के लिए बाहर
+          देखो जब कोई भी नहीं कहा है कि वे उपलब्ध हैं! पांचवां, शेड्यूल लिंक का
+          उपयोग करके या "डाउनलोड शेड्यूल" बटन के साथ एक प्रति डाउनलोड करके, बाकी
+          को-ऑप के साथ अपना शेड्यूल साझा करें।
+        </p>
+
+        <h4>जब मैं उपलब्ध नहीं हूं तो मैं चिह्नित करता हूं</h4>
+
+        <p>हां, जब आप उपलब्ध नहीं हैं तब चिह्नित करें</p>
+
+        <h4>
+          मेरे सह-सदस्यों में से एक नर्स है और उन्हें सोमवार से शुक्रवार तक काम
+          करना है, हम उन्हें CCCC अनुसूची में कैसे शामिल कर सकते हैं?
+        </h4>
+
+        <p>
+          महामारी की प्रतिक्रिया के रूप में स्कूल बंद होने की शायद सबसे बड़ी
+          समस्या यह है कि वे कुछ महत्वपूर्ण स्वास्थ्य देखभाल कार्यकर्ताओं को घर
+          पर ही छोड़ देते हैं जो बच्चों की देखरेख करते हैं जब उन्हें अपनी
+          नौकरियों की सख्त जरूरत होती है। CCCC का उद्देश्य लोगों की उपलब्धता के
+          अनुसार होस्टिंग के बोझ को उचित रूप से साझा करना है, लेकिन आपको सह-ऑप
+          का हिस्सा बनने के लिए शेड्यूल पर रहने की आवश्यकता नहीं है। यदि
+          सह-सदस्य की कोई उपलब्धता नहीं है, तो उन्हें कैलेंडर भरने की आवश्यकता
+          नहीं है। इसे एक होस्टिंग शेड्यूल के रूप में सोचें और सुनिश्चित करें कि
+          उन्हें एक प्रति प्राप्त हो। CCCC का संचालन सिद्धांत "उनकी उपलब्धता के
+          अनुसार प्रत्येक से, उनकी आवश्यकताओं के अनुसार प्रत्येक से है।"
+        </p>
+
+        <h4>यदि कोई दिन उपलब्ध हो तो क्या होगा</h4>
+
+        <p>
+          आपको उस एक को अपने बीच में हल करना होगा, लेकिन शेड्यूलर आपको उन दिनों
+          के बारे में सूचित करेगा।
+        </p>
+
+        <h4>यह सात परिवारों तक सीमित क्यों है?</h4>
+
+        <p>
+          यदि आपके पास आठ परिवार हैं (और इसे प्रबंधित कर सकते हैं), तो आप चार
+          समूहों के दो समूहों में बंटने से बेहतर हैं, मार्गदर्शन के आधार पर, हम
+          सभी सामूहिक समारोहों के बारे में प्राप्त करेंगे। वास्तव में आपको
+          समूहों को यथासंभव छोटा रखना चाहिए, लेकिन हम पहचानते हैं कि वहाँ क्या
+          संभव है की एक सीमा है।
+        </p>
+
+        <h4>आप हमारे डेटा के साथ क्या करते हैं? गोपनीयता नीति क्या है</h4>
+
+        <p>
+          CCCC आपके किसी भी डेटा को संग्रहीत नहीं करता है, इसलिए आपको हमें इस
+          बारे में चिंता करने की ज़रूरत नहीं है कि आप पर कोई प्रयोग चला रहे हैं
+          या अपनी जानकारी शैक्षिक वेबसाइटों या इस तरह की किसी चीज़ को बेच रहे
+          हैं। आपके CCCC के डेटा का एकमात्र स्थान आपके द्वारा सह-ऑप के भीतर भेजे
+          जाने वाले शैलबल url है। (हां, यह url में है!) इस तरह आप अपनी जानकारी
+          आसानी से साझा कर सकते हैं, लेकिन किसी और के पास नहीं है, हमारे पास भी
+          नहीं है।
+        </p>
+
+        <h4>
+          मैं अपना Google कैलेंडर लिंक क्यों नहीं कर सकता / सकती? क्या मैं
+          Google के साथ ऐसा नहीं कर सकता?
+        </h4>
+
+        <p>
+          हाँ! और यदि आप चाहते हैं, तो आपको पूरी तरह से, या जो भी अन्य ऑनलाइन
+          सेवा आप उपयोग करना चाहते हैं। CCCC एक सरल, समर्पित उपकरण है जो देखभाल
+          करने वालों को सामूहिक चाइल्डकैअर के बारे में सोचने और प्रवेश में आने
+          वाली बाधाओं को कम करने के लिए डिज़ाइन किया गया है। यह एक नया हत्यारा
+          ऐप या डिजिटल संचार कंपनी नहीं है। यदि आप अपने सह सेशन की योजना बनाने
+          के लिए अधिक सुविधाओं के साथ उपकरण ढूंढना चाहते हैं, तो उन्हें ट्रैक
+          करना आसान होगा। हम इसे एक जीत के रूप में गिनेंगे।
+        </p>
+
+        <h4>
+          यदि हम चाहें तो क्या हम अपना कार्यक्रम संशोधित कर सकते हैं? स्विच या
+          स्थानापन्न दिन
+        </h4>
+
+        <p>
+          हाँ! CCCC एक अलंकरण नहीं है, यह सिर्फ एक काफी वितरित चार सप्ताह
+          उत्पन्न करने की कोशिश करता है। आपको अपने समूह के साथ परिणाम बदलने के
+          लिए स्वतंत्र से अधिक महसूस करना चाहिए, हालांकि आप जैसे हैं। एक बार
+          शेड्यूल जनरेट होने के बाद, आप रंगों को उसी तरह से स्विच कर सकते हैं
+          जैसा आपने शेयर करने से पहले किया था। फिर आप इसे सामान्य की तरह डाउनलोड
+          या साझा कर सकते हैं।
+        </p>
+
+        <h4>क्या यह कानूनी है? </h4>
+
+        <p>
+          यदि आप राज्य लाइसेंसिंग आवश्यकताओं से संबंधित हैं, तो हम आपको इस पृष्ठ
+          को स<a href="https://www.co-oplaw.org/co-op-basics/types/childcare-cooperatives/">
+            स्टेनेबल इकोनॉमीज़ लॉ सेंटर
+          </a>{" "}
+          से बाहर की जाँच करने के लिए प्रोत्साहित करते हैं जो स्थिति से बाहर
+          रहता है और कुछ मार्गदर्शन प्रदान करता है। यदि आप कुछ व्यावसायिक योजना
+          नहीं बना रहे हैं, तो उनका संक्षिप्त उत्तर इसके बारे में बहुत अधिक
+          चिंता करने के लिए नहीं है।
+        </p>
+
+        <h4>
+          सह-ऑप में शामिल होने से मेरे बच्चों के साथ घर में रहने के सापेक्ष मेरा
+          प्रदर्शन बढ़ जाएगा
+        </h4>
+
+        <p>
+          यह कठिन है, क्योंकि कुछ स्तर पर उत्तर स्पष्ट रूप से हां है: आप जितनी
+          कम बातचीत कर सकते हैं, वायरस से बचने की आपकी संभावना उतनी ही बेहतर
+          होगी। लेकिन हम जानते हैं कि हर दिन देखरेख करने के लिए हर देखभाल करने
+          वाला उपलब्ध नहीं है, और यह स्कूल बंद कुछ परिवारों के लिए एक कठिन
+          कठिनाई पेश करता है। छोटे सह-ऑप्स अभी भी चाइल्डकेयर को सामूहिक
+          जिम्मेदारी के रूप में मानते हुए समारोहों से बचने के लिए निर्देशों का
+          अनुपालन करते हैं, जो कि एक समाज के रूप में हम चीजों को कठिन होने के
+          बाद जल्द ही हार नहीं मान सकते। यह सुनिश्चित करने के लिए कि कुछ
+          परिवारों पर एक साथ जीवन बसर करना है, लागतों को कम करने के लिए थोड़ा
+          अधिक जोखिम / कठिनाई को स्वीकार करना। और मध्यम अवधि में, यह सुनिश्चित
+          करना कि हमारी स्वास्थ्य प्रणाली (और कचरा और आग जैसी अन्य आवश्यक
+          प्रणालियाँ) पूरी क्षमता पर हैं, संक्रमण वक्र से निपटने का एक
+          महत्वपूर्ण हिस्सा है, और यह करने के लिए हमें सामूहिक चाइल्डकैअर
+          विकल्पों की आवश्यकता है।
+        </p>
+
+        <p>
+          इनमें से कोई भी नवीनतम चिकित्सा सलाह का विकल्प नहीं है, और यदि आप
+          बीमार हैं तो कृपया अन्य लोगों के बच्चों की देखभाल न करें
+        </p>
+
+        <h4>
+          मैं चाइल्डकैअर सहकारी समितियों के बारे में और अधिक कहां जान सकता हूं?
+        </h4>
+
+        <p>
+          साथ लाने वाली पुस्तक: अ गाइड टू पेरेंट कोऑपरेटिव्स टू ई। किम कॉनटोज़
+          (यूनिवर्सिटी ऑफ़ कैलिफ़ोर्निया सेंटर फ़ॉर कोऑपरेटिव्स द्वारा तैयार
+          किया गया) सबसे व्यापक संसाधन है, और यह चार भागों में मुफ्त पीडीऍफ़ के
+          रूप में उपलब्ध है<a href="http://cccd.coop/bringing-families-together-part-i">
+            भाग 1
+          </a>;{" "}
+          <a href="http://cccd.coop/bringing-families-together-part-ii">
+            भाग 2
+          </a>;{" "}
+          <a href="http://cccd.coop/bringing-families-together-part-iii">
+            भाग 3
+          </a>;{" "}
+          <a href="http://cccd.coop/bringing-families-together-part-iv">
+            भाग 4
+          </a>।
+        </p>
+      </>
+    )}
   </>
 );
 

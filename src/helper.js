@@ -52,7 +52,10 @@ export const downloadCalendar = (
   const monthStart = startOfMonth(startDate);
   const monthEnd = endOfMonth(endDate);
   const calStart = startOfWeek(monthStart);
-  const calEnd = endOfWeek(monthEnd);
+  let calEnd = endOfWeek(monthEnd);
+  if (isSameDay(endDate, endOfWeek(endOfMonth(monthStart)))) {
+    calEnd = endDate;
+  }
   const isAvailability = (index, day) => {
     const dayAfterToday = addDays(today, index);
     if (isSameDay(day, dayAfterToday) && !(isWeekend(day) && !enableWeekends)) {

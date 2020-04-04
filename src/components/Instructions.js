@@ -6,9 +6,10 @@ const Instructions = ({ lang }) => (
       <>
         <h3>How to use the CCCC</h3>
         <h4>Family 1:</h4>
+        <p>Select the number of families in the co-op</p>
         <p>
-          Select the number of families in the co-op Enter your name in the
-          “Family 1” field, then click the colored box next to it
+          Enter your name in the “Family 1” field, then click the colored box
+          next to it
         </p>
         <p>
           Mark the days on the calendar you are not available. To mark the same
@@ -255,6 +256,236 @@ const Instructions = ({ lang }) => (
           como fez para o calendário de disponibilidades e use-as para mudar os
           dias atribuídos (se assim quiser). Depois fazer o download ou
           partilhar normalmente.
+        </p>
+      </>
+    )}
+    {lang.code === "de" && (
+      <>
+        <h3>Wie man den CCCC anwendet</h3>
+
+        <h4>Familie 1:</h4>
+
+        <p>Wählen Sie die Familien Anzahl des Co-op.</p>
+        <p>
+          Fügen sie ihren Namen in das Feld Familie 1 hinzu und klicken sie
+          daraufhin die farbige Taste daneben.
+        </p>
+        <p>
+          Tragen Sie bitte im Kalender ein an welchen Tagen die sie nicht
+          verfügbar sind.
+        </p>
+        <p>
+          Um den gleichen Tag jede Woche zu markieren, klicken sie den Tag an (
+          wenn sie Dienstags nicht verfügbar sind klicken sie auf Dienstag).
+        </p>
+        <p>
+          Wenn sie fertig sind ihre Verfügbarkeit einzutragen, klicken auf sie
+          auf die “Verknüpfe Kalender” Taste und es wird automatisch ihren
+          erstellten Link an Familie 2 schicken.
+        </p>
+
+        <h4>Familie 2-X:</h4>
+
+        <p>Öffnen sie den Link den sie von Familie x-1 bekommen haben.</p>
+        <p>
+          Fügen sie ihren Namen in das “Familie X” Feld ein und klicken sie die
+          bunte Box daneben an.
+        </p>
+        <p>Markieren sie die Tage an dem sie nicht verfügbar sind.</p>
+        <p>
+          Wenn sie fertig sind ihre Verfügbarkeit einzufügen, klicken sie auf
+          den “Verknüpfe Kalender” Taste am Ende der Seite und fügen sie den
+          Link ein um es an die nächste Familie zu senden.
+        </p>
+
+        <h4>Letzte Familie:</h4>
+
+        <p>
+          Nachdem jeder die Verfügbarkeit eingetragen hat (jede Familie sollte
+          nun im Kalender stehen mit ihren farblichen Kennzeichen), klicken sie
+          auf die “ Kalender erstellen” Taste am Ende der Seite. Der Kalender
+          sollte nun einen vorläufigen Zeitplan anzeigen anhand ihrer
+          Verfügbarkeit. (Wenn ihnen der Zeitplan nicht gefällt, klicken sie die
+          “Herstellen” Taste um eine neue Option zu erstellen). Um den Kalender
+          zu teilen, klicken Sie auf die “Kalender Teilen” Taste um einen Link
+          herzustellen oder laden sie eine html Kopie des Kalenders herunter
+          indem sie die “Kalender Herunterladen” Taste drücken.
+        </p>
+
+        <h4>Problembehebung:</h4>
+
+        <p>
+          Um Wochenenden hinzu - oder ausfügen, benutzen sie den “Wochende”
+          Schalter am Anfang der Seite.
+        </p>
+
+        <p>
+          Um den Kalender zu bearbeiten und ihre Verfügbarkeit zu ändern nachdem
+          sie es hergestellt haben, klicken sie auf die “ Verfügbarkeit
+          ändern”/”Zeitplan anzeigen” Taste am Anfang der Seite.
+        </p>
+
+        <p>
+          Um den endgültigen Zeitplan zu ändern, wählen sie die Familien Farben
+          die sie auch für ihre Verfügbarkeit ausgesucht haben und teilen sie
+          ihre eingetragenen Tage neu auf. Dann laden sie es herunter oder
+          teilen sie es wie sonst auch.
+        </p>
+      </>
+    )}
+    {lang.code === "el" && (
+      <>
+        <h3>Πως χρησιμοποιείται το εργαλείο CCCC</h3>
+
+        <h4>Οικογένεια 1:</h4>
+
+        <p>Διαλέξτε τον αριθμό οικογενειών στην ομάδα σας.</p>
+        <p>
+          Συμπληρώστε το ονοματεπώνυμο σας εκεί που λέει Οικογένεια 1, και
+          πατήστε το χρωματισμένο κουμπί με το στυλό στα δεξιά.
+        </p>
+        <p>
+          Σημειώστε τις ημέρες που δεν είστε διαθέσιμος/η στο ημερολόγιο. Για να
+          διαλέξετε τις ίδιες μέρες κάθε εβδομάδα, πατήστε τα χρωματιστά κουμπιά
+          με τις μέρες στην πιο πάνω γραμμή. Π.χ. Εάν δεν είστε διαθέσιμος/η
+          ποτέ την Τρίτη, πατήστε το κουμπί που λέει “Τρίτη”.)
+        </p>
+        <p>
+          Όταν έχετε σημειώσει όλη σας την διαθεσιμότητα, πατήστε το κουμπί που
+          λέει “Σύνδεση ημερολογίου” από κάτω, και αυτόματα θα δημιουργηθεί ένας
+          σύνδεσμος που μπορείτε να στείλετε στην Οικογένεια 2.
+        </p>
+
+        <h4>Οικογένεια 2-Χ:</h4>
+
+        <p>Ανοίξτε το σύνδεσμο που λάβατε από την Οικογένεια Χ-1.</p>
+        <p>
+          Συμπληρώστε το ονοματεπώνυμό σας εκεί που λέει Οικογένεια Χ, και
+          πατήστε το χρωματισμένο κουμπί με το στυλό στα δεξιά.
+        </p>
+        <p>Σημειώστε τις ημέρες που δεν είστε διαθέσιμος/η στο ημερολόγιο.</p>
+        <p>
+          Όταν έχετε σημειώσει όλη σας την διαθεσιμότητα, πατήστε το κουμπί που
+          λέει “Σύνδεση ημερολογίου” από κάτω, και αυτόματα θα δημιουργηθεί ένας
+          σύνδεσμος που μπορείτε να στείλετε στην επόμενη οικογένεια.
+        </p>
+
+        <h4>Τελευταία οικογένεια:</h4>
+
+        <p>
+          Όταν όλοι (από την πρώτη οικογένεια μέχρι την τελευταία οικογένεια)
+          έχετε σημειώσει τη διαθεσιμότητά σας (και φαίνεται η διαθεσιμότητα του
+          καθενός στο ημερολόγιο) πατήστε το κουμπί “Δημιουργία προγράμματος”
+          από κάτω.
+        </p>
+        <p>
+          Το ημερολόγιο δείχνει ένα πρόγραμμα που κανονικά θα βολεύει όλους σας,
+          βασισμένο στη διαθεσιμότητα του καθενός. (Εάν για οποιοδήποτε λόγο δεν
+          σας αρέσει το πρόγραμμα που δημιουργήθηκε, πατήστε ξανά το κουμπί
+          “Δημιουργία προγράμματος” και θα βγει άλλη εκδοχή με τους ίδιους
+          παραμέτρους.)
+        </p>
+        <p>
+          Για να μοιραστείτε το ημερολόγιο, χρησιμοποιήστε το κουμπί “Σύνδεσμος
+          ημερολογίου” για να δημιουργήσετε έναν σύνδεσμο, ή το κουμπί
+          “Κατεβάστε το πρόγραμμα”.
+        </p>
+
+        <h4>Αντιμετώπιση προβλημάτων:</h4>
+
+        <p>
+          Για να εξαιρέσετε ή να περιλάβετε Σ/Κ, χρησιμοποιήστε το εργαλείο που
+          λέει “Σ/Κ” που βρίσκεται στο πάνω μέρος της σελίδας.
+        </p>
+
+        <p>
+          Για να κάνετε αλλαγές αφού δημιουργήσετε ένα πρόγραμμα, πατήστε το
+          κουμπί “Αλλαγή διαθεσιμότητας / Δείξτε το πρόγραμμα” στο πάνω μέρος
+          της σελίδας.
+        </p>
+
+        <p>
+          Για να κάνετε αλλαγές στο τελικό πρόγραμμα, διαλέξτε χρώματα για κάθε
+          οικογένεια όπως κάνατε για το πρόγραμμα διαθεσιμότητας, και
+          χρησιμοποιήστε τα για να μοιραστούν αλλιώς οι ημέρες (εάν θέλετε), και
+          μετά κατεβάστε το ή μοιράστε το κανονικά.
+        </p>
+      </>
+    )}
+    {lang.code === "hi" && (
+      <>
+        <h3>CCCC का उपयोग कैसे करें</h3>
+
+        <h4>परिवार 1:</h4>
+
+        <p>सहकारिता में परिवारों की संख्या का चयन करें</p>
+        <p>
+          "परिवार 1" फ़ील्ड में अपना नाम दर्ज करें, फिर उसके बगल में रंगीन बॉक्स
+          पर क्लिक करें
+        </p>
+        <p>
+          कैलेंडर पर उन दिनों को चिह्नित करें जो आप उपलब्ध नहीं हैं। हर हफ्ते
+          उसी दिन को चिह्नित करने के लिए, उस दिन के नाम पर क्लिक करें। (यदि आप
+          कोई मंगलवार उपलब्ध नहीं हैं, तो मंगलवार पर क्लिक करें।)
+        </p>
+        <p>
+          जब आपने मार्किंग की उपलब्धता पूरी कर ली है, तो नीचे दिए गए "लिंक
+          कैलेंडर" बटन पर क्लिक करें और यह आपके द्वारा फैमिली 2 को भेजने के लिए
+          जनरेट किए गए लिंक को स्वचालित रूप से कॉपी कर देगा।
+        </p>
+
+        <h4>परिवार 2-X:</h4>
+
+        <p>परिवार X-1 से आपको प्राप्त लिंक खोलें</p>
+        <p>
+          "परिवार एक्स" फ़ील्ड में अपना नाम दर्ज करें, फिर उसके बगल में रंगीन
+          बॉक्स पर क्लिक करें
+        </p>
+        <p>कैलेंडर पर उन दिनों को चिह्नित करें जब आप उपलब्ध नहीं हैं</p>
+        <p>
+          जब आपने मार्किंग की उपलब्धता पूरी कर ली है, तो नीचे दिए गए "लिंक
+          कैलेंडर" बटन पर क्लिक करें और स्वचालित रूप से कॉपी किए गए लिंक को अगले
+          परिवार को भेजने के लिए पेस्ट करें
+        </p>
+
+        <h4>अंतिम परिवार:</h4>
+
+        <p>
+          एक बार जब सभी ने अपनी उपलब्धता का संकेत कर दिया (प्रत्येक पारिवारिक
+          क्षेत्र को भरा जाना चाहिए और कैलेंडर पर सभी रंगों का प्रतिनिधित्व किया
+          जाना चाहिए), नीचे "शेड्यूल बनाएं" बटन पर क्लिक करें
+        </p>
+        <p>
+          कैलेंडर अब आपके लाभ को देखते हुए लगभग उचित अनुसूची का प्रतिनिधित्व
+          करता है। (यदि आप किसी भी कारण से इसे पसंद नहीं करते हैं, तो समान
+          प्रतिबंधों के साथ एक अलग उचित विकल्प उत्पन्न करने के लिए फिर से
+          "बनाएँ" बटन दबाएं)
+        </p>
+        <p>
+          कैलेंडर को साझा करने के लिए, शेड्यूल का लिंक बनाने के लिए "लिंक
+          कैलेंडर" बटन का उपयोग करें, या अपने शेड्यूल की HTML फ़ाइल डाउनलोड करने
+          के लिए "डाउनलोड शेड्यूल" बटन का उपयोग करें।
+        </p>
+
+        <h4>समस्या निवारण:</h4>
+
+        <p>
+          सप्ताहांत के दिनों को बाहर करने या शामिल करने के लिए, शीर्ष पर
+          "सप्ताहांत" टॉगल करें (To exclude or include weekend days, use the
+          “Weekends” toggle at top)
+        </p>
+
+        <p>
+          शेड्यूल उत्पन्न करने के बाद उपलब्धता कैलेंडर को वापस जाने और संशोधित
+          करने के लिए, शीर्ष पर "उपलब्धता बदलें" / "शेड्यूल दिखाएं" पर क्लिक
+          करें
+        </p>
+
+        <p>
+          अंतिम अनुसूची को संशोधित करने के लिए, परिवार के रंगों का चयन करें जैसा
+          कि आपने उपलब्धता कैलेंडर के लिए किया था और उन्हें निर्धारित दिनों (यदि
+          आप चाहते हैं) को फिर से असाइन करने के लिए उपयोग करें, तो सामान्य रूप
+          से डाउनलोड या साझा करें
         </p>
       </>
     )}

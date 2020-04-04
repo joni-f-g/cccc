@@ -460,6 +460,418 @@ const Explainer = ({ lang }) => (
         </p>
       </>
     )}
+    {lang.code === "de" && (
+      <>
+        <p>COVID-19 und kollektive Kinderbetreuung</p>
+
+        <p>
+          Schulen und Kindertagesstätten haben als Reaktion auf die COVID-19
+          Pandemie begonnen massenhaft zu schließen. Der Großteil der
+          politischen Entscheidungsträger, sowie die führenden Wissenschaftler
+          stimmen darin überein, dass es notwendig sei, Schulen und andere Orte,
+          an denen sich große Ansammlungen von Kindern treffen, zu schließen.
+          Diese dämmt die Verbreitungsgeschwindigkeit des Virus, auch wenn junge
+          Leute zum größten Teil nicht lebensbedrohlich betroffen seien.
+        </p>
+
+        <p>
+          Amerika ist davon abhängig dass sich Schulen und Kindertagesstätten um
+          ihre Kinder kümmern, die die Eltern arbeiten müssen. Durch die
+          Schließung dieser Einrichtungen müssen viele berufstätige Erwachsene
+          zu Hause bleiben um sich um ihre eigenen Kinder kümmern. Familien sind
+          sich selber überlassen, da die Stadtverwaltungen keine Verantwortung
+          trägt. Eltern, die keine andere Wahl haben, als weiter arbeiten zu
+          gehen, erfahren in letzter Minute, dass die Schulen geschlossen sind
+          und müssen ihre Kinder mangels Lehrkräfte mit 100 Kinder in einem
+          Auditorium abgeben.
+        </p>
+
+        <p>
+          Obwohl eine große Zahl von Arbeitstätigen nach Hause geschickt wurden
+          sind, blicken wir auf eine unmittelbare Betreuungskrise. Wir benötigen
+          dezentralisierte Lösungen, und die zentralen Behörden sind schwach
+          ausgestattet, um diese zu bieten.
+        </p>
+
+        <p>
+          Unsere Führungskräfte haben mit den Schultern gezuckt und sind
+          stillschweigend davon ausgegangen, dass Kinderfürsorge (anders als
+          Bildung) eine persönliche häusliche Verantwortung sei. Sie fühlen sich
+          nicht dafür verantwortlich, einen Ersatz anzubieten. Als Gesellschaft
+          können wir es uns jedoch nicht erlauben, so anmaßend zu sein:
+          Arbeitstätige, die die öffentliche Infrastruktur aufrechterhalten
+          (Abfall, Lebensmittel, Einrichtungen, Gesundheit, sogar Regierung)
+          haben auch plötzliche Verantwortungen, genauso wie Servicekräfte und
+          Auftrittspersonen, die keine andere Wahl haben, als persönlich zu
+          erscheinen. In Notfällen wird die Kinderfürsorge oft und
+          typischerweise den älteren Familienmitgliedern übertragen, was dieses
+          gerontizide Virus besonders boshaft im Hinblick auf seine Auswirkung
+          auf das Kinderfürsorgesystem macht. Die Krise ist auch
+          geschlechterbezogen: die Gesellschaft hat sie den Frauen überlassen,
+          die den Großteil der Lehrer, Gesundheitswesenmitarbeiter und die
+          hauptsächlichen Kinderversorger ausmachen.
+        </p>
+
+        <p>
+          Die Bedrohung des Gesundheitssystems durch die Kinderfürsorgekrise ist
+          akut. In der jetzt allgegenwärtigen Illustration “Die Kurve flach
+          halten” ist die Linie auf der y-Achse, unter der wir bleiben möchten,
+          die Kapazität des Gesundheitswesens. Je näher wir an diese Linie
+          kommen, indem wir die Vorsichtsmaßnahmen uns sozial zu distanzieren
+          unterschätzen, desto verheerender ist die Auswirkung.
+        </p>
+
+        <p>
+          Eine britische Studie belegt, dass Gesundheitswesenmitarbeiter und
+          Sozialarbeiter fast zweimal häufiger als die gesamten Arbeitskräfte
+          die Hauptfürsorger für Kinder unter 16 Jahren sind. Dieselbe Studie
+          erwartet eine Spitzen-Pandemie-Abwesenheitsrate von
+          Gesundheitswesenmitarbeitern von 45 %, 30 % davon bedingt durch
+          Schulschließungen, die somit die größte Ursache sind, verglichen mit
+          nur 10 % Krankheitsfällen. Es ist untragbar fast ein Drittel unserer
+          Gesundheitswesenmitarbeiter aufgrund der Kinderfürsorge zu verlieren;
+          viele, viele Menschen werden unnötigerweise versterben, wenn wir dies
+          nicht als das soziale Problem anerkennen, welches es ist.
+        </p>
+
+        <p>
+          Die 2009 H1N1 Grippewelle, welche sich besonders schnell unter jungen
+          Leuten verbreitete, hat uns ermöglicht Daten zu sammeln für viele
+          unserer aktuellen Studien über Epidemien und Schulschließungen. Eine
+          der Schlussfolgerungen dieser Studie ist es, dass verlängerte
+          Stilllegungen (acht Wochen oder länger, verglichen zu zwei Wochen)
+          deutlich effektiver seien, um eine Verbreitung zu unterdrücken. Falls
+          unsere politischen Entscheidungsträger die Lehren von 2009 befolgen –
+          was sie zu tun scheinen – sollten wir uns auf Monate, nicht Wochen
+          geschlossener Schulen vorbereiten. Um dies zu tun, müssen wir uns an
+          die öffentlichen Richtlinien halten. Dies bedeutet soziale Distanz
+          aber gleichzeitig können wir nicht auf Kinderfürsorge verzichten.
+          Individuelle Kinderbetreuung ist auf Dauer unmöglich und in unsere
+          Gesellschaft nicht machbar.
+        </p>
+
+        <p>
+          Amerikanische Schulen wurden so ausgelegt dass Kinder mit extrem
+          niedrigen Stundenkosten pro Kind beschäftigt werden. Nirgendwo sonst
+          kann man dutzende Kinder für etwas 1 $/Stunde beschäftigen. Dies macht
+          sich sofort sichtbar, wenn die Schulen schließen und sich der Großteil
+          der Familien keine bezahlte Hilfe leisten kann. Grundrechenarten
+          besagen, dass sich Haushalte eine eigene Vollzeitkinderfürsorge nur
+          dann leisten können, wenn sie das Durchschnittseinkommen um ein
+          vielfaches übersteigen. Wenn auch, in der ersten oder zweiten Woche,
+          Heimarbeit mit den Kindern für manche Fürsorger ansprechend wirken
+          mag, wird dies abnehmen, sobald sich Schul- und Arbeitsanforderungen
+          gemeinsam häufen. Und wir müssen uns vorstellen, dass nur eine
+          Minderheit der Familien dafür ausgestattet ist, Kinder durch Monate
+          von Kursarbeiten unter Benutzung neuer und ungetesteter
+          Fernlernplattformen zu führen. Die Richtlinien der Schulbezirke sind
+          weder einheitlich noch klar. Wir blicken auf eine Anzahl von
+          Beschränkungen, mit einem scheinbaren Ressourcen Mangel. Wir müssen
+          uns in diesen Zeiten gegenseitig unterstützen und uns gegenseitig um
+          unsere Kinder kümmern. Den Kontakt zu Mitmenschen, besonders zu den
+          älteren Mitmenschen, müssen wir minimieren. Somit ermöglichen wir es
+          Eltern und Familien die in wichtigen Positionen arbeiten die
+          Infrastruktur intakt zu halten. Die Frage die wir uns stellen ist, wie
+          können wir uns vorsichtig um uns gegenseitig kümmern?
+        </p>
+
+        <p>***</p>
+
+        <p>
+          Der Covid Childcare Co-op Calculator (CCCC) ist ein technisches
+          Werkzeug für soziale Anforderungen. Durch die Nutzung von CCCC kann
+          eine Gruppe von Erwachsenen eine kollektive Kinderfürsorge
+          entsprechend ihrer Verfügbarkeiten planen. Obwohl es zunächst kontra
+          intuitiv erscheint, wenn man bedenkt, was uns gegenübersteht, sind
+          unsere sozialen Bindungen immer noch unser größtes Kapital. Ob es ein
+          kleiner Freundeskreis ist, der einem Arzt oder Krankenschwester
+          dadurch unterstützt, dass er auf dessen Kinder aufpasst, oder ein paar
+          Angestellte, die sich um eine kleine Klasse 8 jähriger kümmert. Der
+          CCCC ermöglicht den ersten Schritt des Erstellens und Teilens eines
+          gemeinsamen Zeitplans. Unsere Hoffnung ist es, dass dieses einfache
+          Werkzeug – keine Konten, keine Registrierung, keine gespeicherten
+          Daten – Leute dazu veranlasst über die kommenden Monate nachzudenken
+          und darüber, wie sie gemeinsam die nächsten Monate bewältigen können.
+        </p>
+
+        <p>
+          Keiner erwartet, dass der CCCC dieses Problem löst. Es ist entwickelt
+          wurden, um Aufmerksamkeit auf die fehlende Kinderfürsorge zu bringen
+          und einen möglichen Ausweg vorzuschlagen. Die Krise ist ernst
+          zunehmen. Sie ist hier, und auch eine virale Pandemie ist keine
+          Entschuldigung dafür, Familien alleine stehen zu lassen.
+        </p>
+      </>
+    )}
+    {lang.code === "el" && (
+      <>
+        <p>Ο κοροναϊός και η κοινή φροντίδα των παιδιών</p>
+
+        <p>
+          Τα σχολεία και οι παιδικοί σταθμοί κλείνουν μαζικά λόγω της πανδημίας
+          του κοροναϊού.
+        </p>
+        <p>
+          Οι περισσότεροι πολιτικοί καθώς και επιστημονικές αρχές συμφωνούν ότι
+          το κλείσιμο σχολείων και άλλων κέντρων συγκέντρωσης παιδιών είναι ένα
+          μέρος της σωστής αντιμετώπισης του ιού, ακόμα και όταν δεν φαίνεται να
+          απειλεί τόσο σοβαρά τα μικρά παιδιά.
+        </p>
+        <p>
+          Στην Η.Π.Α. όμως τα σχολεία έχουν χαμηλή αναλογία παιδιών προς
+          δάσκαλο. Αν κλείσουν τα σχολεία, αυτή η αναλογία αυξάνεται καθώς οι
+          δήμοι αφήνουν τους γονείς να βρουν άλλες λύσεις μόνοι τους. Υπάρχουν
+          περιπτώσεις όπου οι γονείς μαθαίνουν ότι έκλεισε το σχολείο τους μόνο
+          όταν πάνε να αφήσουν τα παιδιά τους, και τα παιδιά καταλήγουν σε μια
+          μεγάλη αίθουσα χωρίς δασκάλους.
+        </p>
+
+        <p>
+          Ακόμα και με τόσους εργαζόμενους που στάλθηκαν στα σπίτια τους,
+          αντιμετωπίζουμε μια άμεση κρίση της φροντίδας των παιδιών.
+          Χρειαζόμαστε λύσεις όχι από κυβερνήσεις αλλά από τους ίδιους τους
+          πολίτες, και μαλίστα οι κυβερνήσεις αδυνατούν να προσφέρουν λύσεις. Οι
+          πολιτικοί μας δεν ενδιαφέρονται για αυτό το θέμα, θεωρώντας ότι η
+          φροντίδα του παιδιού (σε αντίθεση με την εκπαίδευση) είναι προσωπικό
+          καθήκον. Δεν αισθάνονται πως έχουν την υποχρέωση να προσφέρουν
+          αντικατάσταση. Αλλά εμείς σαν κοινωνία δεν μπορούμε να αντιμετωπίσουμε
+          την φροντίδα του παιδιού με αυτό το τρόπο: οι εργαζόμενοι που
+          διατηρούν τις βασικές υποδομές της κοινωνίας μας (τα σκουπίδια, το
+          φαγητό, δημόσιες υπηρεσίες, το σύστημα υγείας, ακόμα και την
+          κυβέρνηση), καθώς και άνθρωποι που έχουν δουλειές που δεν τους δίνουν
+          άδειες, έχουν ξαφνικά την υποχρέωση να φροντίσουν μόνοι τους και τα
+          παιδιά τους. Συνήθως στρεφόμαστε στους ηλικιωμένους όταν προκύψει κάτι
+          επείγον και πρέπει κάποιος να φροντίσει τα παιδιά, αλλά λόγω των
+          χαρακτηριστικών του συγκεκριμένου ιού, αυτή η επιλογή δεν είναι
+          εφικτή. Η κρίση αυτή έχει και την πλευρά των φύλων: η κοινωνία
+          περιμένει τις γυναίκες, οι οποίες αποτελούν το μεγαλύτερο μέρος των
+          δασκάλων καθώς και εργαζομένων στο ιατρικό τομέα, να φροντίζουν τα
+          παιδιά.
+        </p>
+
+        <p>
+          Είναι επείγουσα αυτή η κρίση της φροντίδας του παιδιού. Δεν μπορούμε
+          να αφήσουμε το σύστημα υγείας να υπερφορτωθεί. Εάν υπερφορτωθεί, δεν
+          θα μπορέσουν να κρατάνε τη σωστή απόσταση μεταξύ τους οι άνθρωποι που
+          δουλεύουν στο ιατρικό τομέα. Μία έρευνα από την Μεγάλη Βρεττανία βρήκε
+          ότι άνθρωποι που δουλεύουν στον ιατρικό τομέα και στον τομέα των
+          κοινωνικών υπηρεσιών είναι δύο φορές πιο συχνά ο κύριος φροντιστής των
+          παιδιών κάτω των 16 ετών σε σύγκριση με άλλα επαγγέλματα. Η ίδια
+          έρευνα προβλέπει ότι στην κορυφή της πανδημίας οι απουσίες των
+          εργαζομένων από τον ιατρικό τομέα θα είναι 45%, με το κλείσιμο
+          σχολείων ως τη κυριότερη αιτία (30%) σε σχέση με μόνο 10% για λόγους
+          αρρώστιας. Δεν μπορούμε να χάσουμε ⅓ των εργαζομένων από το ιατρικό
+          τομέα, και αν δεν δεχτούμε ότι το πρόβλημα αυτό είναι σοβαρό, θα
+          πεθάνουν πολλοί επιπλέον άνθρωποι.
+        </p>
+
+        <p>
+          Το 2009 όταν έγινε η επιδημία της γρίπης H1N1, που εξαπλώθηκε γρήγορα
+          ανάμεσα στη νεολαία, μας έδωσε πολλά στοιχεία για τις τωρινές έρευνες
+          για το θέμα των επιδημιών και του κλείσιμου των σχολείων. Συχνά
+          συμπεραίνουν αυτές οι έρευνες ότι οι περιπτώσεις όπου τα σχολεία
+          έκλεισαν για μακροπρόθεσμο διάστημα (άνω των 8 εβδομάδων σε σχέση με 2
+          εβδομάδες), ήταν πιο πετυχημένες στο να σταματήσουν την μετάδωση. Εάν
+          οι πολιτικοί μας ακολουθούν το παράδειγμα του 2009--πράγμα που
+          φαίνεται να γίνεται--προβλέπονται τα σχολεία να παραμείνουν κλειστά
+          για μήνες όχι εβδομάδες. Για να πετύχουμε το στόχο μας, πρέπει να
+          παρακολουθήσουμε τις οδηγίες σχετικά με ασφαλείς αποστάσεις μεταξύ των
+          ανθρώπων, καθώς και πρέπει να αποδεχτούμε ότι αυτό δεν σημαίνει ότι
+          δεν συμμετέχουμε στη κοινή φροντίδα των παιδιών. Δεν υπάρχει
+          σύγκρουση, διότι η αποκλειστικά ατομική φροντίδα των παιδιών δεν είναι
+          μόνο μη εφικτή, είναι αδύνατη. Και να το ζητάει κανείς είναι
+          επικίνδυνο και κακό.
+        </p>
+
+        <p>
+          Τα αμερικάνικα σχολεία σχεδιάστηκαν με έναν τρόπο να μειώνονται τα
+          κόστη. Πουθενά αλλού δεν γίνεται να χειρίζονται δεκάδες παιδιά για
+          γύρω στο $1/την ώρα. Αυτό γίνεται σαφές όταν τα σχολεία έκλεισαν και
+          οι πιο πολλές οικογένειες δεν έχουν αρκετά χρήματα για βοήθεια μέσα
+          στο σπίτι. Η βασική αριθμητική δείχνει ότι μόνο μία οικογένεια που
+          βγάζει ένα εισόδημα πολλές φορές πάνω από το μέσο όρο έχει την άνεση
+          να προσλάβει νταντά πλήρης απασχόλησης για τα δικά τους παιδιά και
+          μόνο. Μπορεί σε κάποιους να αρέσει στην αρχή να δουλεύουν από το σπίτι
+          με τα παιδιά τους στο σπίτι μαζί, αλλά όσο περνάει ο καιρός θα τους
+          είναι όλο και πιο δύσκολο. Και πρέπει να φανταστούμε ότι μόνο ένα
+          μικρό ποσοστό των οικογενειών μπορούν να διδάσκουν τα παιδιά τους
+          πραγματικά για μήνες. Οι συμβουλές από τα ίδια τα σχολεία είναι
+          ασαφείς και ασυνεπείς.
+        </p>
+
+        <p>
+          Συναντάμε πολλά εμπόδια, με λίγους πόρους. Πρέπει να φροντίζουμε τα
+          παιδιά μας με έναν τρόπο υποστηρικτικό στη διάρκεια μίας τρομακτικής
+          περιόδου, και ταυτόχρονα να μειώνουμε την επαφή μας με άλλους
+          ανθρώπους, ειδικά τους ηλικιωμένους, και να συντηρούμε τις υποδομές,
+          και να σιγουρευτούμε ότι οι γονείς που πρέπει να δουλεύουν εκτός
+          σπιτιού βοηθούνται. Πώς ισορροπούμε τις ανάγκες μας με τους κινδύνους;
+          Πώς φροντίζουμε ο ένας τον άλλο με ασφαλή τρόπο;
+        </p>
+
+        <p>***</p>
+
+        <p>
+          Ο Συνεταιρισμός των Γονιών την Εποχή του Κοροναϊού (CCCC) είναι ένα
+          ψηφιακό εργαλείο ως κοινωνική πρόκληση. Χρησιμοποιώντας το, μια ομάδα
+          οικογενειών μπορεί να δημιουργήσει δίκαια ένα πρόγραμμα για όλους
+          ανάλογα με τις δυνατότητές τους. Παρ’ όλο που μπορεί να φανεί παράλογο
+          (λόγω του τύπου του εχθρού μας), οι κοινωνικοί μας δεσμοί είναι τα πιο
+          πολύτιμα προσόντα μας και μπορούν να μας οδηγήσουν σε μία έξυπνη,
+          λειτουργική, φεμινιστική απάντηση στη κρίση που παρουσιάζει ο
+          κοροναϊος. Εάν είστε μια μικρή παρέα που στηρίζει κάποιον που δουλεύει
+          στο ιατρικό τομέα φροντίζοντας το παιδί του, ή είστε συνεργάτες από το
+          ίδιο μαγαζί και κάνετε εν αλλάξ μάθημα σε μία ομάδα παιδιών 8 χρονών,
+          το CCCC κάνει το πιο ενοχλητικό βήμα του να φτιαχτεί το πρόγραμμα
+          εύκολο. Η ελπίδα μας είναι ότι αυτό το απλό εργαλείο--δίχως
+          λογαριασμούς, εγγραφές, ούτε δεδομένων που φυλάγονται--κάνει τους
+          άλλους να σκέφτονται πώς τους επόμενους μήνες μπορούν να μοιράζονται
+          το καθήκον της φροντίδας του παιδιού, ασχέτως αν κάποιος έχει
+          υπερφορτωθεί ή έχει να δώσει και άλλα.
+        </p>
+
+        <p>
+          Κανένας δεν περιμένει το CCCC να λύσει αυτό το πρόβλημα. Είναι
+          σχεδιασμένο να κάνει την κρίση της φροντίδας του παιδιού πιο εμφανή
+          και να προτείνει μια πορεία. Είναι σοβαρό το θέμα, είναι μαζί μας, και
+          ακόμα και μία πανδημία δεν είναι δικαιολογία να αφήνει τον καθένα να
+          τα βρει όλα μόνος του.
+        </p>
+      </>
+    )}
+    {lang.code === "hi" && (
+      <>
+        <p>COVID-19 और सामूहिक चाइल्डकैअ</p>
+
+        <p>
+          COVID-19 महामारी की प्रतिक्रिया के रूप में स्कूलों और डेकेयर केंद्रों
+          को बंद करना शुरू कर दिया है। अधिकांश नीति नियंता और वैज्ञानिक अधिकारी
+          इस बात से सहमत हैं कि बच्चों के लिए स्कूलों और अन्य सामूहिक स्थानों को
+          बंद करना सर्वोत्तम प्रथाओं के सुइट का हिस्सा है, जिसे हमें वायरस के
+          प्रसार को कम करने के लिए नियोजित किया जाना चाहिए, तब भी जब यह जीवन में
+          युवा लोगों को प्रभावित नहीं करता है सबसे अधिक भाग के लिए रास्ता बनाना।
+          हालांकि, अमेरिका स्कूलों और अन्य चाइल्डकैअर सुविधाओं पर निर्भर करता है
+          ताकि बच्चों को बहुत कम वयस्क: बाल अनुपात पर कब्जा किया जा सके। इन
+          सुविधाओं को बंद करने का अर्थ है कि सामाजिक वयस्क में वृद्धि: बाल
+          अनुपात में तेजी से वृद्धि, क्योंकि नगर पालिकाएं अपने बच्चों को देखने
+          के लिए इसे अलग-अलग परिवारों में छोड़ देती हैं। ऐसे अभिभावकों की
+          रिपोर्टें हैं जिनके पास कोई विकल्प नहीं है लेकिन ड्रॉप-ऑफ की खोज करने
+          के लिए काम करना बंद कर दिया है, जिसमें स्कूल बंद हो गए हैं, 100 बच्चों
+          की कहानियों ने प्रशिक्षकों की कमी के लिए एक सभागार में भीड़ लगा दी है।
+        </p>
+
+        <p>
+          बड़ी संख्या में श्रमिकों के घर भेजे जाने के बावजूद, हम देखभाल के
+          तत्काल संकट का सामना कर रहे हैं। हमें विकेंद्रीकृत समाधानों की
+          आवश्यकता है, और केंद्रीय अधिकारी उन्हें पेश करने के लिए खराब रूप से
+          सुसज्जित हैं। हमारे नेताओं ने अपने कंधों को झुका लिया है, इस निहितार्थ
+          पर भरोसा करते हुए कि चाइल्डकैअर (शिक्षा से अलग) एक व्यक्तिगत घरेलू
+          जिम्मेदारी है। वे प्रतिस्थापन की पेशकश करने के लिए बाध्य महसूस नहीं
+          करते हैं। लेकिन एक ऐसे समाज के रूप में, जो हम इतना कट्टरपंथी नहीं हो
+          सकते: श्रमिक जो महत्वपूर्ण बुनियादी ढाँचे (अपशिष्ट, भोजन, उपयोगिताओं,
+          स्वास्थ्य, यहां तक कि सरकार) को बनाए रखते हैं, उनमें भी अचानक
+          चाइल्डकैअर जिम्मेदारियां होती हैं, जैसा कि सेवा और टमटम श्रमिकों के
+          पास कोई विकल्प नहीं है, लेकिन उपस्थित रहने के लिए स्वयं। आपातकालीन
+          चाइल्डकैअर अक्सर होता है यदि आम तौर पर बुजुर्ग परिवार के सदस्यों को
+          नहीं छोड़ा जाता है, जो चाइल्डकेयर सिस्टम पर इस प्रभाव में विशेष रूप से
+          शातिर वायरस को प्रभावित करता है। इस संकट का भी समाधान किया गया है;
+          समाज ने इसे महिलाओं के चरणों में गिरा दिया है, जो अधिकांश शिक्षकों,
+          स्वास्थ्य कार्यकर्ताओं, और प्राथमिक चाइल्डकैअर प्रदाताओं को बनाते हैं।
+        </p>
+
+        <p>
+          हेल्थकेयर सिस्टम के लिए चाइल्डकैअर संकट का खतरा तत्काल है। "वक्र को
+          समतल करते हुए" के अब-सर्वव्यापी चित्रण में, जिस Y- अक्ष रेखा के नीचे
+          हम रहने की कोशिश कर रहे हैं वह स्वास्थ्य सेवा क्षमता है। किसी भी हिट
+          को हम उस संख्या तक ले जाते हैं, जो विनाशकारी होगी, जो हमारी सामाजिक
+          दूरी की सावधानियों की एक बड़ी राशि को कम करती है। यूके के एक{" "}
+          <a href="https://www.ncbi.nlm.nih.gov/pubmed/18435855">अध्ययन</a>
+          में 16 साल से कम उम्र के बच्चे के लिए मुख्य रूप से देखभाल करने वाले के
+          रूप में स्वास्थ्य देखभाल और सामाजिक सेवाओं के कार्यकर्ताओं को पाया
+          गया, बड़े पैमाने पर कर्मचारियों की तुलना में। एक ही अध्ययन में 45% की
+          स्वास्थ्य देखभाल श्रमिकों के लिए एक चरम महामारी की अनुपस्थिति दर का
+          अनुमान है, स्कूल में 30% से सबसे बड़ा योगदानकर्ता को बंद करने के लिए,
+          स्टाफ बीमारी के लिए केवल 10% की तुलना में। चाइल्डकैअर के लिए हमारे
+          स्वास्थ्य सेवा कर्मचारियों का लगभग एक तिहाई खोना अस्वीकार्य है; यदि हम
+          सामाजिक समस्या के रूप में इसे स्वीकार नहीं करते हैं तो बहुत से लोग
+          अनावश्यक रूप से मर जाएंगे।
+        </p>
+
+        <p>
+          2009 H1N1 फ्लू महामारी, जो विशेष रूप से युवा लोगों के बीच तेजी से
+          फैलती है, ने महामारी विज्ञान और स्कूल बंद होने के बारे में हमारे
+          वर्तमान<a href="https://bmjopen.bmj.com/content/3/2/e002149">
+            {" "}
+            अध्ययनों के बहुत सारे डेटा प्रदान कि
+          </a>ए हैं। उन अध्ययनों में एक सामान्य निष्कर्ष यह है कि विस्तारित
+          शटडाउन (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2901099/">
+            आठ सप्ताह या उससे अधिक, दो सप्ताह की तुलना
+          </a>{" "}
+          में) निराशाजनक संचरण में काफी अधिक प्रभावी थे। अगर हमारे नीति-निर्माता
+          2009 के पाठों का अनुसरण कर रहे हैं - जो वे करते दिख रहे हैं - हमें
+          महीनों तक बंद स्कूलों की तैयारी करनी चाहिए। ऐसा करने के लिए, हमें
+          सार्वजनिक मार्गदर्शन के लिए संपर्क को कम से कम सीमा तक कम से कम करना
+          चाहिए, जबकि यह स्वीकार करते हुए कि इसका मतलब सामूहिक चाइल्डकैअर का अंत
+          नहीं हो सकता है। दो भागों के बीच कोई संघर्ष नहीं है क्योंकि पूरी तरह
+          से व्यक्तिगत चाइल्डकैअर अव्यवहारिक नहीं है, यह असंभव है। और लोगों को
+          इसके लिए प्रयास करने के लिए कहना खतरनाक और क्रूर है।
+        </p>
+
+        <p>
+          अमेरिकी स्कूलों का निर्माण प्रति बच्चे-घंटे के लिए बेहद कम कीमत पर
+          युवाओं को कब्जे में करने के लिए किया गया था। कहीं और आप श्रम में लगभग
+          $ 1 / घंटे के लिए दर्जनों बच्चों को संभाल सकते हैं। यह तुरंत स्पष्ट
+          होता है जब स्कूल बंद हो जाते हैं और अधिकांश परिवारों को भुगतान में मदद
+          नहीं मिलती है। बेसिक अंकगणित केवल एक घर का कहना है कि एक आय में खींचता
+          है कई बार मंझला खुद के लिए पूर्णकालिक चाइल्डकैअर कार्यकर्ता को रोजगार
+          दे सकता है। यदि, पहले हफ्ते या दो में, बच्चों के साथ काम-घर-घर कुछ
+          देखभाल करने वालों के लिए अपील कर रहा है, तो यह कम हो सकता है, क्योंकि
+          स्कूल और काम की आवश्यकताएं मिलकर होती हैं। और हमें कल्पना करना चाहिए
+          कि केवल परिवारों के अल्पसंख्यक उपन्यास और अप्रयुक्त दूरस्थ शिक्षा
+          प्लेटफार्मों का उपयोग करके महीनों के बच्चों के माध्यम से चरवाहा से लैस
+          हैं। स्कूल जिलों से मार्गदर्शन एक समान या स्पष्ट नहीं किया गया है।
+        </p>
+
+        <p>
+          हम संसाधनों की कमी के साथ कई बाधाओं का सामना करते हैं। हमें इस डरावने
+          समय के माध्यम से एक सहायक तरीके से अपने बच्चों की देखभाल करने की
+          आवश्यकता है, जबकि अन्य लोगों के साथ विशेष रूप से बुजुर्गों के साथ
+          संपर्क को कम करते हुए, पूर्ण + क्षमता पर महत्वपूर्ण बुनियादी ढांचे को
+          बनाए रखते हुए, और यह सुनिश्चित करते हुए कि देखभाल करने वाले
+          देखभालकर्ताओं को घर से बाहर काम करने के लिए मजबूर किया जा सकता है,
+          उन्हें क्या मिल सकता है द्वारा प्राप्त करने की आवश्यकता है। हम अपने
+          खतरों के साथ अपनी आवश्यकताओं को कैसे संतुलित कर सकते हैं? हम एक-दूसरे
+          का ध्यान कैसे रख सकते हैं?
+        </p>
+
+        <p>***</p>
+
+        <p>
+          कोविद चाइल्डकैअर को-ऑप कैलकुलेटर (CCCC) सामाजिक संकेत के रूप में एक
+          तकनीकी उपकरण है। CCCC का उपयोग करते हुए, देखभाल करने वालों का एक समूह
+          अपनी योग्यताओं के अनुसार सामूहिक रूप से चाइल्डकैअर का शेड्यूल कर सकता
+          है। यद्यपि यह इस बात पर विचार करने के लिए प्रति-सहज लगता है कि हम क्या
+          कर रहे हैं, हमारे सामाजिक बंधन अभी भी हमारी सबसे बड़ी सामूहिक संपत्ति
+          हैं, और वे देखभाल के हमारे संकट के प्रति एक स्मार्ट, कार्यात्मक,
+          नारीवादी प्रतिक्रिया का मार्गदर्शन कर सकते हैं। चाहे वह अपने बच्चे को
+          देररखकर स्वास्थ्य सेवा का समर्थन करने वाले दोस्तों का एक छोटा सा घेरा
+          हो, या 8 साल के छोटे वर्ग के साथ व्यापार करने वाले कुछ खुदरा कर्मचारी,
+          CCCC एक निष्पक्ष संयुक्त कार्यक्रम को बनाने और साझा करने का कष्टप्रद
+          कदम उठाता है। हमारी आशा है कि यह सरल उपकरण- कोई खाता नहीं, कोई पंजीकरण
+          नहीं, कोई संग्रहीत डेटा नहीं है - लोगों को अगले मुट्ठी भर महीनों के
+          बारे में सोचने के लिए प्रेरित करता है और वे सामूहिक चाइल्डकैअर बोझ को
+          कैसे साझा कर सकते हैं, क्या वे कोई है जो वे इससे अधिक के साथ अटक गए
+          हैं संभाल, या कम।
+        </p>
+
+        <p>
+          कोई भी इस समस्या को हल करने के लिए CCCC की अपेक्षा करता है; यह
+          चाइल्डकैअर संकट को दृश्यमान बनाने और संभव तरीके से आगे बढ़ने का सुझाव
+          देने के लिए डिज़ाइन किया गया है। यह गंभीर है, यहाँ है, और यहां तक कि
+          एक वायरल महामारी भी लोगों को अपने दम पर छोड़ने का कोई बहाना नहीं है।
+        </p>
+      </>
+    )}
   </>
 );
 

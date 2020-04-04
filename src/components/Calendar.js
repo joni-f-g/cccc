@@ -33,6 +33,7 @@ const colors = [
 ];
 
 const Calendar = ({ locale }) => {
+  const xhr = new XMLHttpRequest();
   let advancedOptions;
   let instructions;
   let weekendsNo;
@@ -320,6 +321,9 @@ const Calendar = ({ locale }) => {
         });
     setShareLink(link);
     navigator.clipboard.writeText(link || "");
+
+    xhr.open("GET", "count_schedule_linking", true);
+    xhr.send(null);
   };
 
   const days = () => {
@@ -522,23 +526,28 @@ const Calendar = ({ locale }) => {
                 {format(monthStart, "MMM yyyy", { locale })}
               </div>
               <div id="right-top-cal-options" className="ml-auto">
-                <input
-                  type="button"
-                  id="schedule"
-                  className="ml-auto btn btn-primary"
-                  value={createSchedule}
-                  onClick={() => {
-                    setAssignments(
-                      alg.generateSchedule(
-                        availabilities,
-                        startDate,
-                        endDate,
-                        enableWeekends
-                      )[0]
-                    );
-                    setShowSchedule(true);
-                  }}
-                />
+                {!showSchedule && (
+                  <input
+                    type="button"
+                    id="schedule"
+                    className="ml-auto btn btn-primary"
+                    value={createSchedule}
+                    onClick={() => {
+                      setAssignments(
+                        alg.generateSchedule(
+                          availabilities,
+                          startDate,
+                          endDate,
+                          enableWeekends
+                        )[0]
+                      );
+                      setShowSchedule(true);
+
+                      xhr.open("GET", "count_calendar_generation", true);
+                      xhr.send(null);
+                    }}
+                  />
+                )}
                 <input
                   type="button"
                   id="schedule"

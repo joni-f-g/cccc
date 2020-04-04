@@ -145,4 +145,8 @@ export const downloadCalendar = (
   const url = window.URL.createObjectURL(data);
 
   document.getElementById("download-schedule").href = url;
+
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", "count_schedule_sharing", true);
+  xhr.send(null);
 };

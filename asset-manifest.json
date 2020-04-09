@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/cccc/index.html/static/css/main.bef31242.chunk.css",
-    "main.js": "/cccc/index.html/static/js/main.92ab6103.chunk.js",
-    "main.js.map": "/cccc/index.html/static/js/main.92ab6103.chunk.js.map",
-    "runtime-main.js": "/cccc/index.html/static/js/runtime-main.29072b76.js",
-    "runtime-main.js.map": "/cccc/index.html/static/js/runtime-main.29072b76.js.map",
-    "static/js/2.7e54f656.chunk.js": "/cccc/index.html/static/js/2.7e54f656.chunk.js",
-    "static/js/2.7e54f656.chunk.js.map": "/cccc/index.html/static/js/2.7e54f656.chunk.js.map",
-    "index.html": "/cccc/index.html/index.html",
-    "precache-manifest.0a3ad195f4ad8262ac28aa9604498622.js": "/cccc/index.html/precache-manifest.0a3ad195f4ad8262ac28aa9604498622.js",
-    "service-worker.js": "/cccc/index.html/service-worker.js",
-    "static/css/main.bef31242.chunk.css.map": "/cccc/index.html/static/css/main.bef31242.chunk.css.map",
-    "static/js/2.7e54f656.chunk.js.LICENSE.txt": "/cccc/index.html/static/js/2.7e54f656.chunk.js.LICENSE.txt",
-    "static/media/allergyinformation.png": "/cccc/index.html/static/media/allergyinformation.affb691c.png",
-    "static/media/enrollmentform.png": "/cccc/index.html/static/media/enrollmentform.e5d16d57.png"
+    "main.css": "/cccc/static/css/main.bef31242.chunk.css",
+    "main.js": "/cccc/static/js/main.24a171d2.chunk.js",
+    "main.js.map": "/cccc/static/js/main.24a171d2.chunk.js.map",
+    "runtime-main.js": "/cccc/static/js/runtime-main.9daa14c0.js",
+    "runtime-main.js.map": "/cccc/static/js/runtime-main.9daa14c0.js.map",
+    "static/js/2.7e54f656.chunk.js": "/cccc/static/js/2.7e54f656.chunk.js",
+    "static/js/2.7e54f656.chunk.js.map": "/cccc/static/js/2.7e54f656.chunk.js.map",
+    "index.html": "/cccc/index.html",
+    "precache-manifest.b9ce5eb8158d3afecf51d40da75fbbd3.js": "/cccc/precache-manifest.b9ce5eb8158d3afecf51d40da75fbbd3.js",
+    "service-worker.js": "/cccc/service-worker.js",
+    "static/css/main.bef31242.chunk.css.map": "/cccc/static/css/main.bef31242.chunk.css.map",
+    "static/js/2.7e54f656.chunk.js.LICENSE.txt": "/cccc/static/js/2.7e54f656.chunk.js.LICENSE.txt",
+    "static/media/allergyinformation.png": "/cccc/static/media/allergyinformation.affb691c.png",
+    "static/media/enrollmentform.png": "/cccc/static/media/enrollmentform.e5d16d57.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.29072b76.js",
+    "static/js/runtime-main.9daa14c0.js",
     "static/js/2.7e54f656.chunk.js",
     "static/css/main.bef31242.chunk.css",
-    "static/js/main.92ab6103.chunk.js"
+    "static/js/main.24a171d2.chunk.js"
   ]
 }
